@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support – Aheado</title>
+<meta name="description" content="Help with Aheado: contact, purchases, reminders and iCloud sync.">
+<style>
+  :root {
+    --paper: #F6F1E7;
+    --ink: #2B2422;
+    --muted: #75695F;
+    --accent: #7B2D3B;
+    --line: #E2D9CA;
+    --card: #FBF8F1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1D1918;
+      --ink: #EDE6DA;
+      --muted: #A99C90;
+      --accent: #D49AA3;
+      --line: #3A3230;
+      --card: #262120;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 56px 20px 72px; }
+  .brand {
+    font-family: Literata, "Iowan Old Style", Georgia, "Times New Roman", serif;
+    font-size: 22px; color: var(--accent); text-decoration: none; letter-spacing: 0.01em;
+  }
+  h1, h2 { font-family: Literata, "Iowan Old Style", Georgia, "Times New Roman", serif; font-weight: 600; line-height: 1.2; }
+  h1 { font-size: 38px; margin: 28px 0 10px; }
+  h2 { font-size: 21px; margin: 36px 0 8px; }
+  p, ul { margin: 0 0 16px; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .lead { color: var(--muted); margin-bottom: 28px; }
+  .contact {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 20px 22px; margin: 0 0 12px;
+  }
+  .contact p { margin: 0; }
+  .contact a { font-size: 20px; font-weight: 600; }
+  .contact span { display: block; color: var(--muted); font-size: 15px; margin-top: 4px; }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 22px;
+  }
+</style>
+</head>
+<body>
+<main>
+  <a class="brand" href="/support">Aheado</a>
+
+  <h1>Support</h1>
+  <p class="lead">Questions, problems or ideas for Aheado? Write to us and a real person will answer.</p>
+
+  <div class="contact">
+    <p><a href="mailto:support@aheado.io">support@aheado.io</a>
+    <span>We usually reply within two working days.</span></p>
+  </div>
+
+  <h2>I'm not getting reminders</h2>
+  <p>Open iOS Settings, then Notifications, then Aheado, and check that notifications are allowed. If a Focus mode is on, make sure Aheado is allowed to notify you in that Focus.</p>
+
+  <h2>How do I restore my purchase?</h2>
+  <p>Open Settings in Aheado and tap Restore Purchases. Use the same Apple Account you bought Aheado+ with.</p>
+
+  <h2>How do I cancel or change my subscription?</h2>
+  <p>Subscriptions are managed by Apple. Open iOS Settings, tap your name, then Subscriptions, and choose Aheado. Cancelling keeps Aheado+ active until the end of the period you have paid for.</p>
+
+  <h2>Can I get a refund?</h2>
+  <p>Refunds are handled by Apple. You can request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+  <h2>What happens to my entries if Aheado+ ends?</h2>
+  <p>Nothing is deleted and your reminders keep working. You only lose the ability to add entries beyond the free limit.</p>
+
+  <h2>iCloud sync isn't working</h2>
+  <ul>
+    <li>Sync is part of Aheado+ and has to be turned on in Aheado's Settings on each device.</li>
+    <li>After changing the sync setting, close and reopen Aheado for it to take effect.</li>
+    <li>All devices must be signed in to the same Apple Account with iCloud enabled.</li>
+  </ul>
+
+  <h2>Where is my data stored?</h2>
+  <p>On your device and, if sync is on, in your private iCloud. We have no access to it. Details are in the <a href="/privacy">Privacy Policy</a>.</p>
+
+  <footer>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+    <a href="mailto:support@aheado.io">support@aheado.io</a>
+  </footer>
+</main>
+</body>
+</html>
