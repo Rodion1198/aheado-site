@@ -3,9 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support – Aheado</title>
-<meta name="description" content="Help with Aheado: contact, purchases, reminders and iCloud sync.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google tag (gtag.js) with Consent Mode v2: no analytics cookies until the visitor accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try { if (localStorage.getItem('aheado-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y83TES1B8Z"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-Y83TES1B8Z');
+</script>
+<script src="/consent.js" defer></script>
+<title>Aheado Support: reminders, iCloud sync and purchases</title>
+<meta name="description" content="Get help with Aheado: missing reminders, iCloud sync, restoring purchases, subscriptions and refunds. A real person replies within two working days.">
+<link rel="canonical" href="https://aheado.io/support">
+<meta name="theme-color" content="#F1EDEB">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aheado">
+<meta property="og:title" content="Aheado Support: reminders, iCloud sync and purchases">
+<meta property="og:description" content="Help with reminders, iCloud sync, purchases and refunds.">
+<meta property="og:url" content="https://aheado.io/support">
+<meta property="og:image" content="https://aheado.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
+  @font-face { font-family: "Literata"; src: url("/fonts/literata-latin.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
   :root {
     --paper: #F6F1E7;
     --ink: #2B2422;
@@ -60,7 +95,7 @@
 </head>
 <body>
 <main>
-  <a class="brand" href="/support">Aheado</a>
+  <a class="brand" href="/">Aheado</a>
 
   <h1>Support</h1>
   <p class="lead">Questions, problems or ideas for Aheado? Write to us and a real person will answer.</p>
@@ -99,6 +134,7 @@
     <a href="/privacy">Privacy Policy</a>
     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
     <a href="mailto:support@aheado.io">support@aheado.io</a>
+    <a href="#" role="button" data-cookie-settings>Cookie settings</a>
   </footer>
 </main>
 </body>

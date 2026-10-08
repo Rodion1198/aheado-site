@@ -3,9 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy – Aheado</title>
-<meta name="description" content="How Aheado handles your data: it stays on your device and, if you turn on sync, in your private iCloud.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google tag (gtag.js) with Consent Mode v2: no analytics cookies until the visitor accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try { if (localStorage.getItem('aheado-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y83TES1B8Z"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-Y83TES1B8Z');
+</script>
+<script src="/consent.js" defer></script>
+<title>Aheado Privacy Policy: your data stays on your device</title>
+<meta name="description" content="How Aheado handles your data: no accounts, no servers. Your entries stay on your device and, if you turn on sync, in your private iCloud.">
+<link rel="canonical" href="https://aheado.io/privacy">
+<meta name="theme-color" content="#F1EDEB">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aheado">
+<meta property="og:title" content="Aheado Privacy Policy: your data stays on your device">
+<meta property="og:description" content="No accounts, no servers. Your entries stay on your device and in your private iCloud.">
+<meta property="og:url" content="https://aheado.io/privacy">
+<meta property="og:image" content="https://aheado.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
+  @font-face { font-family: "Literata"; src: url("/fonts/literata-latin.woff2") format("woff2"); font-weight: 300 600; font-style: normal; font-display: swap; }
   :root {
     --paper: #F6F1E7;
     --ink: #2B2422;
@@ -58,10 +93,10 @@
 </head>
 <body>
 <main>
-  <a class="brand" href="/support">Aheado</a>
+  <a class="brand" href="/">Aheado</a>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective 4 October 2026</p>
+  <p class="meta">Effective 8 October 2026</p>
 
   <div class="summary">
     <p><strong>The short version.</strong> Aheado has no accounts and no servers of its own. Everything you add stays on your device and, if you turn on sync, in your own private iCloud. We do not track you, and the app contains no advertising or analytics. The only data that ever reaches us is a message you choose to send through the feedback form or by email.</p>
@@ -105,7 +140,14 @@
   <p>In both cases we use the information only to answer you and to fix the problem you describe. We do not use it for marketing, we do not share it with anyone else, and we delete it on request.</p>
 
   <h2>This website</h2>
-  <p>These pages use no cookies, no analytics and no third-party scripts. The site is hosted on GitHub Pages, and GitHub may record technical information such as IP addresses in its server logs, as any web host does.</p>
+  <p>This website (aheado.io) uses Google Analytics to understand how many people visit and which pages they read. When you first visit, a banner asks whether you allow analytics cookies.</p>
+  <ul>
+    <li><strong>If you accept</strong>, Google Analytics sets cookies in your browser and collects information such as the pages you view, how you arrived at the site, your approximate location derived from your IP address, and your browser and device type.</li>
+    <li><strong>Until you accept, or if you decline</strong>, no analytics cookies are set. Google may still receive limited cookieless signals, such as that a page was viewed, which it uses only for aggregated and modeled statistics.</li>
+  </ul>
+  <p>Your choice is saved in your browser so the banner does not appear on every visit. You can change it at any time with the Cookie settings link at the bottom of every page. Google processes analytics data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. We do not use it for advertising.</p>
+  <p>Analytics on the website is separate from the app. The Aheado app contains no analytics, and nothing you enter in the app is ever connected to your visits to this website.</p>
+  <p>The site is hosted on GitHub Pages, and GitHub may record technical information such as IP addresses in its server logs, as any web host does.</p>
 
   <h2>Children</h2>
   <p>Aheado is not directed at children under 13, and it does not collect personal data from anyone.</p>
@@ -123,6 +165,7 @@
     <a href="/support">Support</a>
     <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
     <a href="mailto:support@aheado.io">support@aheado.io</a>
+    <a href="#" role="button" data-cookie-settings>Cookie settings</a>
   </footer>
 </main>
 </body>
