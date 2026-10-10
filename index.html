@@ -191,6 +191,8 @@ body>.veil.on{opacity:1;transition-duration:.25s}
 .notif.pop.go{opacity:1;scale:1}
 
 /* categories */
+.cat-chips,.fdots,#hzNow{display:none}
+.fpin{display:contents}
 .cats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:clamp(36px,5vh,56px)}
 .cat{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 22px 20px;background:var(--card);border-radius:24px;text-decoration:none;box-shadow:inset 0 0 0 1px var(--rule);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
 .cat:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--rule),0 22px 40px -26px rgba(58,30,40,.45)}
@@ -323,19 +325,50 @@ footer{position:relative;z-index:5;background:var(--paper);border-top:1px solid 
   .col{max-width:none}
   .notif{width:250px;padding:10px 12px;border-radius:19px;grid-template-columns:32px 1fr}.notif .appicon{width:32px;height:32px}.notif .t{font-size:13px}.notif p{font-size:12.5px}
   .hero{align-items:flex-start;padding-top:100px;min-height:150vh}
-  .cats-grid{grid-template-columns:1fr}
-  .acts{width:auto;right:var(--gutter);top:120px;bottom:auto;height:42vh}
+  /* categories: the phone's own category screen is the list; chips underneath */
+  #cats{padding:0}
+  #cats>.wrap{position:sticky;top:0;height:100vh;height:100svh;padding-top:92px;padding-bottom:20px}
+  #cats .col{height:100%;display:flex;flex-direction:column}
+  #cats .d2{font-size:clamp(34px,9.4vw,44px)}
+  #cats .lead,#cats .cats-grid{display:none}
+  .cat-chips{display:flex;gap:8px;margin:auto calc(-1 * var(--gutter)) 0;padding:0 var(--gutter) 2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cat-chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 15px 0 6px;border-radius:999px;background:var(--card);box-shadow:inset 0 0 0 1px var(--rule);text-decoration:none;font:600 15px/1 var(--ui);color:var(--ink);transition:box-shadow .3s,background .3s}
+  .chip.on{background:#fff;box-shadow:inset 0 0 0 1.5px rgba(122,51,65,.55)}
+  .chip .tile{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;font-size:16px}
+  .acts{width:auto;right:var(--gutter);top:146px;bottom:auto;height:30vh}
   .st{top:0;transform:translateY(12px)}
   .st.on{transform:none}.st.past{transform:translateY(-12px)}
   .st .d2{font-size:clamp(34px,9vw,46px)}
-  .st p{font-size:15.5px;margin-top:12px}
-  .steps{display:none}
+  .st p{font-size:14.5px;line-height:1.45;margin-top:10px}
+  /* one line: the step the recording is on */
+  .steps{display:block;margin-top:12px}
+  .steps li{display:none;font-size:15px;gap:0}
+  .steps li.on{display:flex}
+  .steps li.on::before{content:attr(data-n) "\00a0\00b7\00a0";width:auto;height:auto;border-radius:0;background:none;box-shadow:none;opacity:.6}
+  #hzNow{display:inline;font-weight:600}
+  #hzNow::before{content:"\00a0\00b7\00a0"}
   .kicker{top:84px;right:var(--gutter);justify-content:space-between}
-  .horizon{display:none}
-  .panel{height:100vh;margin:0 0 2vh;border-radius:28px}
-  .panel .wrap{align-items:flex-start;padding-top:12vh}
-  .panel .txt{max-width:none}
-  .panel .lead{font-size:16px}
+  .horizon{display:block;left:var(--gutter);right:var(--gutter);width:auto;top:124px;bottom:auto;height:14px}
+  .horizon .ln,.horizon .fl{top:6px}
+  .horizon .pt{font-size:0;gap:0}
+  .horizon .pt::before{width:9px;height:9px;margin-top:2px}
+  /* features: one pinned scene; text on top, the phone below, screens hand over with a wipe */
+  .feats{padding:0}
+  #panels{position:relative}
+  .fpin{display:block;position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--paper)}
+  .fpin .feats-head{position:absolute;inset:0 0 auto 0;z-index:9;padding:96px var(--gutter) 0;will-change:opacity,transform}
+  .fpin .feats-head .d2{font-size:clamp(34px,9.4vw,44px)}
+  .fpin .feats-head .lead{font-size:15.5px;margin-top:12px !important}
+  .panel{position:absolute;inset:0;height:auto;margin:0;border-radius:0;opacity:0;box-shadow:none}
+  .panel:nth-child(2){opacity:1}
+  .panel .wrap{display:block;height:auto;padding:96px var(--gutter) 0}
+  .panel .txt{max-width:none;opacity:var(--to,0);transform:translateY(var(--ty,0))}
+  .panel .d3{font-size:clamp(27px,7.4vw,34px);line-height:1.05}
+  .panel .lead{font-size:15px;margin-top:10px}
+  .fdots{display:flex;flex-direction:column;gap:9px;position:absolute;z-index:10;right:14px;top:60%;transform:translateY(-50%)}
+  .fdots i{width:6px;height:6px;border-radius:50%;background:var(--ink);opacity:.18;transition:opacity .3s,transform .3s}
+  .fdots i.on{opacity:.7;transform:scale(1.35)}
   .ppop{display:none}
   .facts,.plans{grid-template-columns:1fr}
   .finale{height:120vh}
@@ -421,13 +454,14 @@ footer{position:relative;z-index:5;background:var(--paper);border-top:1px solid 
       <h2 class="d2 rv" data-rv>Everything that expires, renews or is due.</h2>
       <p class="lead fade" style="margin-top:20px">Six kinds of dates, each with reminders that fit how it actually works.</p>
       <div class="cats-grid" id="catsGrid"></div>
+      <nav class="cat-chips" id="catsChips" aria-label="Categories"></nav>
     </div></div>
     <div class="fade-bot"></div>
   </section>
 
   <section class="story" id="story">
     <div class="pin" id="pin">
-      <div class="kicker"><span>How it works</span><button class="skip" id="skip" type="button">Skip</button></div>
+      <div class="kicker"><span>How it works<b id="hzNow"></b></span><button class="skip" id="skip" type="button">Skip</button></div>
       <div class="acts" id="acts"></div>
       <div class="horizon" id="horizon" aria-hidden="true"><div class="ln"></div><div class="fl"></div></div>
     </div>
@@ -978,10 +1012,12 @@ $$('[data-img]').forEach(i => i.src = A.img[i.dataset.img]);
 })();
 $$('.js-store').forEach(a => { a.href = SITE.appStoreUrl; a.setAttribute('aria-label', 'Download Aheado on the App Store'); });
 $('#catsGrid').innerHTML = CATS.map(c => `<a class="cat" href="${c.href}"><span class="tile" style="background:${c.tile};color:${c.tint}">${icon(c.icon)}</span><h3>${c.name}</h3><p>${c.blurb}</p>${icon('i-arrow', 'ico go')}</a>`).join('');
+$('#catsChips').innerHTML = CATS.map(c => `<a class="chip" href="${c.href}"><span class="tile" style="background:${c.tile};color:${c.tint}">${icon(c.icon)}</span>${c.name}</a>`).join('');
 $('#menuCats').innerHTML = CATS.map(c => `<li><a href="${c.href}"><span class="tile" style="background:${c.tileD};color:${c.tintD}">${icon(c.icon)}</span><span>${c.name}<small>${c.blurb.split('.')[0]}.</small></span></a></li>`).join('');
 $('#faqList').innerHTML = FAQ.map(([q, a]) => `<details><summary>${q}<span class="pl">${icon('i-plus')}</span></summary><p>${a}</p></details>`).join('');
-$('#panels').innerHTML = FEATS.map((f, i) => `<div class="panel${f.dark ? ' dark' : ''}" data-i="${i}" style="--bg:${f.bg};--pt:${f.pt || '40%'}"><div class="wrap"><div class="txt"><h3 class="d3 rv" data-rv>${f.title}</h3><p class="lead">${f.body}</p></div></div>${f.pop ? `<div class="ppop">${f.pop()}</div>` : ''}</div>`).join('');
-$('#acts').innerHTML = SEGS.map(s => `<div class="st" data-id="${s.id}"><h2 class="d2">${s.title}</h2>${s.p ? `<p>${s.p}</p>` : ''}${s.steps ? `<ol class="steps">${s.steps.map(x => `<li>${x[0]}</li>`).join('')}</ol>` : ''}</div>`).join('')
+$('#panels').innerHTML = '<div class="fpin" id="fpin">' + FEATS.map((f, i) => `<div class="panel${f.dark ? ' dark' : ''}" data-i="${i}" style="--bg:${f.bg};--pt:${f.pt || '40%'}"><div class="wrap"><div class="txt"><h3 class="d3 rv" data-rv>${f.title}</h3><p class="lead">${f.body}</p></div></div>${f.pop ? `<div class="ppop">${f.pop()}</div>` : ''}</div>`).join('')
+  + `<div class="fdots" aria-hidden="true">${FEATS.map(() => '<i></i>').join('')}</div></div>`;
+$('#acts').innerHTML = SEGS.map(s => `<div class="st" data-id="${s.id}"><h2 class="d2">${s.title}</h2>${s.p ? `<p>${s.p}</p>` : ''}${s.steps ? `<ol class="steps">${s.steps.map((x, j) => `<li data-n="${j + 1} of ${s.steps.length}">${x[0]}</li>`).join('')}</ol>` : ''}</div>`).join('')
   + `<div class="st" data-id="renewed"><h2 class="d2">And the sun comes back up.</h2><p>The reminders start over for the new expiry date.</p></div>`;
 $('#horizon').insertAdjacentHTML('beforeend', HORIZON.map((h, i) => `<div class="pt" style="left:${i / (HORIZON.length - 1) * 100}%">${h}</div>`).join(''));
 $('#floats').innerHTML = [['Passport', 'Expires in 26 weeks', '9:00 AM'], ['Duolingo Super', 'Trial ends in 3 days. Then $12.99 a month.', '9:00 AM'], ['Rent', 'Last day to pay — $1,450', 'now']]
@@ -1170,7 +1206,7 @@ function storyUpdate(sy, now, dt) {
   // the horizon line
   const hp = (idx + (seg.id === 'add' || renewing ? Math.min(f * 1.2, 1) * .999 : f)) / (HORIZON.length - 1);
   $('#horizon').style.setProperty('--hp', clamp(hp, 0, 1).toFixed(4));
-  if (Story.idx !== idx) { Story.idx = idx; hzPts.forEach((pt, i) => { pt.classList.toggle('on', i === idx); pt.classList.toggle('done', i < idx); }); }
+  if (Story.idx !== idx) { Story.idx = idx; $('#hzNow').textContent = HORIZON[idx]; hzPts.forEach((pt, i) => { pt.classList.toggle('on', i === idx); pt.classList.toggle('done', i < idx); }); }
   // the page sky mirrors the phone
   Object.assign(Sky.st, { p, lift, night, flash, dawn: 0, sun: 1 - night, lane: .515 });
   const top = skyAt(p).top, mid = skyAt(p).mid, dark = H('#2A2224');
@@ -1210,6 +1246,39 @@ function featUpdate(sy) {
   for (const k2 of want) if (!Feat.playing.has(k2)) { const vv = VID[k2]; if (vv) { vv.loop = true; vv.currentTime = 0; vPlay(vv); } }
   for (const k2 of Feat.playing) if (!want.has(k2)) VID[k2] && VID[k2].pause();
   Feat.playing = want;
+}
+// Small screens: the row of the category under the strip's current chip, highlighted on the phone
+const Cats = { hi: -1, on: 0 };
+function pickerHighlight(ctx, i) {
+  const k = SW / 660, y = (291 + i * 154) * k, x = 21 * k, w = 617 * k, h = 140 * k, r = 28 * k;
+  ctx.save(); ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x, y, w, h, r) : ctx.rect(x, y, w, h);
+  ctx.fillStyle = 'rgba(122,51,65,.07)'; ctx.fill(); ctx.lineWidth = 4 * k; ctx.strokeStyle = 'rgba(122,51,65,.55)'; ctx.stroke(); ctx.restore();
+}
+// Small screens: one pinned scene. Slide 0 is the heading, slides 1..6 are the features.
+const FSTEP = .85, smoothF = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+function featSceneM(sy) {
+  const n = FEATS.length, q = clamp((sy - L.fstage) / (FSTEP * L.vh), 0, n);
+  const a = Math.min(Math.floor(q), n - 1 + 1), f = q - Math.floor(q), b = Math.min(a + 1, n);
+  const tIn = smoothF(.55, .95, f);
+  // which screens the phone shows: slides 0 and 1 both show the first feature
+  const sa = Math.max(0, Math.min(a, n) - 1), sb = Math.max(0, b - 1);
+  Feat.a = sa; Feat.b = sb; Feat.v = sa === sb ? 1 : 1 - tIn;
+  const want = new Set([FEATS[sa].src.video, FEATS[sb].src.video].filter(Boolean));
+  for (const k2 of want) if (!Feat.playing.has(k2)) { const vv = VID[k2]; if (vv) { vv.loop = true; vv.currentTime = 0; vPlay(vv); } }
+  for (const k2 of Feat.playing) if (!want.has(k2)) VID[k2] && VID[k2].pause();
+  Feat.playing = want;
+  // backgrounds crossfade, text hands over with a small lift
+  const outT = 1 - smoothF(.5, .72, f), inT = smoothF(.74, .96, f);
+  $$('.panel').forEach((p, i) => {
+    const slide = i + 1, bgA = slide <= a || (slide === 1) ? 1 : slide === b ? tIn : 0;
+    const txt = slide === a ? (a === n ? 1 : outT) : slide === b && b !== a ? inT : 0;
+    const key = bgA.toFixed(3) + txt.toFixed(3); if (p._k === key) return; p._k = key;
+    p.style.opacity = slide <= a ? 1 : bgA; p.style.setProperty('--to', txt.toFixed(3)); p.style.setProperty('--ty', ((1 - txt) * (slide === a ? -14 : 14)).toFixed(1) + 'px');
+  });
+  const head = $('.feats-head'), ht = a === 0 ? outT : 0, hk = ht.toFixed(3);
+  if (head._k !== hk) { head._k = hk; head.style.opacity = hk; head.style.transform = `translateY(${((1 - ht) * -14).toFixed(1)}px)`; }
+  const dot = clamp(Math.round(q - .75), 0, n - 1);
+  if (featSceneM.dot !== dot) { featSceneM.dot = dot; $$('.fdots i').forEach((d, i) => d.classList.toggle('on', i === dot)); }
 }
 function paintFeat(ctx, now) {
   const A1 = FEATS[Feat.a].src, B1 = FEATS[Feat.b].src;
@@ -1258,14 +1327,36 @@ async function initGL() {
 const POSES = {
   d: { hero: { x: .7, y: .53, h: .8, rx: .1, ry: -.38, rz: .03 }, cats: { x: .77, y: .52, h: .78, rx: .04, ry: -.24, rz: 0 }, story: { x: .73, y: .48, h: .8, rx: .03, ry: -.18, rz: 0 },
     feat: { x: .73, y: .5, h: .66, rx: .02, ry: -.16, rz: 0 }, out: { x: 1.55, y: .45, h: .8, rx: .1, ry: -.9, rz: -.2 }, fin: { x: .5, y: .932, h: .78, rx: -.05, ry: 0, rz: 0 } },
-  m: { hero: { x: .5, y: .95, h: .62, rx: .08, ry: -.22, rz: 0 }, hero2: { x: .5, y: .56, h: .66, rx: .04, ry: -.18, rz: 0 }, cats: { x: .5, y: 1.75, h: .6, rx: .3, ry: -.2, rz: 0 }, story: { x: .5, y: .73, h: .5, rx: .03, ry: -.12, rz: 0 },
-    feat: { x: .5, y: .72, h: .52, rx: .02, ry: -.12, rz: 0 }, out: { x: .5, y: 1.8, h: .6, rx: .3, ry: -.3, rz: 0 }, fin: { x: .5, y: .913, h: .62, rx: -.04, ry: 0, rz: 0 } },
+  m: { hero: { x: .5, y: .95, h: .62, rx: .08, ry: -.22, rz: 0 }, hero2: { x: .5, y: .56, h: .66, rx: .04, ry: -.18, rz: 0 }, cats: { x: .5, y: .605, h: .63, rx: .03, ry: -.14, rz: 0 }, story: { x: .5, y: .705, h: .66, rx: .02, ry: -.1, rz: 0 },
+    feat: { x: .5, y: .675, h: .64, rx: .02, ry: -.1, rz: 0 }, out: { x: .5, y: 1.8, h: .6, rx: .3, ry: -.3, rz: 0 }, fin: { x: .5, y: .913, h: .62, rx: -.04, ry: 0, rz: 0 } },
 };
 let KF = [];
 function buildKF() {
   const m = isMobile(), P = m ? POSES.m : POSES.d, vh = L.vh;
   const k = (y, pose, screen, spins = 0) => ({ y, pose, screen, spins });
   const storyEnd = L.story + L.storyH - vh;
+  if (m) {
+    // phone: the category screen is the category list; it then grows for How it works and drops away
+    // before the feature cards (which carry their own screens) and comes back for the finale
+    const dwell = L.catsDwell;
+    KF = [
+      k(0, P.hero, 'hero'), k(vh * .45, P.hero2, 'hero'), k(L.cats - vh * .85, P.hero2, 'hero'),
+      k(L.cats, P.cats, 'picker', 1),
+      k(L.cats + dwell, P.cats, 'picker'),
+      k(L.story + vh * .02, P.story, 'story'),
+      k(storyEnd - vh * .05, P.story, 'story'),
+      k(L.fstage, P.feat, 'feats', 1),
+      k(L.fstageEnd, P.feat, 'feats'),
+      k(L.fstageEnd + vh * .7, P.out, 'feats', .5),
+      k(L.finale - vh * 1.5, P.out, 'dawn'),
+      k(L.finale - vh * 1.2, Object.assign({}, P.out, { y: 2 }), 'dawn'),
+      k(L.finale - vh * .95, Object.assign({}, P.fin, { y: 1.75 }), 'dawn', .5),
+      k(L.finale - vh * .55, Object.assign({}, P.fin, { y: 1.75 }), 'dawn'),
+      k(L.finale + vh * .02, P.fin, 'dawn'),
+    ];
+    let spins = 0; for (const f of KF) { spins += f.spins; f.ryA = f.pose.ry + spins * TAU; f.cum = spins; }
+    return;
+  }
   KF = [
     k(0, P.hero, 'hero'),
     ...(m ? [k(vh * .45, P.hero2, 'hero'), k(L.cats - vh * .7, P.hero2, 'hero')] : [k(L.cats - vh * .95, P.hero, 'hero')]),
@@ -1364,7 +1455,7 @@ $('#skip').addEventListener('click', () => {
   setTimeout(() => {
     // land where the phone has already turned to the features screen
     const k = KF.findIndex((f, i) => i > 0 && f.screen === 'feats' && f.cum !== KF[i - 1].cum);
-    const y = Math.max($('#features').getBoundingClientRect().top + scrollY(), k > 0 ? (KF[k - 1].y + KF[k].y) / 2 + 2 : 0);
+    const y = isMobile() ? L.fstage + FSTEP * L.vh * .98 : Math.max($('#features').getBoundingClientRect().top + scrollY(), k > 0 ? (KF[k - 1].y + KF[k].y) / 2 + 2 : 0);
     if (lenis) lenis.scrollTo(y, { immediate: true, force: true }); else window.scrollTo({ top: y, behavior: 'instant' });
     [VID.create, VID.renew].forEach(v => v && v.pause());
     Phone.v = {}; Phone.spin = 0; Screen.dirty = true;
@@ -1374,11 +1465,21 @@ $('#skip').addEventListener('click', () => {
 let L = { vh: innerHeight, panels: [{ top: 0 }] };
 function measure() {
   const top = el => el.getBoundingClientRect().top + scrollY();
-  const story = $('#story');
+  const story = $('#story'), mob = isMobile();
+  // small screens: the categories stage holds until the last chip has slid fully into view
+  const chips = $('#catsChips'), over = mob ? Math.max(0, chips.scrollWidth - chips.clientWidth) : 0;
+  const catsDwell = mob ? clamp(over * 2, innerHeight * .55, innerHeight * 1.5) : 0;
+  $('#cats').style.height = mob ? (innerHeight + catsDwell) + 'px' : '';
+  // small screens: the features become one pinned scene (heading, then six features)
+  const fpin = $('#fpin'), head = $('.feats-head');
+  if (mob && head.parentNode !== fpin) fpin.prepend(head);
+  if (!mob && head.parentNode === fpin) $('#features').prepend(head);
+  $('#panels').style.height = mob ? (FEATS.length * FSTEP + 1) * innerHeight + 'px' : '';
   story.style.height = (SEGS.reduce((a, s) => a + s.len, 0) + 1) * innerHeight + 'px';
   L = { vh: innerHeight, cats: top($('#cats')), story: top(story), storyH: story.offsetHeight, feat: top($('#features')), finale: top($('#finale')), hero: $('#hero').offsetHeight,
     panels: $$('.panel').map(p => ({ top: top(p), h: p.offsetHeight })), panelGap: innerHeight * (isMobile() ? .02 : .03) };
   L.featEnd = L.panels[L.panels.length - 1].top + L.panels[L.panels.length - 1].h;
+  L.catsDwell = catsDwell; L.fstage = top($('#panels')); L.fstageEnd = L.fstage + FEATS.length * FSTEP * innerHeight;
   { // the phone sits in the right part of the panel, whatever the window width
     const r = $('.panel').getBoundingClientRect(), P = isMobile() ? POSES.m.feat : POSES.d.feat, half = P.h * innerHeight * .485 / 2;
     if (!isMobile()) P.x = (r.right - Math.max(40, r.width * .08) - half) / innerWidth;
@@ -1453,7 +1554,15 @@ function frame(now) {
   Sky.render();
   const skyVis = sy < L.hero || (sy + vh > L.story && sy < L.story + L.storyH) || sy + vh > L.finale - vh * .3;
   if (SkyGL.ok && skyVis) SkyGL.render(now, dt);
-  if (scrId === 'feats' || (sy > L.panels[0].top - vh && sy < L.featEnd)) featUpdate(sy);
+  if (isMobile()) { if (sy > L.fstage - vh * 1.2 && sy < L.fstageEnd + vh) featSceneM(sy); }
+  else if (scrId === 'feats' || (sy > L.panels[0].top - vh && sy < L.featEnd)) featUpdate(sy);
+  // small screens: the chip strip slides with the scroll while the categories stage holds
+  if (isMobile() && L.catsDwell) {
+    const pc = clamp((sy - L.cats) / L.catsDwell, 0, 1), ch = $('#catsChips');
+    const x = Math.round(pc * (ch.scrollWidth - ch.clientWidth)); if (ch._x !== x) { ch._x = x; ch.scrollLeft = x; }
+    const hi = Math.min(CATS.length - 1, Math.floor(pc * CATS.length * .999)), hA = sy > L.cats - vh * .1 && sy < L.cats + L.catsDwell + vh * .05 ? 1 : 0;
+    if (Cats.hi !== hi || Cats.on !== hA) { Cats.hi = hi; Cats.on = hA; Screen.dirty = true; $$('#catsChips .chip').forEach((c, i) => c.classList.toggle('on', hA && i === hi)); }
+  }
   floatsFrame(sy, now);
   const nt = sy + 36, inStory = nt >= L.story && nt < storyEnd - vh * .2, overSky = nt < L.cats || inStory || nt >= L.finale - vh * .3;
   nav.classList.toggle('solid', !overSky); nav.classList.toggle('inv', inStory && Story.ink === '#FFF6EC');
@@ -1463,7 +1572,7 @@ function frame(now) {
     lastScreen = now; Screen.dirty = false;
     sx.fillStyle = '#F1EDEB'; sx.fillRect(0, 0, SW, SH);
     if (scrId === 'hero') drawSrc(sx, { img: 'watchlist_upcoming' });
-    else if (scrId === 'picker') drawSrc(sx, { img: 'category_picker' });
+    else if (scrId === 'picker') { drawSrc(sx, { img: 'category_picker' }); if (Cats.on) pickerHighlight(sx, Cats.hi); }
     else if (scrId === 'dawn') drawSrc(sx, { img: 'watchlist_dawn' });
     else if (scrId === 'story') paintStory(sx);
     else if (scrId === 'feats') paintFeat(sx, now);
