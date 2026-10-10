@@ -140,12 +140,17 @@ button{font:inherit;color:inherit;cursor:pointer}
 .menu-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 30px;font-size:15px}
 .menu-links a{color:rgba(255,246,236,.75);text-decoration:none}
 .menu .badge{background:var(--cream);color:#000}
-@media (max-width:860px){.menu-moon{right:22px;bottom:auto;top:96px;width:44px;height:44px}.menu-in{grid-template-columns:1fr;padding-top:104px;gap:36px}}
+@media (max-width:860px){.menu-moon{right:22px;bottom:auto;top:96px;width:44px;height:44px}.menu-in{grid-template-columns:1fr;padding-top:96px;gap:28px;padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
+  .menu{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .menu canvas{position:fixed}
+  .menu-main a{font-size:clamp(34px,9.5vw,44px)}
+  .menu-open .nav{background:linear-gradient(to bottom,#1F1820 0%,#1F1820 62%,rgba(31,24,32,0) 100%);box-shadow:none}
+  .menu-cats{margin-bottom:24px;gap:0}.menu-cats a{padding:7px 10px;font-size:17px}.menu-cats small{display:none}.menu-cats .tile{width:30px;height:30px;font-size:16px}}
 
 /* page sky (behind everything) */
 body>.veil{position:fixed;inset:0;z-index:45;background:var(--paper);opacity:0;pointer-events:none;transition:opacity .45s ease}
 body>.veil.on{opacity:1;transition-duration:.25s}
-#sky{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
+#sky{position:fixed;left:0;right:0;top:0;height:100vh;height:100lvh;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
 #sky .lay{position:absolute;inset:0;will-change:opacity}
 #sky.gl .lay{display:none}
 .psun{position:absolute;left:0;top:0;width:0;height:0;will-change:transform}
@@ -156,7 +161,7 @@ body>.veil.on{opacity:1;transition-duration:.25s}
 .pmoon{position:absolute;border-radius:50%;transform:translate(-50%,-50%);will-change:transform}
 
 /* the one phone */
-#gl{position:fixed;inset:0;width:100vw;height:100vh;z-index:3;pointer-events:none;opacity:0;transition:opacity .8s}
+#gl{position:fixed;left:0;top:0;width:100vw;height:100vh;height:100lvh;z-index:3;pointer-events:none;opacity:0;transition:opacity .8s}
 #gl.ready{opacity:1}
 .fallback-phone{display:none}
 .nogl .fallback-phone{display:block;position:absolute;right:8vw;top:50%;transform:translateY(-50%);width:min(30vw,320px);border-radius:48px;border:10px solid #161415;box-shadow:0 40px 80px -30px rgba(40,10,20,.5)}
@@ -421,7 +426,7 @@ footer{position:relative;z-index:5;background:var(--paper);border-top:1px solid 
   </div>
 </header>
 
-<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="menu" id="menu" data-lenis-prevent role="dialog" aria-modal="true" aria-label="Menu">
   <canvas id="mstars"></canvas><div class="menu-moon"></div>
   <div class="menu-in">
     <nav class="menu-main" aria-label="Main"><a href="#story">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a></nav>
@@ -875,9 +880,9 @@ const SkyGL = {
     gl.uniform1i(this.u.MoonTex, 0);
     this.gl = gl; this.cv = cv; this.ok = true; $('#sky').classList.add('gl'); this.resize();
   },
-  resize() { if (!this.ok) return; this.dpr = Math.min(devicePixelRatio || 1, isMobile() ? 1.25 : 1.5); const w = Math.round(innerWidth * this.dpr), h = Math.round(innerHeight * this.dpr); if (this.cv.width !== w || this.cv.height !== h) { this.cv.width = w; this.cv.height = h; } this.gl.viewport(0, 0, w, h); },
+  resize() { if (!this.ok) return; this.dpr = Math.min(devicePixelRatio || 1, isMobile() ? 1.25 : 1.5); const w = Math.round(innerWidth * this.dpr), h = Math.round((typeof VP !== 'undefined' ? VP.ch : innerHeight) * this.dpr); if (this.cv.width !== w || this.cv.height !== h) { this.cv.width = w; this.cv.height = h; } this.gl.viewport(0, 0, w, h); },
   render(now, dt) {
-    const gl = this.gl, u = this.u, st = Sky.st, D = this.dpr, W = this.cv.width, Hh = this.cv.height, vw = innerWidth, vh = innerHeight;
+    const gl = this.gl, u = this.u, st = Sky.st, D = this.dpr, W = this.cv.width, Hh = this.cv.height, vw = innerWidth, vh = typeof VP !== 'undefined' ? VP.ch : innerHeight;
     // palette: Rose Dusk by p, then towards dawn or night
     const Rr = Object.assign({}, resolveActive(st.p)); if (st.lift != null) Rr.lift = st.lift;
     let top = Rr.sky.top, midc = Rr.sky.mid, hor = Rr.sky.hor, core = mix(Rr.core, Rr.body, .25), glow = mix(Rr.halo, Rr.body, .35);
@@ -1303,13 +1308,13 @@ async function initGL() {
     renderer = new THREE.WebGLRenderer({ canvas: glCanvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
   } catch (e) { document.documentElement.classList.add('nogl'); return; }
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8));
-  renderer.setSize(innerWidth, innerHeight, false);
+  renderer.setSize(innerWidth, VP.ch, false);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
   scene = new THREE.Scene();
   const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromScene(new RoomEnvironment(), .04).texture; scene.environmentIntensity = .95;
   const key = new THREE.DirectionalLight(0xfff1e6, .9); key.position.set(-1, 1.4, 1.2); scene.add(key);
-  camera = new THREE.PerspectiveCamera(FOV, innerWidth / innerHeight, .01, 10); camera.position.set(0, 0, DIST);
+  camera = new THREE.PerspectiveCamera(FOV, innerWidth / VP.ch, .01, 10); camera.position.set(0, 0, DIST);
   tex = new THREE.CanvasTexture(scr); tex.colorSpace = THREE.SRGBColorSpace; tex.flipY = false; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
   const buf = isUrl(A.glb) ? await (await fetch(A.glb)).arrayBuffer() : b64bytes(A.glb).buffer;
@@ -1414,9 +1419,9 @@ function phoneFrame(sy, now, dt) {
   // a spinning top: the faster it turns, the more it rises and its axis leans and circles
   const spin = clamp(Math.abs(Phone.v.ry) / 5, 0, 1);
   Phone.spin += (spin - Phone.spin) * (1 - Math.exp(-dt * 6));
-  const sp = RM ? 0 : Phone.spin, prec = Phone.ry * .5;
+  const sp = RM ? 0 : Phone.spin * (isMobile() ? .45 : 1), prec = Phone.ry * .5;
   // levitation: a slow float with a lean to one side, then the other
-  const inStory = a.screen === 'story' || b.screen === 'story', lvT = RM ? 0 : inStory ? .3 : calm;
+  const inStory = a.screen === 'story' || b.screen === 'story', mobK = isMobile() ? .4 : 1, lvT = RM ? 0 : (inStory ? .3 : calm) * mobK;
   Phone.lv += (lvT - Phone.lv) * (1 - Math.exp(-dt * 1.5));
   const t = now / 1000, lv = Phone.lv;
   const fy = Math.sin(t * TAU / 6) * .013 * lv - .035 * sp;
@@ -1426,19 +1431,19 @@ function phoneFrame(sy, now, dt) {
   const sway = Math.sin(t * TAU / 7.5) * .08 * lv;
   const bz = (now - Phone.buzzT) / 1000, buzz = bz >= 0 && bz < .5 ? Math.sin(bz * 70) * .035 * Math.exp(-bz * 7) : 0;
   if (!Phone.ready) return scrId;
-  const asp = innerWidth / innerHeight;
+  const asp = innerWidth / VP.ch;
   wob.position.set((Phone.x + fx - .5) * HVIS * asp, (.5 - Phone.y - fy) * HVIS, 0);
   wob.rotation.set(nod, 0, lean + buzz, 'XYZ');
   root.rotation.set(Phone.rx, Phone.ry + sway, Phone.rz, 'YXZ');
   const s = Phone.h * HVIS / PHONE_H; root.scale.setScalar(s);
   wob.updateMatrixWorld(true);
   const bb = SBOX, mx = (bb.min.x + bb.max.x) / 2, mz = bb.max.z;
-  _v.set(mx, bb.max.y, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.screenTop = (1 - _v.y) / 2 * innerHeight;
-  _v.set(mx, bb.min.y, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.screenBot = (1 - _v.y) / 2 * innerHeight;
-  _v.set(mx, (bb.min.y + bb.max.y) / 2, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.cx = (_v.x + 1) / 2 * innerWidth; Phone.cy = (1 - _v.y) / 2 * innerHeight;
+  _v.set(mx, bb.max.y, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.screenTop = (1 - _v.y) / 2 * VP.ch;
+  _v.set(mx, bb.min.y, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.screenBot = (1 - _v.y) / 2 * VP.ch;
+  _v.set(mx, (bb.min.y + bb.max.y) / 2, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.cx = (_v.x + 1) / 2 * innerWidth; Phone.cy = (1 - _v.y) / 2 * VP.ch;
   Phone.pxH = Phone.screenBot - Phone.screenTop;
   // where the sun of the dawn card sits on the screen (watchlist_dawn: 74% across, 29% down)
-  _v.set(bb.min.x + .742 * (bb.max.x - bb.min.x), bb.max.y - .29 * (bb.max.y - bb.min.y), mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.sunX = (_v.x + 1) / 2 * innerWidth; Phone.sunY = (1 - _v.y) / 2 * innerHeight;
+  _v.set(bb.min.x + .742 * (bb.max.x - bb.min.x), bb.max.y - .29 * (bb.max.y - bb.min.y), mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.sunX = (_v.x + 1) / 2 * innerWidth; Phone.sunY = (1 - _v.y) / 2 * VP.ch;
   return scrId;
 }
 
@@ -1463,30 +1468,54 @@ $('#skip').addEventListener('click', () => {
   }, RM ? 0 : 260);
 });
 let L = { vh: innerHeight, panels: [{ top: 0 }] };
+// iOS shows and hides its toolbars while scrolling, which changes innerHeight. The 3D canvas is sized to the
+// large viewport (constant) and the layout to the small one (constant), so nothing jumps or stretches.
+const VP = { ch: innerHeight, sv: innerHeight };
+const probe = h => { const d = document.createElement('div'); d.style.cssText = `position:fixed;top:0;left:0;width:0;height:100vh;height:${h};visibility:hidden;pointer-events:none`; document.body.appendChild(d); return d; };
+const probeL = probe('100lvh'), probeS = probe('100svh');
+function readVP() { VP.ch = Math.max(probeL.offsetHeight, innerHeight) || innerHeight; VP.sv = Math.min(probeS.offsetHeight || innerHeight, innerHeight); if (!isMobile()) VP.ch = VP.sv = innerHeight; }
+// Small screens: place the phone between what's above it and the bottom of the visible screen,
+// from the real layout, so it never covers the chips or drops below the edge.
+function fitMobilePoses() {
+  const P = POSES.m, H = VP.ch, sv = VP.sv, maxH = (innerWidth - 28) / (.485 * H);
+  const fit = (pose, top, bot) => { const h = Math.min(maxH, (bot - top) / H * .94); pose.h = h; pose.y = ((top + bot) / 2) / H; };
+  const below = el => { const r = el.getBoundingClientRect(); return r.bottom; };
+  // categories: under the heading, above the chip strip (stage pinned at the top of the screen)
+  const cw = $('#cats > .wrap'), cTop = cw.getBoundingClientRect().top, h2 = $('#cats .d2'), chips = $('#catsChips');
+  fit(P.cats, below(h2) - cTop + 16, chips.getBoundingClientRect().top - cTop - 14);
+  // How it works: under the tallest act text, above the bottom edge
+  const acts = $('#acts'), aTop = acts.offsetTop, tall = Math.max(...$$('.st').map(e => e.offsetHeight));
+  fit(P.story, aTop + tall + 14, sv - 18);
+  // features: under the tallest heading or feature text
+  const texts = [$('.feats-head .col'), ...$$('.panel .txt')].filter(Boolean), fTop = $('#fpin').getBoundingClientRect().top;
+  fit(P.feat, Math.max(...texts.map(t => t.getBoundingClientRect().bottom - fTop)) + 16, sv - 18);
+}
 function measure() {
+  readVP();
   const top = el => el.getBoundingClientRect().top + scrollY();
   const story = $('#story'), mob = isMobile();
   // small screens: the categories stage holds until the last chip has slid fully into view
   const chips = $('#catsChips'), over = mob ? Math.max(0, chips.scrollWidth - chips.clientWidth) : 0;
-  const catsDwell = mob ? clamp(over * 2, innerHeight * .55, innerHeight * 1.5) : 0;
-  $('#cats').style.height = mob ? (innerHeight + catsDwell) + 'px' : '';
+  const catsDwell = mob ? clamp(over * 2, VP.sv * .55, VP.sv * 1.5) : 0;
+  $('#cats').style.height = mob ? (VP.sv + catsDwell) + 'px' : '';
   // small screens: the features become one pinned scene (heading, then six features)
   const fpin = $('#fpin'), head = $('.feats-head');
   if (mob && head.parentNode !== fpin) fpin.prepend(head);
   if (!mob && head.parentNode === fpin) $('#features').prepend(head);
-  $('#panels').style.height = mob ? (FEATS.length * FSTEP + 1) * innerHeight + 'px' : '';
-  story.style.height = (SEGS.reduce((a, s) => a + s.len, 0) + 1) * innerHeight + 'px';
-  L = { vh: innerHeight, cats: top($('#cats')), story: top(story), storyH: story.offsetHeight, feat: top($('#features')), finale: top($('#finale')), hero: $('#hero').offsetHeight,
-    panels: $$('.panel').map(p => ({ top: top(p), h: p.offsetHeight })), panelGap: innerHeight * (isMobile() ? .02 : .03) };
+  $('#panels').style.height = mob ? (FEATS.length * FSTEP + 1) * VP.sv + 'px' : '';
+  story.style.height = (SEGS.reduce((a, s) => a + s.len, 0) + 1) * VP.sv + 'px';
+  L = { vh: VP.sv, cats: top($('#cats')), story: top(story), storyH: story.offsetHeight, feat: top($('#features')), finale: top($('#finale')), hero: $('#hero').offsetHeight,
+    panels: $$('.panel').map(p => ({ top: top(p), h: p.offsetHeight })), panelGap: VP.sv * (isMobile() ? .02 : .03) };
   L.featEnd = L.panels[L.panels.length - 1].top + L.panels[L.panels.length - 1].h;
-  L.catsDwell = catsDwell; L.fstage = top($('#panels')); L.fstageEnd = L.fstage + FEATS.length * FSTEP * innerHeight;
+  L.catsDwell = catsDwell; L.fstage = top($('#panels')); L.fstageEnd = L.fstage + FEATS.length * FSTEP * VP.sv;
+  if (mob) fitMobilePoses();
   { // the phone sits in the right part of the panel, whatever the window width
     const r = $('.panel').getBoundingClientRect(), P = isMobile() ? POSES.m.feat : POSES.d.feat, half = P.h * innerHeight * .485 / 2;
     if (!isMobile()) P.x = (r.right - Math.max(40, r.width * .08) - half) / innerWidth;
     document.documentElement.style.setProperty('--phoneL', (P.x * innerWidth - half - r.left) + 'px');
   }
   buildKF(); Sky.resize(); SkyGL.resize();
-  if (renderer) { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8)); renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); }
+  if (renderer) { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8)); renderer.setSize(innerWidth, VP.ch, false); camera.aspect = innerWidth / VP.ch; camera.updateProjectionMatrix(); }
 }
 const floats = $$('#floats .float');
 const mist = document.createElement('div'); mist.className = 'mist'; mist.style.opacity = 0; document.body.appendChild(mist);
