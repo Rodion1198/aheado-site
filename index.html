@@ -123,7 +123,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .menu{position:fixed;inset:0;z-index:55;color:var(--cream);visibility:hidden;clip-path:circle(0px at var(--mx,95%) var(--my,36px));transition:clip-path .7s cubic-bezier(.65,0,.35,1),visibility 0s .7s;background:linear-gradient(#221621,#2E1C2A 55%,#3A2233);overflow-y:auto;overscroll-behavior:contain}
 .menu-open .menu{visibility:visible;clip-path:circle(150vmax at var(--mx,95%) var(--my,36px));transition:clip-path .8s cubic-bezier(.65,0,.35,1),visibility 0s}
 .menu canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.menu-moon{position:absolute;right:7vw;bottom:11vh;width:84px;height:84px;border-radius:50%;background:#bbb center/cover;filter:saturate(.7) contrast(.86) brightness(1.08);box-shadow:0 0 70px 22px rgba(232,220,226,.16),0 0 16px 2px rgba(255,240,245,.22);opacity:0;transform:translateY(30px);transition:opacity .6s .35s,transform .9s .3s cubic-bezier(.2,.8,.2,1)}
+.menu-moon{position:absolute;right:7vw;bottom:11vh;width:84px;height:84px;border-radius:50%;background:#bbb center/cover;filter:saturate(.55) sepia(.08) brightness(1.04);box-shadow:0 0 70px 22px rgba(232,220,226,.16),0 0 16px 2px rgba(255,240,245,.22);opacity:0;transform:translateY(30px);transition:opacity .6s .35s,transform .9s .3s cubic-bezier(.2,.8,.2,1)}
 .menu-open .menu-moon{opacity:1;transform:none}
 .menu-in{position:relative;min-height:100%;display:grid;grid-template-columns:1.3fr 1fr;gap:48px 64px;padding:120px var(--gutter) 48px;max-width:var(--maxw);margin:0 auto}
 .menu-main a{display:block;font:600 clamp(40px,6vw,76px)/1.08 var(--display);text-decoration:none;letter-spacing:-.02em;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1),color .2s}
@@ -791,9 +791,10 @@ void main(){
     vec2 uv = vec2(mq.x * 0.5 + 0.5, 0.5 - mq.y * 0.5);
     vec3 tx = texture2D(uMoonTex, uv).rgb;
     float m2 = sqrt(max(0.0, 1.0 - md * md));
-    vec3 mc = mix(vec3(dot(tx, vec3(0.333))), tx, 0.7);
-    mc = mix(vec3(0.5), mc, 0.78) * 1.14 * (0.9 + 0.12 * m2) * vec3(1.0, 0.965, 0.975);
-    float mdisc = 1.0 - smoothstep(0.94, 1.0, md);
+    // NASA SVS full-moon photo: keep its own maria and limb, only warm it a touch towards Rose Dusk
+    vec3 mc = mix(vec3(dot(tx, vec3(0.299, 0.587, 0.114))), tx, 0.5);
+    mc = pow(mc, vec3(0.95)) * 1.08 * (0.97 + 0.05 * m2) * vec3(1.0, 0.962, 0.958);
+    float mdisc = 1.0 - smoothstep(0.975, 1.0, md);
     col = mix(col, mc, mdisc * uMoonVis * uMoonReady);
     col += moonLight * 0.05 * mdisc * uMoonVis;
   }
