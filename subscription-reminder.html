@@ -426,6 +426,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
 .full{box-shadow:none;z-index:1}
 
 .mdots,.pslot,.pcv{display:none}
+@media (prefers-reduced-motion:reduce){.frag,.frag i{transition:none!important}}
 @media (max-width:820px){
   .hero{max-width:none}
   .stage{display:none}
@@ -437,8 +438,10 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
   .zone{--ptop:calc(62px + env(safe-area-inset-top,0px))}
   .pinwrap{height:calc(100svh + 250vh);margin-bottom:14px}
   .pinm{height:calc(100svh + 190vh)}
-  :is(.pinwrap,.pinm)>.panel{position:sticky;top:var(--ptop);height:calc(100svh - var(--ptop) - 8px);min-height:0;margin:0;padding:22px 20px 0;display:flex;align-items:stretch;overflow:hidden}
-  :is(.pinwrap,.pinm)>.panel .txt{flex:1;display:flex;flex-direction:column;min-height:0}
+  /* the panel reaches the bottom of the large viewport, so no bare strip shows when the browser hides its bars;
+     what is inside is laid out for the small one, so nothing moves when it does */
+  :is(.pinwrap,.pinm)>.panel{position:sticky;top:var(--ptop);height:calc(100lvh - var(--ptop) - 8px);min-height:0;margin:0;padding:22px 20px 0;display:flex;align-items:flex-start;overflow:hidden}
+  :is(.pinwrap,.pinm)>.panel .txt{flex:1;display:flex;flex-direction:column;min-height:0;height:calc(100svh - var(--ptop) - 44px)}
   :is(.pinwrap,.pinm)>.panel h2{font-size:clamp(27px,7.4vw,36px);margin-bottom:12px}
   :is(.pinwrap,.pinm)>.panel .shot,#after .shot,#actions .lead,#actions .ncap,#actions .notif{display:none}
   .mdots{display:flex;gap:6px;margin-bottom:16px}
@@ -455,25 +458,19 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
   .steps3 p,.swap p,.tile-a p{font-size:16px}
   .swap{gap:10px;align-self:start}
   .swap p{min-height:4.2em}
-  .nogl .swap p{min-height:0}
   .seg button{padding:9px 13px;font-size:14.5px}
   .tile-a p{padding-left:0}
-  .pcv{display:block;position:absolute;inset:0;width:100%;height:100%;border-radius:inherit}
+  .pcv{display:block;position:absolute;inset:0;width:100%;height:100%}
   .hero-slot{position:relative}
   #gl{visibility:hidden}
   .nogl .pcv{display:none}
-  .pslot{display:block;position:relative;flex:1;min-height:150px;margin:18px -20px 0;border-radius:26px 26px 0 0;background:linear-gradient(to bottom,rgba(255,253,252,.5),rgba(255,253,252,.14));box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
-  /* without the 3D phone: no pinning, plain screenshots under the text */
-  .nogl .pinwrap,.nogl .pinm{height:auto}
-  .nogl :is(.pinwrap,.pinm)>.panel{position:relative;top:0;height:auto;padding:30px 20px 34px;display:block;overflow:visible}
-  .nogl :is(.pinwrap,.pinm)>.panel .txt{display:block}
-  .nogl :is(.pinwrap,.pinm)>.panel .shot,.nogl #after .shot{display:block}
-  .nogl .mdots,.nogl .pslot{display:none}
-  .nogl .stepstack,.nogl .steps3{display:grid;gap:10px}
-  .nogl .tiles{gap:12px}
-  .nogl .stepstack>*,.nogl .steps3 li,.nogl .tiles .tile-a{grid-area:auto}
-  html.nogl .zone .steps3 li,html.nogl .zone .swap,html.nogl .zone .panel button.tile-a{opacity:1;visibility:visible;transform:none}
-  html.nogl .zone .panel button.tile-a{padding:16px;border-radius:22px;background:rgba(255,253,252,.78)}
+  /* the scenes show a large piece of the real screen, no phone body: it fades out at the top and bottom,
+     slides to the part being talked about, and a frame marks that part */
+  .pslot{display:block;position:relative;flex:1;min-height:150px;margin:16px -8px 0}
+  .frag{position:absolute;inset:0 0 auto;border-radius:24px;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.3,.8,.3,1),opacity .23s;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%)}
+  .frag.swap{opacity:0}
+  .frag i{position:absolute;border-radius:14px;box-shadow:0 0 0 2.5px var(--cat);background:rgba(149,92,130,.08);transition:left .55s cubic-bezier(.3,.8,.3,1),top .55s cubic-bezier(.3,.8,.3,1),width .55s cubic-bezier(.3,.8,.3,1),height .55s cubic-bezier(.3,.8,.3,1)}
   .tiles{grid-template-columns:minmax(0,1fr)}
   .tile-a{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 14px}
   .tile-a .ic{margin:0}
@@ -793,7 +790,9 @@ function showType(trial) {
 }
 segR.addEventListener('click', () => { Type.manual = 'f_reg'; showType(false); });
 segT.addEventListener('click', () => { Type.manual = 'f_trial'; showType(true); });
-const formKey = () => Type.manual && Type.step === stepEls.length - 1 ? Type.manual : stepEls[Type.step].dataset.screen;
+// on phones the type comes first and starts on Regular; on wide screens it is the last step and shows the trial
+const MORDER = [3, 0, 1, 2];
+const formKey = () => Type.step === stepEls.length - 1 ? (Type.manual || (isMobile() ? 'f_reg' : 'f_trial')) : stepEls[Type.step].dataset.screen;
 // what a panel shows on the phone, and the caption under it
 const Cyc = { trial: false };
 const CYC = {
@@ -949,7 +948,7 @@ function measure() {
   readVP();
   const vh = innerHeight, vw = innerWidth, top = el => el.getBoundingClientRect().top + scrollY;
   if (renderer) { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8)); renderer.setSize(vw, VP.ch, false); camera.aspect = vw / VP.ch; camera.updateProjectionMatrix(); }
-  M.cw = null; if (typeof MS !== 'undefined') MS.forEach(sc => { sc.sig = ''; });
+  M.cw = null; if (typeof MS !== 'undefined') { MS.forEach(sc => { sc.sig = ''; }); FS.forEach(sc => { sc.sig = ''; }); }
   M.pin = isMobile() && getComputedStyle(addPanel).position === 'sticky';
   if (M.pin) {
     const st = parseFloat(getComputedStyle(addPanel).top) || 0;
@@ -986,12 +985,13 @@ function frame(now) {
   // the three steps and the switch follow the scroll while their panel is pinned
   const mob = isMobile();
   if (!mob || M.pin) {
-    const k = clamp(Math.floor(mob ? (sy - M.addStart) / M.addStep + .06 : (sy - L.pinStart + vh * .05) / (STEP * vh)), 0, stepEls.length - 1);
+    const pos = clamp(Math.floor(mob ? (sy - M.addStart) / M.addStep + .06 : (sy - L.pinStart + vh * .05) / (STEP * vh)), 0, stepEls.length - 1);
+    const k = mob ? MORDER[pos] : pos;
     if (k !== Type.step || !stepEls[k].classList.contains('on')) {
       Type.step = k; Type.manual = null;
       stepEls.forEach((el, i) => el.classList.toggle('on', i === k));
-      addDots.forEach((el, i) => el.classList.toggle('on', i === k));
-      showType(k === stepEls.length - 1);
+      addDots.forEach((el, i) => el.classList.toggle('on', i === pos));
+      showType(!mob && k === stepEls.length - 1);
     }
   }
   if (mob && M.pin) {      // the three actions follow the scroll too
@@ -1001,6 +1001,7 @@ function frame(now) {
   FAD.form.set(formKey()); FAD.cyc.set(Cyc.trial ? 'c_trial' : 'c_reg'); FAD.act.set(ACT[Act.key].screen);
   const fm = FAD.form.tick(dt), cm = FAD.cyc.tick(dt), am = FAD.act.tick(dt);
   M.force = fm || cm || am;
+  if (mob) fragTick();
   if (Phone.ready) { if (mob) phoneSmall(now, dt); else phoneWide(sy, now, dt); }
   const fams = [SCREENS[View.a].fam, SCREENS[View.b].fam];
   paint((fm && fams.includes('form')) || (cm && fams.includes('cyc')) || (am && fams.includes('act')));
@@ -1065,9 +1066,30 @@ function phoneWide(sy, now, dt) {
 // rendered into it only when its picture changes: a new state, the highlight sliding, a resize.
 const MS = [
   { slot: heroSlot, key: () => hero.dataset.screen, hero: true },
+].map(o => { const cv = document.createElement('canvas'); cv.className = 'pcv'; o.slot.appendChild(cv); return { ...o, cv, cx: cv.getContext('2d'), off: null, sig: '' }; });
+// The two pinned scenes show no phone at all, only a large piece of the real screenshot (.frag) with a frame on
+// the part being talked about. Plain CSS does the moving, so there is nothing to redraw while the page scrolls.
+const FRAME = { a_cancel: [30, 1090, 600, 290], a_resume: [14, 1258, 632, 124] };       // where the padded highlight is not enough
+const fragRect = key => FRAME[key] || (r => [r[0] - 12, r[1] - 12, r[2] + 24, r[3] + 24])(SCREENS[key].hl);
+const FS = [
   { slot: $('#add .pslot'), key: () => formKey() },
   { slot: $('#actions .pslot'), key: () => ACT[Act.key].screen },
-].map(o => { const cv = document.createElement('canvas'); cv.className = 'pcv'; o.slot.appendChild(cv); return { ...o, cv, cx: cv.getContext('2d'), off: null, sig: '' }; });
+].map(o => { const el = document.createElement('div'); el.className = 'frag'; const ring = document.createElement('i'); el.appendChild(ring); o.slot.appendChild(el); return { ...o, el, ring, sig: '', img: null, t: 0 }; });
+function fragTick() {
+  for (const sc of FS) {
+    const key = sc.key(), w = sc.slot.clientWidth, h = sc.slot.clientHeight, sig = key + '|' + w + '|' + h;
+    if (sig === sc.sig || !w || !h) continue; sc.sig = sig;
+    const img = SCREENS[key].img, z = w / SW, fh = Math.min(h, SH * z), CH = fh / z, [x, y, rw, rh] = fragRect(key);
+    const y0 = clamp(y + rh / 2 - CH * .46, 0, SH - CH);
+    const put = () => {
+      Object.assign(sc.el.style, { height: fh + 'px', backgroundImage: `url("${A.img[img]}")`, backgroundSize: w + 'px ' + SH * z + 'px', backgroundPosition: '0px ' + -y0 * z + 'px' });
+      Object.assign(sc.ring.style, { left: x * z + 'px', top: (y - y0) * z + 'px', width: rw * z + 'px', height: rh * z + 'px' });
+      sc.el.classList.remove('swap'); sc.img = img;
+    };
+    clearTimeout(sc.t);
+    if (RM || sc.img === null || sc.img === img) put(); else { sc.el.classList.add('swap'); sc.t = setTimeout(put, 240); }
+  }
+}
 const SCREEN_SPAN = .955;        // the screen's share of the phone's height
 function phoneSmall(now, dt) {
   const vh = innerHeight, pr = Math.min(devicePixelRatio || 1, 2);
