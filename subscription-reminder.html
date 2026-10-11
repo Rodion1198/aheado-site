@@ -425,16 +425,51 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
 .gal .plus{background:var(--cream);color:var(--night)}
 .full{box-shadow:none;z-index:1}
 
+.mdots,.pslot{display:none}
 @media (max-width:820px){
   .hero{max-width:none}
   .stage{display:none}
   .gl .steps3 li,.gl .swap{opacity:1}
   .panel{min-height:0;padding:30px 20px 34px;border-radius:28px;margin-bottom:14px;display:block}
   .panel .txt{width:auto}
-  .pinwrap{height:auto;margin-bottom:14px}
-  .pinwrap>.panel{position:relative;top:0;height:auto}
-  .steps3 li{padding:10px 4px}
-  .swap{padding:14px 4px 0}
+  /* phones: two pinned scenes. One line of text on top, the phone large below it and cut by the bottom
+     edge; the scroll walks through the states and the phone slides to the part being talked about. */
+  .zone{--ptop:calc(62px + env(safe-area-inset-top,0px))}
+  .pinwrap{height:calc(100svh + 250vh);margin-bottom:14px}
+  .pinm{height:calc(100svh + 190vh)}
+  :is(.pinwrap,.pinm)>.panel{position:sticky;top:var(--ptop);height:calc(100svh - var(--ptop) - 8px);min-height:0;margin:0;padding:22px 20px 0;display:flex;align-items:stretch;overflow:hidden}
+  :is(.pinwrap,.pinm)>.panel .txt{flex:1;display:flex;flex-direction:column;min-height:0}
+  :is(.pinwrap,.pinm)>.panel h2{font-size:clamp(27px,7.4vw,36px);margin-bottom:12px}
+  :is(.pinwrap,.pinm)>.panel .shot,#after .shot,#actions .lead,#actions .ncap,#actions .notif{display:none}
+  .mdots{display:flex;gap:6px;margin-bottom:16px}
+  .mdots i{width:16px;height:4px;border-radius:2px;background:rgba(42,34,36,.14);transition:background .35s,width .35s}
+  .mdots i.on{width:30px;background:var(--cat)}
+  .stepstack,.steps3,.tiles{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+  .stepstack>*,.steps3 li,.tiles .tile-a{grid-area:1/1}
+  .steps3{align-self:start}
+  html .zone .steps3 li,html .zone .swap,html .zone .panel button.tile-a{opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility 0s .35s;background:none;box-shadow:none;padding:0;margin:0;border-radius:0}
+  html .zone .steps3 li.on,html .zone .swap.on,html .zone .panel button.tile-a[aria-pressed="true"]{background:none;box-shadow:none;opacity:1;visibility:visible;transform:none;transition:opacity .35s .12s,transform .35s .12s,visibility 0s}
+  .steps3 li{grid-template-columns:40px minmax(0,1fr);gap:2px 14px}
+  .steps3 li::before{width:40px;height:40px;font-size:19px}
+  .steps3 h3,.swap h3,.tile-a h3{font-size:19px}
+  .steps3 p,.swap p,.tile-a p{font-size:16px}
+  .swap{gap:10px;align-self:start}
+  .swap p{min-height:4.2em}
+  .nogl .swap p{min-height:0}
+  .seg button{padding:9px 13px;font-size:14.5px}
+  .tile-a p{padding-left:0}
+  .pslot{display:block;flex:1;min-height:150px;margin:18px -20px 0;border-radius:26px 26px 0 0;background:linear-gradient(to bottom,rgba(255,253,252,.5),rgba(255,253,252,.14));box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+  /* without the 3D phone: no pinning, plain screenshots under the text */
+  .nogl .pinwrap,.nogl .pinm{height:auto}
+  .nogl :is(.pinwrap,.pinm)>.panel{position:relative;top:0;height:auto;padding:30px 20px 34px;display:block;overflow:visible}
+  .nogl :is(.pinwrap,.pinm)>.panel .txt{display:block}
+  .nogl :is(.pinwrap,.pinm)>.panel .shot,.nogl #after .shot{display:block}
+  .nogl .mdots,.nogl .pslot{display:none}
+  .nogl .stepstack,.nogl .steps3{display:grid;gap:10px}
+  .nogl .tiles{gap:12px}
+  .nogl .stepstack>*,.nogl .steps3 li,.nogl .tiles .tile-a{grid-area:auto}
+  html.nogl .zone .steps3 li,html.nogl .zone .swap,html.nogl .zone .panel button.tile-a{opacity:1;visibility:visible;transform:none}
+  html.nogl .zone .panel button.tile-a{padding:16px;border-radius:22px;background:rgba(255,253,252,.78)}
   .tiles{grid-template-columns:minmax(0,1fr)}
   .tile-a{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 14px}
   .tile-a .ic{margin:0}
@@ -517,6 +552,8 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <section class="panel" id="add" style="--bg:linear-gradient(150deg,#F3E7ED,#E7D6E0)">
         <div class="txt">
           <h2>Three things, and it’s set.</h2>
+          <p class="mdots" id="addDots" aria-hidden="true"><i></i><i></i><i></i><i></i></p>
+          <div class="stepstack">
           <ol class="steps3">
             <li data-step="0" data-screen="f_name" data-pose="f" data-cap="The form for a new subscription"><h3>Name it</h3><p>Spotify, iCloud+, the gym.</p></li>
             <li data-step="1" data-screen="f_when" data-pose="f" data-cap="The form for a new subscription"><h3>When and how much</h3><p>The next payment, the amount, and how often it repeats.</p></li>
@@ -528,7 +565,9 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
             </div>
             <p id="swapNote">Paid from the start. Aheado counts down to the next payment.</p>
           </div>
+          </div>
           <figure class="shot"><img id="formShot" src="assets/sub/form_regular.jpg" width="660" height="1434" loading="lazy" data-img="form" alt="Aheado form for a new subscription: type, name, next payment, amount, billing cycle, reminders, sound and note"><figcaption>The form for a new subscription</figcaption></figure>
+          <div class="pslot" aria-hidden="true"></div>
         </div>
       </section>
     </div>
@@ -557,10 +596,12 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       </div>
     </section>
 
+    <div class="pinm" id="pinm">
     <section class="panel" id="actions" data-screen="a_cancel" data-cap="Before you cancel: what happens, and until when" style="--bg:linear-gradient(150deg,#ECE6F2,#DDD4EA);margin-bottom:0">
       <div class="txt">
         <h2>Cancelled it? Tell Aheado.</h2>
         <p class="lead">The entry follows what you decide.</p>
+        <p class="mdots" id="actDots" aria-hidden="true"><i></i><i></i><i></i></p>
         <div class="tiles" role="group" aria-label="What you can do">
           <button type="button" class="tile-a" data-act="cancel" aria-pressed="true"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9 9l6 6M15 9l-6 6"/></svg></span><h3>Cancel</h3><p>Reminders stop. You still see the day your access ends.</p></button>
           <button type="button" class="tile-a" data-act="resume" aria-pressed="false"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 1 2.2 5.1"/><path d="M5 18v-4.2h4.2"/></svg></span><h3>Resume</h3><p>One tap brings the reminders back.</p></button>
@@ -569,8 +610,10 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
         <p class="ncap">One calm notice the day before access ends</p>
         <div class="notif" aria-label="Notification example"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><div class="t"><span>Netflix</span><time>9:00 AM</time></div><p>Tomorrow's the last day of your Netflix subscription</p></div>
         <figure class="shot"><img id="actShot" src="assets/sub/cancel_sheet.jpg" width="660" height="1434" loading="lazy" data-img="cancelsheet" alt="Aheado on the phone: cancelling a subscription"><figcaption id="actShotCap">Before you cancel: what happens, and until when</figcaption></figure>
+        <div class="pslot" aria-hidden="true"></div>
       </div>
     </section>
+    </div>
 
     <aside class="stage" id="stage" aria-hidden="true"><div class="stage-in"><p class="stage-cap" id="stageCap"></p></div></aside>
   </div>
@@ -777,11 +820,12 @@ const ACT = {
   resume:  { screen: 'a_resume', img: 'cancelled', cap: 'Cancelled: access until the 25th, Resume at the bottom' },
   archive: { screen: 'a_archive', img: 'menu', cap: 'The menu at the top: Edit, Archive, Delete' },
 };
-const actBtns = $$('[data-act]');
-actBtns.forEach(b => b.addEventListener('click', () => {
-  Act.key = b.dataset.act; actBtns.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+const actBtns = $$('[data-act]'), addDots = $$('#addDots i'), actDots = $$('#actDots i');
+function setAct(b) {
+  Act.key = b.dataset.act; actBtns.forEach((x, i) => { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); if (actDots[i]) actDots[i].classList.toggle('on', x === b); });
   $('#actShot').src = A.img[ACT[Act.key].img]; $('#actShotCap').textContent = ACT[Act.key].cap;
-}));
+}
+actBtns.forEach(b => b.addEventListener('click', () => setAct(b)));
 const panelKey = p => p.id === 'add' ? formKey() : p.id === 'after' ? (Cyc.trial ? 'c_trial' : 'c_reg') : p.id === 'actions' ? ACT[Act.key].screen : p.dataset.screen;
 const panelCap = p => p.id === 'add' ? stepEls[Type.step].dataset.cap : p.id === 'after' ? CYC[Cyc.trial ? 'trial' : 'reg'].cap : p.id === 'actions' ? ACT[Act.key].cap : p.dataset.cap;
 
@@ -893,11 +937,20 @@ async function initGL() {
 
 /* ---------- layout → keyframes ---------- */
 const STEP = .55, PIN_TOP = .03;      // in window heights; must match .pinwrap / .panel in the CSS
+// phones: both scenes are pinned by the CSS; their lengths are read from the layout, so the two stay in step
+const M = { pin: false, addStart: 0, addStep: 1, actStart: 0, actStep: 1, act: -1, force: false };
+const pinm = $('#pinm'), addPanel = $('#add'), actPanel = $('#actions');
 let KF = [], L = { vh: innerHeight, homeX: .76, hCap: 1, pinStart: 0, gap: 0, exitEnd: 1e9 };
 function measure() {
   readVP();
   const vh = innerHeight, vw = innerWidth, top = el => el.getBoundingClientRect().top + scrollY;
   if (renderer) { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8)); renderer.setSize(vw, VP.ch, false); camera.aspect = vw / VP.ch; camera.updateProjectionMatrix(); }
+  M.pin = isMobile() && getComputedStyle(addPanel).position === 'sticky';
+  if (M.pin) {
+    const st = parseFloat(getComputedStyle(addPanel).top) || 0;
+    M.addStart = top(pinwrap) - st; M.addStep = Math.max(1, (pinwrap.offsetHeight - addPanel.offsetHeight) / stepEls.length);
+    M.actStart = top(pinm) - st; M.actStep = Math.max(1, (pinm.offsetHeight - actPanel.offsetHeight) / actBtns.length);
+  }
   const sr = stage.getBoundingClientRect(), pinStart = top(pinwrap) - PIN_TOP * vh;
   const lastRest = top(panels[panels.length - 1]) - PIN_TOP * vh;        // the last panel sits centred here
   L = { vh, homeX: (sr.left + sr.width / 2) / vw, hCap: sr.width * .9 / PHONE_ASPECT / vh, pinStart, gap: vh * .04, exitEnd: lastRest + vh * .66 };
@@ -926,17 +979,24 @@ function frame(now) {
   const sy = scrollY, vh = L.vh;
   $('#nav').classList.toggle('solid', sy > 24);
   // the three steps and the switch follow the scroll while their panel is pinned
-  if (!isMobile()) {
-    const k = clamp(Math.floor((sy - L.pinStart + vh * .05) / (STEP * vh)), 0, stepEls.length - 1);
+  const mob = isMobile();
+  if (!mob || M.pin) {
+    const k = clamp(Math.floor(mob ? (sy - M.addStart) / M.addStep + .06 : (sy - L.pinStart + vh * .05) / (STEP * vh)), 0, stepEls.length - 1);
     if (k !== Type.step || !stepEls[k].classList.contains('on')) {
       Type.step = k; Type.manual = null;
       stepEls.forEach((el, i) => el.classList.toggle('on', i === k));
+      addDots.forEach((el, i) => el.classList.toggle('on', i === k));
       showType(k === stepEls.length - 1);
     }
   }
+  if (mob && M.pin) {      // the three actions follow the scroll too
+    const a = clamp(Math.floor((sy - M.actStart) / M.actStep + .06), 0, actBtns.length - 1);
+    if (a !== M.act) { M.act = a; setAct(actBtns[a]); }
+  }
   FAD.form.set(formKey()); FAD.cyc.set(Cyc.trial ? 'c_trial' : 'c_reg'); FAD.act.set(ACT[Act.key].screen);
   const fm = FAD.form.tick(dt), cm = FAD.cyc.tick(dt), am = FAD.act.tick(dt);
-  if (Phone.ready) { if (isMobile()) phoneSmall(now, dt); else phoneWide(sy, now, dt); }
+  M.force = fm || cm || am;
+  if (Phone.ready) { if (mob) phoneSmall(now, dt); else phoneWide(sy, now, dt); }
   const fams = [SCREENS[View.a].fam, SCREENS[View.b].fam];
   paint((fm && fams.includes('form')) || (cm && fams.includes('cyc')) || (am && fams.includes('act')));
   requestAnimationFrame(frame);
@@ -944,6 +1004,7 @@ function frame(now) {
 
 // wide screens: keyframed by scroll, the way the home page moves its phone
 function phoneWide(sy, now, dt) {
+  if (!renderer.autoClear) { renderer.autoClear = true; renderer.setScissorTest(false); }
   const [a, b, e] = poseAt(sy);
   const tgt = { x: lerp(poseX(a.pose), poseX(b.pose), e), y: lerp(a.pose.y, b.pose.y, e), h: Math.min(lerp(a.pose.h, b.pose.h, e), L.hCap), rx: lerp(a.pose.rx, b.pose.rx, e), rz: lerp(a.pose.rz, b.pose.rz, e) };
   const baseRy = lerp(a.pose.ry, b.pose.ry, e);
@@ -993,18 +1054,46 @@ function phoneWide(sy, now, dt) {
   renderer.render(scene, camera); Phone.drawn = true;
   if (ARRIVE) requestAnimationFrame(() => dropGhost(true));
 }
-// small screens: the phone lives in the slot under the hero text and scrolls away with it
+// small screens. Under the first screen the phone sits in its slot and scrolls away with it. In the two pinned
+// scenes it is drawn large inside the scene's window (.pslot), cut by the window's edges, and slides so that the
+// part of the screen being talked about is in view. Each is one clipped pass over the same canvas.
+const MS = [
+  { slot: $('#add .pslot'), key: () => formKey(), off: null },
+  { slot: $('#actions .pslot'), key: () => ACT[Act.key].screen, off: null },
+];
+const SCREEN_SPAN = .955;        // the screen's share of the phone's height
 function phoneSmall(now, dt) {
-  View.a = View.b = hero.dataset.screen; View.cut = 1;
-  const vh = VP.ch, vw = innerWidth, r = heroSlot.getBoundingClientRect();
-  if (!(r.bottom > -40 && r.top < vh + 40)) { if (Phone.drawn) { renderer.clear(); Phone.drawn = false; } return; }
-  const t = now / 1000, lv = RM ? 0 : .5, asp = vw / vh;
-  const h = Math.min(r.height * .97, r.width * .92 / PHONE_ASPECT) / vh;
-  wob.position.set(((r.left + r.width / 2) / vw - .5) * HVIS * asp, (.5 - (r.top + r.height / 2) / vh - Math.sin(t * TAU / 6) * .008 * lv) * HVIS, 0);
-  wob.rotation.set(Math.sin(t * TAU / 9.3 + 1) * .018 * lv, 0, Math.sin(t * TAU / 8.5) * .035 * lv, 'XYZ');
-  grp.rotation.set(.04, -.18 + Math.sin(t * TAU / 7.5) * .06 * lv, 0, 'YXZ');
-  grp.scale.setScalar(h * HVIS / PHONE_H);
-  Phone.v = {}; renderer.render(scene, camera); Phone.drawn = true;
+  const vh = VP.ch, vw = innerWidth, t = now / 1000, lv = RM ? 0 : 1, asp = vw / vh;
+  let drew = false;
+  renderer.autoClear = false; renderer.setScissorTest(true);
+  const pass = (key, cx, cy, hpx, rx, ry, rz, y0, y1) => {
+    y0 = Math.max(0, y0); y1 = Math.min(vh, y1); if (y1 - y0 < 2) return;
+    if (!drew) { renderer.setScissor(0, 0, vw, vh); renderer.clear(); drew = true; }
+    View.a = View.b = key; View.cut = 1; paint(M.force);
+    wob.position.set((cx / vw - .5) * HVIS * asp, (.5 - cy / vh) * HVIS, 0);
+    wob.rotation.set(0, 0, rz, 'XYZ'); grp.rotation.set(rx, ry, 0, 'YXZ');
+    grp.scale.setScalar(hpx / vh * HVIS / PHONE_H);
+    renderer.setScissor(0, vh - y1, vw, y1 - y0); renderer.render(scene, camera);
+  };
+  const r = heroSlot.getBoundingClientRect();
+  if (r.height > 0 && r.bottom > -40 && r.top < vh + 40) {
+    const h = Math.min(r.height * .97, r.width * .92 / PHONE_ASPECT);
+    pass(hero.dataset.screen, r.left + r.width / 2, r.top + r.height / 2 + Math.sin(t * TAU / 6) * 4 * lv, h,
+      .04, -.18 + Math.sin(t * TAU / 7.5) * .03 * lv, Math.sin(t * TAU / 8.5) * .018 * lv, 0, M.pin ? addPanel.getBoundingClientRect().top : vh);
+  }
+  if (M.pin) for (const sc of MS) {
+    const s = sc.slot.getBoundingClientRect();
+    if (!(s.height > 0 && s.bottom > 0 && s.top < vh)) { sc.off = null; continue; }
+    const key = sc.key(), hl = SCREENS[key].hl, w = Math.min(s.width * .8, 360), H = w / PHONE_ASPECT;
+    // where the highlighted part sits on the phone, top to bottom, and the phone's top edge that puts it in view
+    const f = .5 + ((hl[1] + hl[3] / 2) / SH - .5) * SCREEN_SPAN, pad = 18, lo = s.height - pad - H;
+    const want = lo > pad ? (s.height - H) / 2 : clamp(s.height * .46 - f * H, lo, pad);
+    sc.off = sc.off === null || RM ? want : sc.off + (want - sc.off) * (1 - Math.exp(-dt * 4.5));
+    pass(key, s.left + s.width / 2, s.top + sc.off + H / 2 + Math.sin(t * TAU / 6) * 2 * lv, H,
+      .015, -.1 + Math.sin(t * TAU / 7.5) * .025 * lv, 0, s.top, s.bottom);
+  }
+  if (!drew && Phone.drawn) { renderer.setScissor(0, 0, vw, vh); renderer.clear(); }
+  Phone.v = {}; Phone.drawn = drew;
 }
 
 /* ---------- boot ---------- */
