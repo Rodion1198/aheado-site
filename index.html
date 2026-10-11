@@ -150,6 +150,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* page sky (behind everything) */
 body>.veil{position:fixed;inset:0;z-index:45;background:var(--paper);opacity:0;pointer-events:none;transition:opacity .45s ease}
 body>.veil.on{opacity:1;transition-duration:.25s}
+/* opening a category: the page takes the colour of the page it leads to; the phone stays on top */
+body>.goveil{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .55s ease .12s;background:linear-gradient(168deg,#EFE3E9 0,rgba(239,227,233,0) 760px),#F1EDEB}
+body>.goveil.on{opacity:1}
 #sky{position:fixed;left:0;right:0;top:0;height:100vh;height:100lvh;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
 #sky .lay{position:absolute;inset:0;will-change:opacity}
 #sky.gl .lay{display:none}
@@ -385,6 +388,8 @@ footer{position:relative;z-index:5;background:var(--paper);border-top:1px solid 
   .rv .w>i{transform:none}
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Aheado", "url": "https://aheado.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Aheado", "operatingSystem": "iOS", "applicationCategory": "ProductivityApplication", "description": "Reminder app for iPhone: documents, subscriptions and free trials, bills, events, deadlines and routines.", "url": "https://aheado.io/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/examples/jsm/"}}</script>
 </head>
 <body>
@@ -914,12 +919,12 @@ const SkyGL = {
    CONTENT
    ===================================================================== */
 const CATS = [
-  { key: 'documents', name: 'Documents', icon: 'i-doc', tint: '#3A78A1', tile: '#DCE3E8', tintD: '#84B8DD', tileD: '#383D44', blurb: 'Passports, visas, licences and insurance. Reminders can start six months ahead.', href: '/for/documents' },
-  { key: 'subscriptions', name: 'Subscriptions', icon: 'i-sub', tint: '#955C82', tile: '#EBDEE3', tintD: '#D39EC0', tileD: '#45393F', blurb: 'Free trials and renewals, flagged before the first charge.', href: '/for/free-trials' },
-  { key: 'bills', name: 'Bills', icon: 'i-bill', tint: '#906A28', tile: '#EAE0D4', tintD: '#CEAB76', tileD: '#443B34', blurb: 'Rent and utilities you pay yourself, with a nudge before the due date.', href: '/for/bills' },
-  { key: 'events', name: 'Events', icon: 'i-event', tint: '#358077', tile: '#DBE4E1', tintD: '#82BFB6', tileD: '#383E3E', blurb: 'Birthdays, flights and appointments, on the day or hours before.', href: '/for/events' },
-  { key: 'deadlines', name: 'Deadlines', icon: 'i-flag', tint: '#7168A3', tile: '#E5E0E8', tintD: '#B0A9DF', tileD: '#3F3B44', blurb: 'Tax returns and applications that can’t slip.', href: '/for/deadlines' },
-  { key: 'routine', name: 'Routine', icon: 'i-routine', tint: '#5C7D49', tile: '#E2E3D9', tintD: '#9EBC8E', tileD: '#3D3E37', blurb: 'Vitamins, plants and habits, at the times you set.', href: '/for/routines' },
+  { key: 'documents', name: 'Documents', icon: 'i-doc', tint: '#3A78A1', tile: '#DCE3E8', tintD: '#84B8DD', tileD: '#383D44', blurb: 'Passports, visas, licences and insurance. Reminders can start six months ahead.', href: '#cats' },
+  { key: 'subscriptions', name: 'Subscriptions', icon: 'i-sub', tint: '#955C82', tile: '#EBDEE3', tintD: '#D39EC0', tileD: '#45393F', blurb: 'Free trials and renewals, flagged before the first charge.', href: '/subscription-reminder' },
+  { key: 'bills', name: 'Bills', icon: 'i-bill', tint: '#906A28', tile: '#EAE0D4', tintD: '#CEAB76', tileD: '#443B34', blurb: 'Rent and utilities you pay yourself, with a nudge before the due date.', href: '#cats' },
+  { key: 'events', name: 'Events', icon: 'i-event', tint: '#358077', tile: '#DBE4E1', tintD: '#82BFB6', tileD: '#383E3E', blurb: 'Birthdays, flights and appointments, on the day or hours before.', href: '#cats' },
+  { key: 'deadlines', name: 'Deadlines', icon: 'i-flag', tint: '#7168A3', tile: '#E5E0E8', tintD: '#B0A9DF', tileD: '#3F3B44', blurb: 'Tax returns and applications that can’t slip.', href: '#cats' },
+  { key: 'routine', name: 'Routine', icon: 'i-routine', tint: '#5C7D49', tile: '#E2E3D9', tintD: '#9EBC8E', tileD: '#3D3E37', blurb: 'Vitamins, plants and habits, at the times you set.', href: '#cats' },
 ];
 const FAQ = [
   ['Does Aheado cancel subscriptions for me?', 'No. Aheado doesn’t see your bank or cancel anything. It reminds you before the first charge, so you can decide in time.'],
@@ -1016,7 +1021,7 @@ $$('[data-img]').forEach(i => i.src = A.img[i.dataset.img]);
   place(); addEventListener('resize', place); document.fonts && document.fonts.ready.then(place);
 })();
 $$('.js-store').forEach(a => { a.href = SITE.appStoreUrl; a.setAttribute('aria-label', 'Download Aheado on the App Store'); });
-$('#catsGrid').innerHTML = CATS.map(c => `<a class="cat" href="${c.href}"><span class="tile" style="background:${c.tile};color:${c.tint}">${icon(c.icon)}</span><h3>${c.name}</h3><p>${c.blurb}</p>${icon('i-arrow', 'ico go')}</a>`).join('');
+$('#catsGrid').innerHTML = CATS.map(c => `<a class="cat" href="${c.href}"><span class="tile" style="background:${c.tile};color:${c.tint}">${icon(c.icon)}</span><h3>${c.name}</h3><p>${c.blurb}</p>${c.href[0] === '/' ? icon('i-arrow', 'ico go') : ''}</a>`).join('');
 $('#catsChips').innerHTML = CATS.map(c => `<a class="chip" href="${c.href}"><span class="tile" style="background:${c.tile};color:${c.tint}">${icon(c.icon)}</span>${c.name}</a>`).join('');
 $('#menuCats').innerHTML = CATS.map(c => `<li><a href="${c.href}"><span class="tile" style="background:${c.tileD};color:${c.tintD}">${icon(c.icon)}</span><span>${c.name}<small>${c.blurb.split('.')[0]}.</small></span></a></li>`).join('');
 $('#faqList').innerHTML = FAQ.map(([q, a]) => `<details><summary>${q}<span class="pl">${icon('i-plus')}</span></summary><p>${a}</p></details>`).join('');
@@ -1025,7 +1030,7 @@ $('#panels').innerHTML = '<div class="fpin" id="fpin">' + FEATS.map((f, i) => `<
 $('#acts').innerHTML = SEGS.map(s => `<div class="st" data-id="${s.id}"><h2 class="d2">${s.title}</h2>${s.p ? `<p>${s.p}</p>` : ''}${s.steps ? `<ol class="steps">${s.steps.map((x, j) => `<li data-n="${j + 1} of ${s.steps.length}">${x[0]}</li>`).join('')}</ol>` : ''}</div>`).join('')
   + `<div class="st" data-id="renewed"><h2 class="d2">And the sun comes back up.</h2><p>The reminders start over for the new expiry date.</p></div>`;
 $('#horizon').insertAdjacentHTML('beforeend', HORIZON.map((h, i) => `<div class="pt" style="left:${i / (HORIZON.length - 1) * 100}%">${h}</div>`).join(''));
-$('#floats').innerHTML = [['Passport', 'Expires in 26 weeks', '9:00 AM'], ['Duolingo Super', 'Trial ends in 3 days. Then $12.99 a month.', '9:00 AM'], ['Rent', 'Last day to pay — $1,450', 'now']]
+$('#floats').innerHTML = [['Passport', 'Expires in 26 weeks', '9:00 AM'], ['Duolingo Super', 'Trial ends in 3 days. Then USD 12.99 a month. Cancel before Oct 25 if you don’t need it.', '9:00 AM'], ['Rent', 'Last day to pay — $1,450', 'now']]
   .map((n, i) => `<div class="float" data-f="${i}"><div class="notif pop">${notifHTML(...n)}</div></div>`).join('');
 $$('[data-rv]').forEach(el => { let i = 0; el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="w"><i style="--i:${i++}">${w}</i></span>`).join(' '); });
 const revealed = el => { el.classList.add('in'); setTimeout(() => el.classList.add('landed'), RM ? 0 : 1700); };
@@ -1402,6 +1407,7 @@ function phoneFrame(sy, now, dt) {
   const feats = a.screen === 'feats' && b.screen === 'feats', calm = feats ? .25 : 1;
   const tilt = a.screen === 'story' && b.screen === 'story' ? .5 : calm;
   tgt.ry += PT.nx * .22 * tilt; tgt.rx += PT.ny * .1 * tilt;
+  if (Go.on) { const k = easeInOut(clamp((now - Go.t0 - 260) / 760, 0, 1)); for (const key of ['x', 'y', 'h', 'rx', 'ry', 'rz']) { Phone[key] = tgt[key] = lerp(Go.from[key], Go.to[key], k); Phone.v[key] = 0; } }
   // springs: a short smoothing over the scroll; the phone never drifts from its course
   const steps = Math.max(1, Math.ceil(dt / .012)), h = dt / steps;
   for (const key of ['x', 'y', 'h', 'rx', 'ry', 'rz']) {
@@ -1415,6 +1421,7 @@ function phoneFrame(sy, now, dt) {
   if (a.cum !== b.cum && cAct > Math.min(a.cum, b.cum) - .5 && cAct < Math.max(a.cum, b.cum) + .5) scrId = Math.abs(cAct - b.cum) < Math.abs(cAct - a.cum) ? b.screen : a.screen;
   else if (a.cum === b.cum && Math.abs(cAct - cnt) <= .5) scrId = e < .5 ? a.screen : b.screen;
   else { let best = null; for (const f of KF) { const d = Math.abs(f.cum - cAct), dy = Math.abs(f.y - sy); if (!best || d < best.d - 1e-6 || (Math.abs(d - best.d) < 1e-6 && dy < best.dy)) best = { d, dy, f }; } scrId = best.f.screen; }
+  if (Go.on) scrId = 'go';
   if (Screen.id !== scrId) { Screen.id = scrId; Screen.dirty = true; }
   // a spinning top: the faster it turns, the more it rises and its axis leans and circles
   const spin = clamp(Math.abs(Phone.v.ry) / 5, 0, 1);
@@ -1423,6 +1430,7 @@ function phoneFrame(sy, now, dt) {
   // levitation: a slow float with a lean to one side, then the other
   const inStory = a.screen === 'story' || b.screen === 'story', mobK = isMobile() ? .4 : 1, lvT = RM ? 0 : (inStory ? .3 : calm) * mobK;
   Phone.lv += (lvT - Phone.lv) * (1 - Math.exp(-dt * 1.5));
+  if (Go.on) Phone.lv = Go.lv0 * (1 - clamp((now - Go.t0) / 850, 0, 1));   // it comes to rest, so the next page can pick it up exactly
   const t = now / 1000, lv = Phone.lv;
   const fy = Math.sin(t * TAU / 6) * .013 * lv - .035 * sp;
   const fx = Math.sin(t * TAU / 11) * .006 * lv + Math.sin(prec) * .018 * sp;
@@ -1562,6 +1570,73 @@ const Menu = {
 Menu.btn.addEventListener('click', () => document.documentElement.classList.contains('menu-open') ? Menu.close() : Menu.open());
 Menu.el.addEventListener('keydown', e => { if (e.key === 'Escape') Menu.close(); });
 
+/* =====================================================================
+   OPENING A CATEGORY  (the phone is tapped, its screen pushes to the category's list,
+   the page takes the colour of the next page, and the phone settles exactly where that page starts)
+   ===================================================================== */
+const GO_PAGES = { '/subscription-reminder': { row: 1, img: 'assets/sub/subs_list.jpg' } };
+const Go = { on: false, t0: 0, len: 1080, href: '', from: null, to: null, lv0: 1, full: false, shot: null };
+const goVeil = document.createElement('div'); goVeil.className = 'goveil'; document.body.appendChild(goVeil);
+// where the category page holds its phone on its first screen (same numbers as category.js: stage centre, hero pose)
+function goPose() {
+  const cw = document.documentElement.clientWidth, wrapW = Math.min(1320, cw), gut = clamp(cw * .05, 20, 72);
+  const cx = (cw - wrapW) / 2 + wrapW - gut - .19 * wrapW;
+  return { x: cx / innerWidth - .012, y: .525, h: Math.min(.78, .38 * wrapW * .9 / .49 / innerHeight), rx: .09, ry: -.36, rz: .03 };
+}
+function goWarm(href) {
+  const g = GO_PAGES[href]; if (!g || g.warm) return; g.warm = 1;
+  const l = document.createElement('link'); l.rel = 'prefetch'; l.href = href; document.head.appendChild(l);
+  g.im = new Image(); g.im.decoding = 'async'; g.im.src = g.img;
+}
+function paintGo(ctx, now) {
+  const g = GO_PAGES[Go.href], t = (now - Go.t0) / 1000, e = easeInOut(clamp((t - .34) / .5, 0, 1)), dx = Math.round(e * SW);
+  // the app's own push: the old screen slides a third of the way out, the new one comes over it from the right
+  ctx.save(); ctx.translate(-dx * .3, 0); drawSrc(ctx, { img: 'category_picker' }); pickerHighlight(ctx, g.row); drawTaps(ctx, [[220, (291 + 154 * g.row + 70) / K, .1]], t); ctx.restore();
+  if (dx > 0) {
+    const x0 = SW - dx; ctx.fillStyle = `rgba(42,34,36,${(.1 * e).toFixed(3)})`; ctx.fillRect(0, 0, x0, SH);
+    const sh = ctx.createLinearGradient(x0 - 26, 0, x0, 0); sh.addColorStop(0, 'rgba(42,20,28,0)'); sh.addColorStop(1, 'rgba(42,20,28,.16)'); ctx.fillStyle = sh; ctx.fillRect(x0 - 26, 0, 26, SH);
+    if (g.im && g.im.complete && g.im.naturalWidth) ctx.drawImage(g.im, x0, 0, SW, SH); else { ctx.fillStyle = '#F1EDEB'; ctx.fillRect(x0, 0, SW, SH); }
+  }
+}
+function goOpen(href) {
+  if (Go.on) return; goWarm(href);
+  const menuOpen = document.documentElement.classList.contains('menu-open');
+  Go.full = Phone.ready && !RM && !menuOpen && Screen.id === 'picker';
+  Go.href = href; lenis && lenis.stop();
+  if (!Go.full) { goVeil.style.zIndex = 70; goVeil.style.transitionDelay = '0s'; goVeil.style.transitionDuration = RM ? '.01s' : '.3s'; goVeil.classList.add('on'); setTimeout(() => { location.href = href; }, RM ? 30 : 330); return; }
+  Go.from = { x: Phone.x, y: Phone.y, h: Phone.h, rx: Phone.rx, ry: Phone.ry, rz: Phone.rz };
+  Go.to = isMobile() ? Object.assign({}, Go.from) : goPose();
+  Go.lv0 = Phone.lv; Go.t0 = performance.now(); Go.on = true; Screen.dirty = true;
+  goVeil.classList.add('on');
+  if (isMobile()) setTimeout(() => { glCanvas.style.transition = 'opacity .26s'; glCanvas.style.opacity = 0; }, 800);
+}
+// the last frame of the phone goes along, so the next page shows it at once, before its own 3D is ready
+function goFinish() {
+  Go.done = true;      // the phone holds its last frame until the next page takes over
+  try {
+    const g = { t: Date.now() };
+    if (!isMobile()) {
+      const vw = innerWidth, vh = VP.ch, Hh = Phone.h * vh, cx = Phone.x * vw, cy = Phone.y * vh;
+      const x = Math.max(0, Math.floor(cx - .4 * Hh)), y = Math.max(0, Math.floor(cy - .6 * Hh)), w = Math.min(vw - x, Math.ceil(.8 * Hh)), h = Math.min(vh - y, Math.ceil(1.2 * Hh));
+      // kept under ~1200 px tall: it is on screen for a third of a second, and must fit in sessionStorage as a PNG too (Safari has no WebP export)
+      const r = glCanvas.width / vw, q = Math.min(r, 1200 / h), c = document.createElement('canvas'); c.width = Math.round(w * q); c.height = Math.round(h * q);
+      c.getContext('2d').drawImage(glCanvas, x * r, y * r, w * r, h * r, 0, 0, c.width, c.height);
+      Object.assign(g, { img: c.toDataURL('image/webp', .92), x, y, w, h });
+    }
+    sessionStorage.setItem('aheado-go', JSON.stringify(g));
+  } catch (e) { try { sessionStorage.setItem('aheado-go', JSON.stringify({ t: Date.now() })); } catch (e2) {} }
+  location.href = Go.href;
+}
+document.addEventListener('pointerover', e => { const a = e.target.closest && e.target.closest('a[href]'); if (a && GO_PAGES[a.getAttribute('href')]) goWarm(a.getAttribute('href')); }, { passive: true });
+document.addEventListener('touchstart', e => { const a = e.target.closest && e.target.closest('a[href]'); if (a && GO_PAGES[a.getAttribute('href')]) goWarm(a.getAttribute('href')); }, { passive: true });
+document.addEventListener('click', e => {
+  if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.target.closest('a[href]'); if (!a || !GO_PAGES[a.getAttribute('href')]) return;
+  e.preventDefault(); goOpen(a.getAttribute('href'));
+});
+// coming back with the Back button: the page is restored as it was left, so undo the opening
+addEventListener('pageshow', e => { if (!e.persisted) return; Go.on = false; Go.done = false; goVeil.classList.remove('on'); goVeil.style.cssText = ''; glCanvas.style.transition = ''; glCanvas.style.opacity = ''; Phone.v = {}; Screen.dirty = true; lenis && lenis.start(); });
+
 const nav = $('#nav');
 let last = performance.now(), lastScreen = 0;
 function frame(now) {
@@ -1596,7 +1671,7 @@ function frame(now) {
   const nt = sy + 36, inStory = nt >= L.story && nt < storyEnd - vh * .2, overSky = nt < L.cats || inStory || nt >= L.finale - vh * .3;
   nav.classList.toggle('solid', !overSky); nav.classList.toggle('inv', inStory && Story.ink === '#FFF6EC');
   // paint the phone screen (live sources at ~30 fps, static ones once)
-  const live = scrId === 'story' || scrId === 'feats';
+  const live = scrId === 'story' || scrId === 'feats' || scrId === 'go';
   if (Screen.dirty || (live && now - lastScreen > 32)) {
     lastScreen = now; Screen.dirty = false;
     sx.fillStyle = '#F1EDEB'; sx.fillRect(0, 0, SW, SH);
@@ -1605,9 +1680,11 @@ function frame(now) {
     else if (scrId === 'dawn') drawSrc(sx, { img: 'watchlist_dawn' });
     else if (scrId === 'story') paintStory(sx);
     else if (scrId === 'feats') paintFeat(sx, now);
+    else if (scrId === 'go') paintGo(sx, now);
     if (tex) tex.needsUpdate = true;
   }
   if (Phone.ready && Phone.x > -.6 && Phone.x < 1.6 && Phone.y > -.8 && Phone.y < 1.8) renderer.render(scene, camera);
+  if (Go.on && !Go.done && now - Go.t0 > Go.len) goFinish();
   requestAnimationFrame(frame);
 }
 
