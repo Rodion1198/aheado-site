@@ -46,17 +46,17 @@
 <link rel="preload" href="fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/phone.glb" as="fetch" type="model/gltf-binary" crossorigin>
 <style>@font-face{font-family:"Literata";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/literata-latin-ext-opsz-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Literata";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/literata-latin-opsz-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
-<style>
-/* Layout: a reference page. Text runs down the left column; one 3D iPhone stays pinned on the right
-   and turns to the screen each section talks about. Below the phone zone the page goes full width. */
+<style>/* Shared by all category pages. Layout: a reference page. Text runs down the left column; one 3D iPhone
+   stays pinned on the right and turns to the screen each section talks about. Below the phone zone the
+   page goes full width. Each page sets its own tint (--cat …) in its own src.html. */
 :root{
   /* shared with the home page */
   --paper:#F1EDEB;--card:#FBF7F5;--rule:#E4DBD8;--hair:#ECE5E2;
   --ink:#2A2224;--ink2:#544749;--muted:#756869;
   --accent:#7A3341;--accent-text:#72303D;--accent-wash:#EEDCDF;
   --night:#211E1F;--cream:#FFF6EC;
-  /* this category */
-  --cat:#955C82;--cat-ink:#7B4A6B;--cat-tile:#EBDEE3;--cat-wash:#EFE3E9;
+  /* this category (subscriptions by default; other pages override) */
+  --cat:#955C82;--cat-ink:#7B4A6B;--cat-tile:#EBDEE3;--cat-wash:#EFE3E9;--cat-rgb:149,92,130;--cat-ink-rgb:123,74,107;
   --display:"Literata","Iowan Old Style","Palatino Linotype",Georgia,serif;
   --ui:"Onest",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --gutter:clamp(20px,5vw,72px);--maxw:1320px;
@@ -131,7 +131,7 @@ p{margin:0;text-wrap:pretty}
 .menu-open .menu-main a,.menu-open .menu-side>*{opacity:1;transform:none}
 .menu-main a:nth-child(1){transition-delay:.18s}.menu-main a:nth-child(2){transition-delay:.23s}.menu-main a:nth-child(3){transition-delay:.28s}.menu-main a:nth-child(4){transition-delay:.33s}
 .menu-side>*{opacity:0;transform:translateY(14px);transition:opacity .5s .36s,transform .6s .36s cubic-bezier(.2,.8,.2,1)}
-.menu h3{font:600 14px/1 var(--ui);letter-spacing:0;color:rgba(255,246,236,.6);margin:0 0 14px}
+.menu h3,.menu .mh{font:600 14px/1 var(--ui);letter-spacing:0;color:rgba(255,246,236,.6);margin:0 0 14px}
 .menu-cats{list-style:none;margin:0 0 34px;padding:0;display:grid;gap:4px}
 .menu-cats a{display:flex;align-items:center;gap:14px;padding:9px 10px;margin:0 -10px;border-radius:12px;text-decoration:none;font:500 18px/1.2 var(--ui)}
 .menu-cats a:hover,.menu-cats a[aria-current]{background:rgba(255,246,236,.07)}
@@ -213,7 +213,7 @@ main{position:relative;background:linear-gradient(168deg,var(--cat-wash) 0,rgba(
 .track .day{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font:500 13px/1 var(--ui);color:var(--muted);font-variant-numeric:tabular-nums}
 .track .day::before{content:"";width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--card);box-shadow:inset 0 0 0 2px var(--rule)}
 .track .day.r::before,.track .day.p::before{width:16px;height:16px;margin-top:4px;margin-bottom:-4px}
-.track .day.r::before{background:var(--cat);box-shadow:0 0 0 5px rgba(149,92,130,.16)}
+.track .day.r::before{background:var(--cat);box-shadow:0 0 0 5px rgba(var(--cat-rgb),.16)}
 .track .day.p::before{background:var(--card);box-shadow:inset 0 0 0 2.5px var(--ink)}
 .track .day.r,.track .day.p{color:var(--ink);font-weight:700}
 .key{list-style:none;margin:20px 0 0;padding:16px 0 0;border-top:1px solid var(--hair);display:grid;gap:10px;font-size:15.5px;color:var(--ink2)}
@@ -278,6 +278,8 @@ td.num small{font-size:.8em;color:var(--muted);font-weight:500;margin-right:3px}
 .cat .tile{width:44px;height:44px;border-radius:13px;font-size:22px;display:grid;place-items:center}
 .cat h3{margin-top:4px;font-size:22px}
 .cat p{color:var(--ink2);font-size:15px;line-height:1.45}
+.cat .go{position:absolute;right:18px;top:22px;font-size:18px;color:var(--muted);transition:transform .3s,color .3s}
+.cat:hover .go{transform:translate(3px,-3px);color:var(--ink)}
 .closing{text-align:center;padding-block:clamp(70px,12vh,130px)}
 .closing h2{font-size:clamp(40px,5.4vw,82px);line-height:1;margin-bottom:16px}
 .closing .lead{margin:0 auto 28px}
@@ -307,8 +309,7 @@ footer{position:relative;z-index:5;background:var(--paper);border-top:1px solid 
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
 }
-</style>
-<style>
+
 /* v3: every block is a tinted panel (as the feature panels on the home page); the phone passes over them. */
 .zone{display:block;position:relative}
 .stage{position:absolute;top:0;bottom:0;right:var(--gutter);width:38%;height:auto;display:block;padding:0;pointer-events:none;z-index:2}
@@ -333,7 +334,7 @@ h2 .eb{display:block;margin-bottom:12px;font:650 14px/1.3 var(--ui);letter-spaci
 /* add: three things and a switch */
 .steps3{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
 .steps3 li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 18px;align-items:start;padding:16px 18px;border-radius:22px;transition:background .4s,opacity .4s,box-shadow .4s}
-.steps3 li::before{content:counter(s);grid-row:span 2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:600 21px/1 var(--display);font-variant-numeric:lining-nums;box-shadow:inset 0 0 0 1.5px rgba(123,74,107,.45);color:var(--cat-ink);transition:background .4s,color .4s,box-shadow .4s}
+.steps3 li::before{content:counter(s);grid-row:span 2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:600 21px/1 var(--display);font-variant-numeric:lining-nums;box-shadow:inset 0 0 0 1.5px rgba(var(--cat-ink-rgb),.45);color:var(--cat-ink);transition:background .4s,color .4s,box-shadow .4s}
 .steps3 h3{font:650 21px/1.25 var(--ui);letter-spacing:0;align-self:end}
 .steps3 p{color:var(--ink2);font-size:16.5px;line-height:1.4}
 .gl .steps3 li{opacity:.8}
@@ -366,12 +367,14 @@ h2 .eb{display:block;margin-bottom:12px;font:650 14px/1.3 var(--ui);letter-spaci
   .cycle.run .day.r2::before{animation:ping2 9s linear infinite}
   .cycle.run .mo span{animation:moA 18s linear infinite}
   .cycle.run .mo span+span{animation:moB 18s linear infinite}
+  .cycle.run .o-next .ic svg{animation:turn 9s cubic-bezier(.5,0,.3,1) infinite}
 }
 @keyframes sweep{0%{left:0;opacity:0}4%{opacity:1}86%{left:100%;opacity:1}94%{left:100%;opacity:0}100%{left:100%;opacity:0}}
 @keyframes fillw{0%{width:0;opacity:.75}86%{width:100%;opacity:.75}94%,100%{width:100%;opacity:0}}
 @keyframes ping1{0%,47%{transform:scale(1)}50%{transform:scale(1.55)}56%,100%{transform:scale(1)}}
 @keyframes ping2{0%,72%{transform:scale(1)}75%{transform:scale(1.55)}81%,100%{transform:scale(1)}}
 @keyframes moA{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
+@keyframes turn{0%,84%{transform:rotate(0)}94%,100%{transform:rotate(360deg)}}
 @keyframes moB{0%,45%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}
 
 /* free trial: free, then paid */
@@ -384,7 +387,7 @@ h2 .eb{display:block;margin-bottom:12px;font:650 14px/1.3 var(--ui);letter-spaci
 .tbar .paid b small{font:600 .5em/1 var(--ui);color:var(--muted);margin-right:5px;letter-spacing:0}
 .tbar span{font:500 14.5px/1.3 var(--ui);color:var(--ink2)}
 .tbar .dots{position:absolute;right:calc(40% + 14px);top:22px;display:flex;gap:9px;align-items:center;padding:0}
-.tbar .dots i{width:14px;height:14px;border-radius:50%;background:var(--cat);box-shadow:0 0 0 4px rgba(149,92,130,.16)}
+.tbar .dots i{width:14px;height:14px;border-radius:50%;background:var(--cat);box-shadow:0 0 0 4px rgba(var(--cat-rgb),.16)}
 .tcap{margin-top:12px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:9px}
 .tcap i{width:10px;height:10px;border-radius:50%;background:var(--cat);flex:none}
 .sec .notif{margin-top:22px}
@@ -408,6 +411,7 @@ h2 .eb{display:block;margin-bottom:12px;font:650 14px/1.3 var(--ui);letter-spaci
 .faq .more .sub{font:650 15px/1.3 var(--ui);letter-spacing:.01em;color:var(--muted);padding:26px 0 14px}
 .faq .more>details:last-child{border-bottom:0}
 .faq .in b{color:var(--ink);font-weight:650}
+.faq a{color:var(--cat-ink);text-underline-offset:3px}
 
 .tbar .dots{flex-direction:row}
 .cyc-top{margin:-8px 0 16px}
@@ -416,17 +420,28 @@ h2 .eb{display:block;margin-bottom:12px;font:650 14px/1.3 var(--ui);letter-spaci
 .track .freeband{position:absolute;left:-10px;right:-10px;top:3px;height:18px;border-radius:9px;background:#E9DFAE;opacity:0;transition:opacity .5s}
 .cycle.trial .freeband{opacity:1}
 .cycle.trial .fill{opacity:0 !important}
-.fork[hidden]{display:none}
+.outc{margin-top:18px}
+.outc [hidden]{display:none!important}
+.o-next{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;padding:16px;border-radius:18px;background:var(--cat-tile)}
+.o-next .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--cat);color:#fff;font-size:22px}
+.o-next p{font-size:15.5px;line-height:1.4;color:var(--ink2);margin:0}
+.o-next b{color:var(--ink);font-weight:650}
+.o-fork{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.o-fork>div{padding:16px;border-radius:18px;background:var(--cat-tile);display:grid;gap:4px;align-content:start}
+.o-fork>div:first-child{background:#E3EEE6}
+.o-fork span{font:600 14px/1.25 var(--ui);color:var(--ink2)}
+.o-fork b{font:600 clamp(26px,2.4vw,32px)/1.05 var(--display);color:var(--ink);font-variant-numeric:lining-nums}
+.o-fork small{font-size:13.5px;color:var(--ink2)}
 .fork{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .fork>span{font:500 14px/1 var(--ui);padding:9px 12px;border-radius:999px;background:var(--paper);color:var(--ink2)}
 .fork b{font-weight:650;color:var(--ink);margin-right:5px}
-.cycle .key{transition:opacity .2s}
-.cycle.swapping .key,.cycle.swapping .cycle-h b{opacity:0}
+.cycle .key,.cycle .outc{transition:opacity .2s}
+.cycle.swapping .key,.cycle.swapping .outc,.cycle.swapping .cycle-h b{opacity:0}
 button.tile-a{border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;transition:background .3s,box-shadow .3s,transform .3s}
 button.tile-a:hover{transform:translateY(-2px)}
 .panel button.tile-a[aria-pressed="true"]{background:#fffdfc;box-shadow:inset 0 0 0 2px var(--cat),0 18px 34px -26px rgba(58,30,40,.5)}
 button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
-/* gallery: the same subscriptions in three places */
+/* gallery: the same entries in three places */
 .gal{background:linear-gradient(#221621,#2E1C2A 55%,#3A2233);color:var(--cream);padding-block:clamp(64px,11vh,120px)}
 .gal .lead{color:rgba(255,246,236,.74);margin:16px 0 44px}
 .gal-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,36px);max-width:1080px}
@@ -441,13 +456,16 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
 @media (prefers-reduced-motion:reduce){.frag,.frag i{transition:none!important}}
 @media (max-width:820px){
   .hero{max-width:none}
+  .o-fork>div{padding:14px}
+  .o-fork b{font-size:22px;white-space:nowrap}
+  .o-next{padding:14px;gap:12px}
   .trust{max-width:none;padding-block:34px 44px}
   .stage{display:none}
   .gl .steps3 li,.gl .swap{opacity:1}
   .panel{min-height:0;padding:30px 20px 34px;border-radius:28px;margin-bottom:14px;display:block}
   .panel .txt{width:auto}
-  /* phones: two pinned scenes. One line of text on top, the phone large below it and cut by the bottom
-     edge; the scroll walks through the states and the phone slides to the part being talked about. */
+  /* phones: two pinned scenes. One line of text on top, a large piece of the real screen below it;
+     the scroll walks through the states and the screen slides to the part being talked about. */
   .zone{--ptop:calc(62px + env(safe-area-inset-top,0px))}
   .pinwrap{height:calc(100svh + 250vh);margin-bottom:14px}
   .pinm{height:calc(100svh + 190vh)}
@@ -485,7 +503,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
   .frag{position:absolute;inset:0 0 auto;border-radius:24px;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.3,.8,.3,1),opacity .23s;
     -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%)}
   .frag.swap{opacity:0}
-  .frag i{position:absolute;border-radius:14px;box-shadow:0 0 0 2.5px var(--cat);background:rgba(149,92,130,.08);transition:left .55s cubic-bezier(.3,.8,.3,1),top .55s cubic-bezier(.3,.8,.3,1),width .55s cubic-bezier(.3,.8,.3,1),height .55s cubic-bezier(.3,.8,.3,1)}
+  .frag i{position:absolute;border-radius:14px;box-shadow:0 0 0 2.5px var(--cat);background:rgba(var(--cat-rgb),.08);transition:left .55s cubic-bezier(.3,.8,.3,1),top .55s cubic-bezier(.3,.8,.3,1),width .55s cubic-bezier(.3,.8,.3,1),height .55s cubic-bezier(.3,.8,.3,1)}
   .tiles{grid-template-columns:minmax(0,1fr)}
   .tile-a{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 14px}
   .tile-a .ic{margin:0}
@@ -510,6 +528,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
   <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 4.5h11.5l-2.2 4.2 2.2 4.3H6"/></symbol>
   <symbol id="i-routine" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16.5" rx="2.4"/><path d="M9.5 3.5h5v2.5h-5zM9 11h6M9 14.5h6M9 18h4"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></symbol>
   <symbol id="i-apple" viewBox="0 0 24 24"><path stroke="none" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
 </defs></svg>
 
@@ -524,7 +543,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
     <a class="brand" href="/" aria-label="Aheado, home"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt="">Aheado</a>
     <div class="nav-r">
       <nav class="nav-links" aria-label="Sections"><a href="/#features">Features</a><a href="/#pricing">Pricing</a></nav>
-      <a class="badge sm js-store" href="https://aheado.io/"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      <a class="badge sm js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
       <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
     </div>
   </div>
@@ -535,22 +554,21 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
   <div class="menu-in">
     <nav class="menu-main" aria-label="Main"><a href="/#story">How it works</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/#faq">Questions</a></nav>
     <div class="menu-side">
-      <div><h3>What you can track</h3>
+      <div><p class="mh">What you can track</p>
         <ul class="menu-cats">
           <li><a href="/#cats"><span class="tile" style="background:#383D44;color:#84B8DD"><svg class="ico"><use href="#i-doc"/></svg></span><span>Documents<small>Passports, visas, licences and insurance.</small></span></a></li>
           <li><a href="#top" aria-current="page"><span class="tile" style="background:#45393F;color:#D39EC0"><svg class="ico"><use href="#i-sub"/></svg></span><span>Subscriptions<small>Free trials and renewals, flagged before the first charge.</small></span></a></li>
-          <li><a href="/#cats"><span class="tile" style="background:#443B34;color:#CEAB76"><svg class="ico"><use href="#i-bill"/></svg></span><span>Bills<small>Rent and utilities you pay yourself, with a nudge before the due date.</small></span></a></li>
+          <li><a href="/bill-reminder"><span class="tile" style="background:#443B34;color:#CEAB76"><svg class="ico"><use href="#i-bill"/></svg></span><span>Bills<small>Rent and utilities you pay yourself, with a nudge before the due date.</small></span></a></li>
           <li><a href="/#cats"><span class="tile" style="background:#383E3E;color:#82BFB6"><svg class="ico"><use href="#i-event"/></svg></span><span>Events<small>Birthdays, flights and appointments, on the day or hours before.</small></span></a></li>
           <li><a href="/#cats"><span class="tile" style="background:#3F3B44;color:#B0A9DF"><svg class="ico"><use href="#i-flag"/></svg></span><span>Deadlines<small>Tax returns and applications that can’t slip.</small></span></a></li>
           <li><a href="/#cats"><span class="tile" style="background:#3D3E37;color:#9EBC8E"><svg class="ico"><use href="#i-routine"/></svg></span><span>Routine<small>Vitamins, plants and habits, at the times you set.</small></span></a></li>
         </ul>
       </div>
       <div class="menu-links"><a href="https://aheado.io/support">Support</a><a href="https://aheado.io/privacy">Privacy policy</a><a href="mailto:hello@aheado.io">Press</a></div>
-      <div><a class="badge js-store" href="https://aheado.io/"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a></div>
+      <div><a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a></div>
     </div>
   </div>
 </div>
-
 
 <main id="top">
   <div class="wrap zone" id="zone">
@@ -559,7 +577,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <nav class="crumb" aria-label="Breadcrumb"><a href="/#cats">Aheado</a><span class="sep" aria-hidden="true"></span><span class="tile"><svg class="ico"><use href="#i-sub"/></svg></span><span>Subscriptions</span></nav>
       <h1>Subscription reminders, before every charge.</h1>
       <p class="lead">Aheado is a subscription reminder and tracker for iPhone. Add a subscription or a free trial once, and it tells you before each payment, every cycle.</p>
-      <div class="cta-row"><a class="badge js-store" href="https://aheado.io/"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="textlink" href="#add">See how it works</a></div>
+      <div class="cta-row"><a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="textlink" href="#add">See how it works</a></div>
       <p class="fine">Free to start. No account needed.</p>
       <div class="hero-slot" id="heroSlot" aria-hidden="true"></div>
       <figure class="shot"><img src="assets/sub/subs_list.jpg" width="660" height="1434" loading="lazy" data-img="list" alt="Aheado Watchlist filtered by Subscriptions: Duolingo Super, Netflix, Spotify and iCloud+"><figcaption>The Watchlist, filtered by Subscriptions</figcaption></figure>
@@ -586,7 +604,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
           </ol>
           <div class="swap" id="swap" data-step="3" data-screen="f_trial" data-pose="f2" data-cap="The same form, set to Free trial">
             <div class="swap-h"><h3>Trying it free first?</h3>
-              <div class="seg" role="group" aria-label="Subscription type"><button type="button" id="segRegular" aria-pressed="true">Regular</button><button type="button" id="segTrial" aria-pressed="false">Free trial</button></div>
+              <div class="seg" role="group" aria-label="Subscription type"><button type="button" data-v="a" aria-pressed="true">Regular</button><button type="button" data-v="b" aria-pressed="false">Free trial</button></div>
             </div>
             <p id="swapNote">Paid from the start. Aheado counts down to the next payment.</p>
           </div>
@@ -599,9 +617,8 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
 
     <section class="panel" id="after" data-screen="c_reg" data-cap="Netflix’s own page, with its timeline" style="--bg:linear-gradient(150deg,#E6EEEB,#D4E1DD)">
       <div class="txt">
-        <h2><span class="eb">Renewal reminders, every billing cycle</span>Then it runs itself.</h2>
-        <p class="lead">Reminders before the charge, quiet on the day, and on to the next cycle. A free trial works the same way, it just starts free.</p>
-        <div class="cyc-top"><div class="seg" role="group" aria-label="Example"><button type="button" id="cycRegular" aria-pressed="true">Regular</button><button type="button" id="cycTrial" aria-pressed="false">Free trial</button></div></div>
+        <h2><span class="eb">Renewal reminders, every billing cycle</span>Every billing cycle, on its own.</h2>
+        <div class="cyc-top"><div class="seg" role="group" aria-label="Example"><button type="button" data-v="a" aria-pressed="true">Regular</button><button type="button" data-v="b" aria-pressed="false">Free trial</button></div></div>
         <div class="cycle run" id="cycle">
           <p class="cycle-h"><b id="cycName">Netflix, monthly</b><span class="mo" aria-hidden="true"><span id="cycMo1">November</span><span id="cycMo2">December</span></span></p>
           <div class="track" aria-hidden="true">
@@ -611,10 +628,12 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
           </div>
           <ul class="key" id="cycKey">
             <li><i class="kr"></i><span><b>22 and 24.</b> <span id="cycK1">Your reminders, 3 days and a day before.</span></span></li>
-            <li><i class="kp"></i><span><b>25.</b> <span id="cycK2">Netflix renews and charges USD 17.99. No notification on the day.</span>
-              <span class="fork" id="cycFork" hidden><span><b>Cancelled in time</b> USD 0</span><span><b>Kept it</b> USD 12.99 a month</span></span></span></li>
-            <li><i class="kn"></i><span><b id="cycK3b">Next month.</b> <span id="cycK3">The same, without touching anything.</span></span></li>
+            <li><i class="kp"></i><span><b>25.</b> <span id="cycK2">Netflix renews and charges USD 17.99. No notification on the day.</span></span></li>
           </ul>
+          <div class="outc">
+            <div class="o-next" id="oNext"><span class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.05-4.95"/><path d="M19 4.5v3.8h-3.8"/></svg></span><p><b>Next charge: Dec 25.</b> Set on its own, with reminders on Dec 22 and 24. You don’t touch anything.</p></div>
+            <div class="o-fork" id="oFork" hidden><div><span>Cancelled in time</span><b>USD 0</b></div><div><span>Kept it</span><b>USD 12.99</b><small>a month, from Oct 25</small></div></div>
+          </div>
         </div>
         <div class="notif" aria-label="Notification example"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><div class="t"><span id="cycNT">Netflix</span><time>9:00 AM</time></div><p id="cycNB">USD 17.99 will be charged in 3 days</p></div>
         <figure class="shot"><img id="cycShot" src="assets/sub/sub_detail.jpg" width="660" height="1434" loading="lazy" data-img="subdetail" alt="Aheado subscriptions on the phone"><figcaption id="cycShotCap">Netflix’s own page, with its timeline</figcaption></figure>
@@ -701,7 +720,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <h2 style="margin-bottom:32px">Everything else Aheado tracks.</h2>
       <div class="cats-grid">
         <a class="cat" href="/#cats"><span class="tile" style="background:#DCE3E8;color:#3A78A1"><svg class="ico"><use href="#i-doc"/></svg></span><h3>Documents</h3><p>Passports, visas, licences and insurance.</p></a>
-        <a class="cat" href="/#cats"><span class="tile" style="background:#EAE0D4;color:#906A28"><svg class="ico"><use href="#i-bill"/></svg></span><h3>Bills</h3><p>Rent and utilities you pay yourself.</p></a>
+        <a class="cat" href="/bill-reminder"><span class="tile" style="background:#EAE0D4;color:#906A28"><svg class="ico"><use href="#i-bill"/></svg></span><h3>Bills</h3><p>Rent and utilities you pay yourself.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
         <a class="cat" href="/#cats"><span class="tile" style="background:#DBE4E1;color:#358077"><svg class="ico"><use href="#i-event"/></svg></span><h3>Events</h3><p>Birthdays, flights and appointments.</p></a>
         <a class="cat" href="/#cats"><span class="tile" style="background:#E5E0E8;color:#7168A3"><svg class="ico"><use href="#i-flag"/></svg></span><h3>Deadlines</h3><p>Tax returns and applications that can’t slip.</p></a>
         <a class="cat" href="/#cats"><span class="tile" style="background:#E2E3D9;color:#5C7D49"><svg class="ico"><use href="#i-routine"/></svg></span><h3>Routine</h3><p>Vitamins, plants and habits.</p></a>
@@ -711,21 +730,69 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
     <section class="closing"><div class="wrap">
       <h2>Forewarned is ahead.</h2>
       <p class="lead">Put your subscriptions in once. Aheado watches the dates for you.</p>
-      <a class="badge js-store" href="https://aheado.io/"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      <a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
     </div></section>
   </div>
 </main>
 
 <footer><div class="wrap foot"><span>© 2026 Aheado</span><nav aria-label="Footer"><a href="/">Home</a><a href="https://aheado.io/support">Support</a><a href="https://aheado.io/privacy">Privacy</a><a href="#" role="button" data-cookie-settings>Cookie settings</a></nav></div></footer>
 
-<script>window.__A={"img": {"list": "assets/sub/subs_list.jpg", "detail": "assets/sub/trial_still.jpg", "form": "assets/sub/form_regular.jpg", "subdetail": "assets/sub/sub_detail.jpg", "cancelsheet": "assets/sub/cancel_sheet.jpg", "cancelled": "assets/sub/sub_cancelled.jpg", "menu": "assets/sub/sub_menu.jpg", "formtrial": "assets/sub/form_trial.jpg", "calendar": "assets/sub/calendar_nov.jpg", "widgets": "assets/sub/homescreen_widgets.jpg", "moon": "assets/img/moon.jpg"}, "glb": "assets/phone.glb", "icon": "assets/img/icon180.png"};</script>
+<script>
+/* What this page shows on the phone: screens and highlights in the 660 × 1434 frame, and the two switches. */
+window.__PAGE = {
+  hl: [149, 92, 130],
+  screens: {
+    list:     { img: 'list', fam: 'list' },
+    f_name:   { img: 'form', fam: 'form', hl: [27, 353, 606, 100, 30] },
+    f_when:   { img: 'form', fam: 'form', hl: [27, 463, 606, 281, 32] },
+    f_remind: { img: 'form', fam: 'form', hl: [27, 755, 606, 114, 30] },
+    f_reg:    { img: 'form', fam: 'form', hl: [24, 239, 300, 102, 24] },
+    f_trial:  { img: 'formtrial', fam: 'form', hl: [336, 239, 300, 102, 24] },
+    c_reg:    { img: 'subdetail', fam: 'cyc', hl: [27, 702, 606, 345, 34] },
+    c_trial:  { img: 'detail', fam: 'cyc', hl: [27, 702, 606, 345, 34] },
+    a_cancel: { img: 'cancelsheet', fam: 'act', hl: [173, 1283, 449, 63, 32] },
+    a_resume: { img: 'cancelled', fam: 'act', hl: [27, 1283, 606, 77, 38] },
+    a_archive:{ img: 'menu', fam: 'act', hl: [284, 170, 340, 66, 22] },
+  },
+  type: {
+    a: { screen: 'f_reg', cap: 'The form for a new subscription', note: 'Paid from the start. Aheado counts down to the next payment.' },
+    b: { screen: 'f_trial', cap: 'The same form, set to Free trial', note: 'Free first, then paid. “Next payment” becomes “Trial ends”, and the reminders count down to that day.' },
+  },
+  after: {
+    el: '#cycle',
+    screens: { a: 'c_reg', b: 'c_trial' },
+    caps: { a: 'Netflix’s own page, with its timeline', b: 'The trial’s own page, with its timeline' },
+    apply(v) {
+      const trial = v === 'b', $ = s => document.querySelector(s);
+      const d = trial
+        ? { name: 'Duolingo Super, free trial', mo: ['October', 'November'], k1: 'Your reminders, while it’s still free.', k2: 'The trial ends. Cancel before it, or the first USD 12.99 is charged.', nt: 'Duolingo Super', nb: 'Trial ends in 3 days. Then USD 12.99 a month. Cancel before Oct 25 if you don’t need it.' }
+        : { name: 'Netflix, monthly', mo: ['November', 'December'], k1: 'Your reminders, 3 days and a day before.', k2: 'Netflix renews and charges USD 17.99. No notification on the day.', nt: 'Netflix', nb: 'USD 17.99 will be charged in 3 days' };
+      $('#cycName').textContent = d.name; $('#cycMo1').textContent = d.mo[0]; $('#cycMo2').textContent = d.mo[1];
+      $('#cycK1').textContent = d.k1; $('#cycK2').textContent = d.k2;
+      $('#oNext').hidden = trial; $('#oFork').hidden = !trial; $('#cycNT').textContent = d.nt; $('#cycNB').textContent = d.nb;
+      $('#cycle').classList.toggle('trial', trial);
+    },
+  },
+  act: {
+    cancel:  { screen: 'a_cancel', cap: 'Before you cancel: what happens, and until when' },
+    resume:  { screen: 'a_resume', cap: 'Cancelled: access until the 25th, Resume at the bottom' },
+    archive: { screen: 'a_archive', cap: 'The menu at the top: Edit, Archive, Delete' },
+  },
+  frame: { a_cancel: [30, 1090, 600, 290], a_resume: [14, 1258, 632, 124] },
+  morder: [3, 0, 1, 2],
+};
+</script>
+<script>window.__A={"img": {"moon": "assets/img/moon.jpg", "list": "assets/sub/subs_list.jpg", "detail": "assets/sub/trial_still.jpg", "form": "assets/sub/form_regular.jpg", "subdetail": "assets/sub/sub_detail.jpg", "cancelsheet": "assets/sub/cancel_sheet.jpg", "cancelled": "assets/sub/sub_cancelled.jpg", "menu": "assets/sub/sub_menu.jpg", "formtrial": "assets/sub/form_trial.jpg", "calendar": "assets/sub/calendar_nov.jpg", "widgets": "assets/sub/homescreen_widgets.jpg"}, "glb": "assets/phone.glb", "icon": "assets/img/icon180.png"};</script>
 <script type="module">
 /* =====================================================================
    Category page runtime (shared by all six category pages).
    Static text lives in the HTML. This file only adds: the 3D phone that
    shows the screen of the section being read, the menu, the nav state.
+   What differs from page to page (the screens and their highlights, the
+   two switches and the action tiles) comes from window.__PAGE, set in
+   each page's own src.html.
    ===================================================================== */
-const A = window.__A;
+const A = window.__A, P = window.__PAGE;
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -738,25 +805,15 @@ const b64bytes = b => { const s = atob(b), u = new Uint8Array(s.length); for (le
 
 /* Screens: the image a block shows, its family (a turn happens only between families; inside one the
    screens cross-fade) and an optional highlight (x, y, w, h, r in the 660 × 1434 frame). */
-const SCREENS = {
-  list:     { img: 'list', fam: 'list' },
-  f_name:   { img: 'form', fam: 'form', hl: [27, 353, 606, 100, 30] },
-  f_when:   { img: 'form', fam: 'form', hl: [27, 463, 606, 281, 32] },
-  f_remind: { img: 'form', fam: 'form', hl: [27, 755, 606, 114, 30] },
-  f_reg:    { img: 'form', fam: 'form', hl: [24, 239, 300, 102, 24] },
-  f_trial:  { img: 'formtrial', fam: 'form', hl: [336, 239, 300, 102, 24] },
-  c_reg:    { img: 'subdetail', fam: 'cyc', hl: [27, 702, 606, 345, 34] },
-  c_trial:  { img: 'detail', fam: 'cyc', hl: [27, 702, 606, 345, 34] },
-  a_cancel: { img: 'cancelsheet', fam: 'act', hl: [173, 1283, 449, 63, 32] },
-  a_resume: { img: 'cancelled', fam: 'act', hl: [27, 1283, 606, 77, 38] },
-  a_archive:{ img: 'menu', fam: 'act', hl: [284, 170, 340, 66, 22] },
-};
+const SCREENS = P.screens;
+const HL = P.hl || [149, 92, 130];      // the highlight colour, in the page's own tint
 
 /* ---------- static parts ---------- */
 $$('[data-icon]').forEach(i => i.src = A.icon);
 $$('[data-img]').forEach(i => { i.src = A.img[i.dataset.img]; i.loading = 'lazy'; });
 $('.menu-moon').style.backgroundImage = `url(${A.img.moon})`;
-$$('.js-store').forEach(a => a.setAttribute('aria-label', 'Download Aheado on the App Store'));
+// until the App Store link exists the badges point at "#": keep them from jumping to the top
+$$('.js-store').forEach(a => { a.setAttribute('aria-label', 'Download Aheado on the App Store'); if (a.getAttribute('href') === '#') a.addEventListener('click', e => e.preventDefault()); });
 
 /* ---------- menu (same as home) ---------- */
 const Menu = {
@@ -794,59 +851,47 @@ const panels = $$('.zone .panel');
 const lerp = (a, b, t) => a + (b - a) * t;
 const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
-/* ---------- regular / free trial switch ---------- */
-const Type = { manual: null, step: 0 };
-const segR = $('#segRegular'), segT = $('#segTrial'), swapNote = $('#swapNote'), formShot = $('#formShot');
-function showType(trial) {
-  segR.setAttribute('aria-pressed', trial ? 'false' : 'true'); segT.setAttribute('aria-pressed', trial ? 'true' : 'false');
-  swapNote.textContent = trial ? 'Free first, then paid. “Next payment” becomes “Trial ends”, and the reminders count down to that day.' : 'Paid from the start. Aheado counts down to the next payment.';
-  if (formShot) formShot.src = A.img[trial ? 'formtrial' : 'form'];
+/* ---------- the type switch in the "add" panel (Regular / Free trial, One-time / Recurring) ---------- */
+const Type = { manual: null, step: 0, v: 'a' };
+// typeFirst pages (bills): the type is the first step, stays as chosen, and later steps show its own form (data-screen-b)
+const TF = !!P.typeFirst;
+const typeBtns = $$('#swap .seg button[data-v]'), swapNote = $('#swapNote'), formShot = $('#formShot');
+function showType(v) {
+  typeBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'));
+  swapNote.textContent = P.type[v].note;
+  if (formShot) formShot.src = A.img[SCREENS[P.type[v].screen].img];
 }
-segR.addEventListener('click', () => { Type.manual = 'f_reg'; showType(false); });
-segT.addEventListener('click', () => { Type.manual = 'f_trial'; showType(true); });
-// on phones the type comes first and starts on Regular; on wide screens it is the last step and shows the trial
-const MORDER = [3, 0, 1, 2];
-const formKey = () => Type.step === stepEls.length - 1 ? (Type.manual || (isMobile() ? 'f_reg' : 'f_trial')) : stepEls[Type.step].dataset.screen;
-// what a panel shows on the phone, and the caption under it
-const Cyc = { trial: false };
-const CYC = {
-  reg:   { name: 'Netflix, monthly', mo: ['November', 'December'], k1: 'Your reminders, 3 days and a day before.', k2: 'Netflix renews and charges USD 17.99. No notification on the day.', k3b: 'Next month.', k3: 'The same, without touching anything.',
-           nt: 'Netflix', nb: 'USD 17.99 will be charged in 3 days', cap: 'Netflix’s own page, with its timeline', img: 'subdetail' },
-  trial: { name: 'Duolingo Super, free trial', mo: ['October', 'November'], k1: 'Your reminders, while it’s still free.', k2: 'The trial ends. First charge of USD 12.99.', k3b: 'After that.', k3: 'A regular subscription, every month.',
-           nt: 'Duolingo Super', nb: 'Trial ends in 3 days. Then USD 12.99 a month. Cancel before Oct 25 if you don’t need it.', cap: 'The trial’s own page, with its timeline', img: 'detail' },
-};
-const cycEl = $('#cycle'), cycR = $('#cycRegular'), cycT = $('#cycTrial');
-function showCyc(trial) {
-  if (trial === Cyc.trial) return; Cyc.trial = trial;
-  cycR.setAttribute('aria-pressed', trial ? 'false' : 'true'); cycT.setAttribute('aria-pressed', trial ? 'true' : 'false');
-  const d = CYC[trial ? 'trial' : 'reg'];
-  const apply = () => {
-    $('#cycName').textContent = d.name; $('#cycMo1').textContent = d.mo[0]; $('#cycMo2').textContent = d.mo[1];
-    $('#cycK1').textContent = d.k1; $('#cycK2').textContent = d.k2; $('#cycK3b').textContent = d.k3b; $('#cycK3').textContent = d.k3;
-    $('#cycFork').hidden = !trial; $('#cycNT').textContent = d.nt; $('#cycNB').textContent = d.nb;
-    $('#cycShot').src = A.img[d.img]; $('#cycShotCap').textContent = d.cap;
-    cycEl.classList.toggle('trial', trial); cycEl.classList.remove('swapping');
-  };
-  if (RM) apply(); else { cycEl.classList.add('swapping'); setTimeout(apply, 200); }
+typeBtns.forEach(b => b.addEventListener('click', () => { if (TF) Type.v = b.dataset.v; else Type.manual = P.type[b.dataset.v].screen; showType(b.dataset.v); }));
+// on phones the type comes first and starts on the first option; on wide screens it is the last step and shows the second
+const MORDER = P.morder || [3, 0, 1, 2];
+const typeKey = v => P.type[v].screen;
+const tfEl = () => stepEls[Type.step], tfB = () => TF && Type.v === 'b';
+const formKey = () => TF ? ((tfB() && tfEl().dataset.screenB) || tfEl().dataset.screen) : Type.step === stepEls.length - 1 ? (Type.manual || typeKey(isMobile() ? 'a' : 'b')) : stepEls[Type.step].dataset.screen;
+
+/* ---------- the switch in the panel that shows how the category works ---------- */
+const Aft = { v: 'a' };
+const aftBtns = $$('#after .seg button[data-v]'), aftEl = P.after.el ? $(P.after.el) : null;
+function showAfter(v) {
+  if (v === Aft.v) return; Aft.v = v;
+  aftBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'));
+  const apply = () => { P.after.apply(v, A); const sh = $('#cycShot'); if (sh) { sh.src = A.img[SCREENS[P.after.screens[v]].img]; } const sc = $('#cycShotCap'); if (sc) sc.textContent = P.after.caps[v]; if (aftEl) aftEl.classList.remove('swapping'); };
+  if (RM || !aftEl) apply(); else { aftEl.classList.add('swapping'); setTimeout(apply, 200); }
 }
-cycR.addEventListener('click', () => showCyc(false));
-cycT.addEventListener('click', () => showCyc(true));
-const Act = { key: 'cancel' };
-const ACT = {
-  cancel:  { screen: 'a_cancel', img: 'cancelsheet', cap: 'Before you cancel: what happens, and until when' },
-  resume:  { screen: 'a_resume', img: 'cancelled', cap: 'Cancelled: access until the 25th, Resume at the bottom' },
-  archive: { screen: 'a_archive', img: 'menu', cap: 'The menu at the top: Edit, Archive, Delete' },
-};
+aftBtns.forEach(b => b.addEventListener('click', () => showAfter(b.dataset.v)));
+
+/* ---------- the action tiles ---------- */
+const ACT = P.act;
+const Act = { key: Object.keys(ACT)[0] };
 const actBtns = $$('[data-act]'), addDots = $$('#addDots i'), actDots = $$('#actDots i');
 function setAct(b) {
   Act.key = b.dataset.act; actBtns.forEach((x, i) => { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); if (actDots[i]) actDots[i].classList.toggle('on', x === b); });
-  $('#actShot').src = A.img[ACT[Act.key].img]; $('#actShotCap').textContent = ACT[Act.key].cap;
+  $('#actShot').src = A.img[SCREENS[ACT[Act.key].screen].img]; $('#actShotCap').textContent = ACT[Act.key].cap;
 }
 actBtns.forEach(b => b.addEventListener('click', () => setAct(b)));
 // phones: leave a pinned scene at once
 $$('.mskip').forEach(b => b.addEventListener('click', () => { const w = $('#' + b.dataset.skip), y = w.getBoundingClientRect().top + scrollY + w.offsetHeight - 70; scrollTo({ top: y, behavior: RM ? 'auto' : 'smooth' }); }));
-const panelKey = p => p.id === 'add' ? formKey() : p.id === 'after' ? (Cyc.trial ? 'c_trial' : 'c_reg') : p.id === 'actions' ? ACT[Act.key].screen : p.dataset.screen;
-const panelCap = p => p.id === 'add' ? stepEls[Type.step].dataset.cap : p.id === 'after' ? CYC[Cyc.trial ? 'trial' : 'reg'].cap : p.id === 'actions' ? ACT[Act.key].cap : p.dataset.cap;
+const panelKey = p => p.id === 'add' ? formKey() : p.id === 'after' ? P.after.screens[Aft.v] : p.id === 'actions' ? ACT[Act.key].screen : p.dataset.screen;
+const panelCap = p => p.id === 'add' ? (TF ? ((tfB() && tfEl().dataset.capB) || tfEl().dataset.cap) : Type.step === stepEls.length - 1 && Type.manual ? P.type[Type.manual === typeKey('a') ? 'a' : 'b'].cap : stepEls[Type.step].dataset.cap) : p.id === 'after' ? P.after.caps[Aft.v] : p.id === 'actions' ? ACT[Act.key].cap : p.dataset.cap;
 
 /* ---------- screen compositor (one 660 × 1434 canvas = the phone's screen) ---------- */
 const SW = 660, SH = 1434;
@@ -856,7 +901,7 @@ const IMG = {};
 const loadImg = k => new Promise(res => { const im = new Image(); im.decoding = 'async'; im.onload = () => res(im); im.onerror = () => res(null); im.src = A.img[k]; IMG[k] = im; });
 let tex = null;
 const ok = im => im && im.complete && im.naturalWidth;
-// Two screens change in place (the form, and the regular / trial example): their images cross-fade and the highlight slides.
+// Screens that change in place (the form, the example, the actions): their images cross-fade and the highlight slides.
 function makeFader() {
   const F = { key: null, img: null, prev: null, mix: 1, rect: null, rectTo: null, live: false };
   F.set = key => {
@@ -878,7 +923,7 @@ const FAD = { form: makeFader(), cyc: makeFader(), act: makeFader() };
 function drawHl(rc) {
   const [x, y, w, h, r] = rc;
   sx.beginPath(); sx.roundRect ? sx.roundRect(x, y, w, h, r) : sx.rect(x, y, w, h);
-  sx.fillStyle = 'rgba(149,92,130,.07)'; sx.fill(); sx.lineWidth = 4; sx.strokeStyle = 'rgba(149,92,130,.8)'; sx.stroke();
+  sx.fillStyle = `rgba(${HL},.07)`; sx.fill(); sx.lineWidth = 4; sx.strokeStyle = `rgba(${HL},.8)`; sx.stroke();
 }
 function drawKey(key) {
   const s = SCREENS[key], F = FAD[s.fam];
@@ -998,23 +1043,23 @@ function frame(now) {
   const dt = Math.min(.1, (now - last) / 1000); last = now;
   const sy = scrollY, vh = L.vh;
   $('#nav').classList.toggle('solid', sy > 24);
-  // the three steps and the switch follow the scroll while their panel is pinned
+  // the steps and the switch follow the scroll while their panel is pinned
   const mob = isMobile();
   if (!mob || M.pin) {
     const pos = clamp(Math.floor(mob ? (sy - M.addStart) / M.addStep + .06 : (sy - L.pinStart + vh * .05) / (STEP * vh)), 0, stepEls.length - 1);
-    const k = mob ? MORDER[pos] : pos;
+    const k = mob && !TF ? MORDER[pos] : pos;
     if (k !== Type.step || !stepEls[k].classList.contains('on')) {
-      Type.step = k; Type.manual = null;
+      Type.step = k; if (!TF) Type.manual = null;
       stepEls.forEach((el, i) => el.classList.toggle('on', i === k));
       addDots.forEach((el, i) => el.classList.toggle('on', i === pos));
-      showType(!mob && k === stepEls.length - 1);
+      if (!TF) showType(!mob && k === stepEls.length - 1 ? 'b' : 'a');
     }
   }
-  if (mob && M.pin) {      // the three actions follow the scroll too
+  if (mob && M.pin) {      // the actions follow the scroll too
     const a = clamp(Math.floor((sy - M.actStart) / M.actStep + .06), 0, actBtns.length - 1);
     if (a !== M.act) { M.act = a; setAct(actBtns[a]); }
   }
-  FAD.form.set(formKey()); FAD.cyc.set(Cyc.trial ? 'c_trial' : 'c_reg'); FAD.act.set(ACT[Act.key].screen);
+  FAD.form.set(formKey()); FAD.cyc.set(P.after.screens[Aft.v]); FAD.act.set(ACT[Act.key].screen);
   const fm = FAD.form.tick(dt), cm = FAD.cyc.tick(dt), am = FAD.act.tick(dt);
   M.force = fm || cm || am;
   if (mob) fragTick();
@@ -1077,15 +1122,14 @@ function phoneWide(sy, now, dt) {
   if (ARRIVE) requestAnimationFrame(() => dropGhost(true));
 }
 // small screens. A phone that follows the page from a fixed canvas trembles there, because the page scrolls
-// without waiting for the script. So each place the phone appears (under the first screen, and the window of
-// each pinned scene) has its own small canvas that is part of the page and scrolls with it. The 3D phone is
-// rendered into it only when its picture changes: a new state, the highlight sliding, a resize.
+// without waiting for the script. So the phone under the first screen has its own small canvas that is part
+// of the page and scrolls with it. It is rendered once, and again only on a resize.
 const MS = [
   { slot: heroSlot, key: () => hero.dataset.screen, hero: true },
 ].map(o => { const cv = document.createElement('canvas'); cv.className = 'pcv'; o.slot.appendChild(cv); return { ...o, cv, cx: cv.getContext('2d'), off: null, sig: '' }; });
 // The two pinned scenes show no phone at all, only a large piece of the real screenshot (.frag) with a frame on
 // the part being talked about. Plain CSS does the moving, so there is nothing to redraw while the page scrolls.
-const FRAME = { a_cancel: [30, 1090, 600, 290], a_resume: [14, 1258, 632, 124] };       // where the padded highlight is not enough
+const FRAME = P.frame || {};       // where the padded highlight is not enough
 const fragRect = key => FRAME[key] || (r => [r[0] - 12, r[1] - 12, r[2] + 24, r[3] + 24])(SCREENS[key].hl);
 const FS = [
   { slot: $('#add .pslot'), key: () => formKey() },
@@ -1142,7 +1186,8 @@ function phoneSmall(now, dt) {
 /* ---------- boot ---------- */
 (async function boot() {
   await Promise.all([...new Set(Object.values(SCREENS).map(s => s.img))].map(loadImg));
-  measure(); FAD.form.set(formKey()); FAD.cyc.set('c_reg'); FAD.act.set('a_cancel'); cap.textContent = capText = hero.dataset.cap; paint(true);
+  measure(); FAD.form.set(formKey()); FAD.cyc.set(P.after.screens.a); FAD.act.set(ACT[Act.key].screen); cap.textContent = capText = hero.dataset.cap; paint(true);
+  if (P.init) P.init(A);
   requestAnimationFrame(t => { last = t; frame(t); });
   let rt; const re = () => { clearTimeout(rt); rt = setTimeout(measure, 150); };
   addEventListener('resize', re); new ResizeObserver(re).observe(document.body);
