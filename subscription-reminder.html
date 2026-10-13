@@ -513,10 +513,19 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
   .gal-row::-webkit-scrollbar{display:none}
   .gal figure{scroll-snap-align:center}
 }
+/* typeFirst pages: the type switch sits inside the first of three steps, so the pinned scene is shorter */
+.steps3 .tsw{display:grid;gap:10px;margin-top:6px}
+.steps3 .tsw .seg{justify-self:start}
+.steps3 .tsw p{min-height:2.8em}
+.pinwrap.tf{height:calc(94vh + 150vh)}
+@media (max-width:820px){
+  .steps3 .tsw p{min-height:4.2em}
+  .pinwrap.tf{height:calc(100svh + 190vh)}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Aheado", "operatingSystem": "iOS", "applicationCategory": "ProductivityApplication", "description": "Reminder app for iPhone: subscriptions and free trials, bills, documents, events, deadlines and routines.", "url": "https://aheado.io/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aheado", "item": "https://aheado.io/"}, {"@type": "ListItem", "position": 2, "name": "Subscription reminders", "item": "https://aheado.io/subscription-reminder"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What app reminds me before a subscription renews?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado is an iPhone app that sends a renewal reminder before each subscription payment. You add a subscription with its price, billing cycle and next payment date, choose how many days ahead you want a warning, and the reminders repeat every cycle."}}, {"@type": "Question", "name": "How do I remember to cancel a free trial before it charges me?", "acceptedAnswer": {"@type": "Answer", "text": "Use Aheado as a free trial reminder: add the trial with the date of its first charge. Aheado reminds you on the days you choose before that date, for example three days and one day ahead, while cancelling is still free. Each reminder says when the trial ends and what it will cost after."}}, {"@type": "Question", "name": "Is there a subscription tracker that doesn’t connect to my bank account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Aheado never asks for bank, card or email access. You enter each subscription yourself, and your entries are stored on your iPhone."}}, {"@type": "Question", "name": "How can I see what I’ll pay for subscriptions this month?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado’s calendar shows every charge on its day with the amount next to it. With Aheado+, the large Home Screen widget adds up your payments for the next 30 days, per currency."}}, {"@type": "Question", "name": "Can an app cancel my subscriptions for me?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado doesn’t. It reminds you in time, and you cancel with the service itself. Then you mark the subscription as cancelled in Aheado, and it shows the day your access ends."}}, {"@type": "Question", "name": "Is Aheado free?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado is free for up to 10 entries across all six categories. Aheado+ removes the limit: $1.99 a month, $14.99 a year with the first month free, or $34.99 once."}}, {"@type": "Question", "name": "Is there a subscription reminder app that works without an account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Aheado has no sign-up, email or password. Reminders are scheduled on the iPhone itself, so they arrive even without a connection."}}, {"@type": "Question", "name": "How do I keep track of yearly subscriptions I always forget?", "acceptedAnswer": {"@type": "Answer", "text": "Add it to Aheado with a yearly billing cycle and pick early reminders, such as a month and a week before. You get them every year without setting anything up again."}}, {"@type": "Question", "name": "Doesn’t the iPhone already show my subscriptions?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone Settings lists subscriptions billed through Apple. Aheado is for everything, including what you pay directly, such as streaming billed by card, a gym or a domain, with reminders on the days you choose."}}, {"@type": "Question", "name": "Does Aheado work on Android?", "acceptedAnswer": {"@type": "Answer", "text": "No. Aheado is made for iPhone."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What app reminds me before a subscription renews?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado is an iPhone app that sends a renewal reminder before each subscription payment. You add a subscription with its price, billing cycle and next payment date, choose how many days ahead you want a warning, and the reminders repeat every cycle."}}, {"@type": "Question", "name": "How do I remember to cancel a free trial before it charges me?", "acceptedAnswer": {"@type": "Answer", "text": "Use Aheado as a free trial reminder: add the trial with the date of its first charge. Aheado reminds you on the days you choose before that date, for example three days and one day ahead, while cancelling is still free. Each reminder says when the trial ends and what it will cost after."}}, {"@type": "Question", "name": "Is there a subscription tracker that doesn’t connect to my bank account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Aheado never asks for bank, card or email access. You enter each subscription yourself, and your entries stay on your own devices."}}, {"@type": "Question", "name": "Why not just use Calendar or Reminders?", "acceptedAnswer": {"@type": "Answer", "text": "You can, but they only know a date. Aheado knows what each subscription costs and how often it renews, moves on to the next charge by itself, and counts a free trial down to its first payment."}}, {"@type": "Question", "name": "How can I see what I’ll pay for subscriptions this month?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado’s calendar shows every charge on its day with the amount next to it. With Aheado+, the large Home Screen widget adds up your payments for the next 30 days, per currency."}}, {"@type": "Question", "name": "Can an app cancel my subscriptions for me?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado doesn’t. It reminds you in time, and you cancel with the service itself. Then you mark the subscription as cancelled in Aheado, and it shows the day your access ends."}}, {"@type": "Question", "name": "What subscriptions can I track?", "acceptedAnswer": {"@type": "Answer", "text": "Anything that renews: streaming, music, cloud storage, apps, software, news, the gym, domains and hosting, or insurance paid monthly or yearly. It doesn’t matter whether you pay through Apple, by card or by bank transfer."}}, {"@type": "Question", "name": "Is Aheado free?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado is free for up to 10 entries across all six categories. Aheado+ removes the limit: $1.99 a month, $14.99 a year with the first month free, or $34.99 once."}}, {"@type": "Question", "name": "Is there a subscription reminder app that works without an account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Aheado has no sign-up, email or password. Reminders are scheduled on the iPhone itself, so they arrive even without a connection."}}, {"@type": "Question", "name": "Does it sync across my iPhone and iPad?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with Aheado+. Your subscriptions sync through your own iCloud, so an entry added or changed on one device shows up on the other. Without Aheado+, everything stays on the device you use."}}, {"@type": "Question", "name": "How do I keep track of yearly subscriptions I always forget?", "acceptedAnswer": {"@type": "Answer", "text": "Add it to Aheado with a yearly billing cycle and pick early reminders, such as a month and a week before. You get them every year without setting anything up again."}}, {"@type": "Question", "name": "Doesn’t the iPhone already show my subscriptions?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone Settings lists subscriptions billed through Apple. Aheado is for everything, including what you pay directly, such as streaming billed by card, a gym or a domain, with reminders on the days you choose."}}, {"@type": "Question", "name": "Does Aheado work on Android?", "acceptedAnswer": {"@type": "Answer", "text": "No. Aheado is made for iPhone."}}]}</script>
 <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/examples/jsm/"}}</script>
 </head>
 <body>
@@ -558,7 +567,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
         <ul class="menu-cats">
           <li><a href="/#cats"><span class="tile" style="background:#383D44;color:#84B8DD"><svg class="ico"><use href="#i-doc"/></svg></span><span>Documents<small>Passports, visas, licences and insurance.</small></span></a></li>
           <li><a href="#top" aria-current="page"><span class="tile" style="background:#45393F;color:#D39EC0"><svg class="ico"><use href="#i-sub"/></svg></span><span>Subscriptions<small>Free trials and renewals, flagged before the first charge.</small></span></a></li>
-          <li><a href="/bill-reminder"><span class="tile" style="background:#443B34;color:#CEAB76"><svg class="ico"><use href="#i-bill"/></svg></span><span>Bills<small>Rent and utilities you pay yourself, with a nudge before the due date.</small></span></a></li>
+          <li><a href="/bill-reminder"><span class="tile" style="background:#443B34;color:#CEAB76"><svg class="ico"><use href="#i-bill"/></svg></span><span>Bills<small>Rent and utilities you pay yourself, with reminders until they’re paid.</small></span></a></li>
           <li><a href="/#cats"><span class="tile" style="background:#383E3E;color:#82BFB6"><svg class="ico"><use href="#i-event"/></svg></span><span>Events<small>Birthdays, flights and appointments, on the day or hours before.</small></span></a></li>
           <li><a href="/#cats"><span class="tile" style="background:#3F3B44;color:#B0A9DF"><svg class="ico"><use href="#i-flag"/></svg></span><span>Deadlines<small>Tax returns and applications that can’t slip.</small></span></a></li>
           <li><a href="/#cats"><span class="tile" style="background:#3D3E37;color:#9EBC8E"><svg class="ico"><use href="#i-routine"/></svg></span><span>Routine<small>Vitamins, plants and habits, at the times you set.</small></span></a></li>
@@ -577,37 +586,33 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <nav class="crumb" aria-label="Breadcrumb"><a href="/#cats">Aheado</a><span class="sep" aria-hidden="true"></span><span class="tile"><svg class="ico"><use href="#i-sub"/></svg></span><span>Subscriptions</span></nav>
       <h1>Subscription reminders, before every charge.</h1>
       <p class="lead">Aheado is a subscription reminder and tracker for iPhone. Add a subscription or a free trial once, and it tells you before each payment, every cycle.</p>
-      <div class="cta-row"><a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="textlink" href="#add">See how it works</a></div>
+      <div class="cta-row"><a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="textlink" href="#add">Tracking a free trial?</a></div>
       <p class="fine">Free to start. No account needed.</p>
       <div class="hero-slot" id="heroSlot" aria-hidden="true"></div>
       <figure class="shot"><img src="assets/sub/subs_list.jpg" width="660" height="1434" loading="lazy" data-img="list" alt="Aheado Watchlist filtered by Subscriptions: Duolingo Super, Netflix, Spotify and iCloud+"><figcaption>The Watchlist, filtered by Subscriptions</figcaption></figure>
     </section>
 
-    <section class="trust" aria-label="What Aheado doesn’t do">
-      <h2>What Aheado doesn’t do.</h2>
+    <section class="trust" aria-label="No bank login, no auto-cancel">
+      <h2>No bank login. No auto-cancel.</h2>
       <div class="nots">
         <div class="not"><h3>It doesn’t connect to your bank</h3><p>You type in what you pay. Nothing to link, no login to hand over.</p></div>
         <div class="not"><h3>It doesn’t cancel for you</h3><p>You cancel with the service. Aheado makes sure you remember in time.</p></div>
       </div>
     </section>
 
-    <div class="pinwrap" id="pinwrap">
+    <div class="pinwrap tf" id="pinwrap">
       <section class="panel" id="add" style="--bg:linear-gradient(150deg,#F3E7ED,#E7D6E0)">
         <div class="txt">
           <h2><span class="eb">How to set a subscription reminder</span>Three things, and it’s set.</h2>
-          <p class="mdots" id="addDots"><i></i><i></i><i></i><i></i><button type="button" class="mskip" data-skip="pinwrap">Skip</button></p>
+          <p class="mdots" id="addDots"><i></i><i></i><i></i><button type="button" class="mskip" data-skip="pinwrap">Skip</button></p>
           <div class="stepstack">
           <ol class="steps3">
-            <li data-step="0" data-screen="f_name" data-pose="f" data-cap="The form for a new subscription"><h3>Name it</h3><p>Spotify, iCloud+, the gym.</p></li>
-            <li data-step="1" data-screen="f_when" data-pose="f" data-cap="The form for a new subscription"><h3>When and how much</h3><p>The next payment, the amount, and how often it repeats.</p></li>
-            <li data-step="2" data-screen="f_remind" data-pose="f" data-cap="The form for a new subscription"><h3>How early to hear about it</h3><p>Pick your reminders. One, or several.</p></li>
+            <li id="swap" data-step="0" data-screen="f_reg" data-screen-b="f_trial" data-cap="A new subscription, set to Regular" data-cap-b="A new subscription, set to Free trial"><h3>Regular or free trial</h3>
+              <div class="tsw"><div class="seg" role="group" aria-label="Subscription type"><button type="button" data-v="a" aria-pressed="true">Regular</button><button type="button" data-v="b" aria-pressed="false">Free trial</button></div>
+              <p id="swapNote">Paid from the start. Aheado counts down to the next payment.</p></div></li>
+            <li data-step="1" data-screen="f_info" data-screen-b="f_info_b" data-cap="Name, next payment, amount and billing cycle" data-cap-b="Name, trial end, amount and billing cycle"><h3>Name, date and price</h3><p>What it’s called, when it charges next, how much and how often. For a free trial, the day it ends.</p></li>
+            <li data-step="2" data-screen="f_remind" data-cap="Reminders for a new subscription"><h3>How early to hear about it</h3><p>Pick one reminder or several. The latest is the day before the charge.</p></li>
           </ol>
-          <div class="swap" id="swap" data-step="3" data-screen="f_trial" data-pose="f2" data-cap="The same form, set to Free trial">
-            <div class="swap-h"><h3>Trying it free first?</h3>
-              <div class="seg" role="group" aria-label="Subscription type"><button type="button" data-v="a" aria-pressed="true">Regular</button><button type="button" data-v="b" aria-pressed="false">Free trial</button></div>
-            </div>
-            <p id="swapNote">Paid from the start. Aheado counts down to the next payment.</p>
-          </div>
           </div>
           <figure class="shot"><img id="formShot" src="assets/sub/form_regular.jpg" width="660" height="1434" loading="lazy" data-img="form" alt="Aheado form for a new subscription: type, name, next payment, amount, billing cycle, reminders, sound and note"><figcaption>The form for a new subscription</figcaption></figure>
           <div class="pslot" aria-hidden="true"></div>
@@ -677,38 +682,22 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <h2 style="margin-bottom:32px">Looking for a subscription reminder or tracker app?</h2>
       <details><summary>What app reminds me before a subscription renews?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Aheado is an iPhone app that sends a renewal reminder before each subscription payment. You add a subscription with its price, billing cycle and next payment date, choose how many days ahead you want a warning, and the reminders repeat every cycle.</p></details>
       <details><summary>How do I remember to cancel a free trial before it charges me?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Use Aheado as a free trial reminder: add the trial with the date of its first charge. Aheado reminds you on the days you choose before that date, for example three days and one day ahead, while cancelling is still free. Each reminder says when the trial ends and what it will cost after.</p></details>
-      <details><summary>Is there a subscription tracker that doesn’t connect to my bank account?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. Aheado never asks for bank, card or email access. You enter each subscription yourself, and your entries are stored on your iPhone.</p></details>
+      <details><summary>Is there a subscription tracker that doesn’t connect to my bank account?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. Aheado never asks for bank, card or email access. You enter each subscription yourself, and your entries stay on your own devices.</p></details>
+      <details><summary>Why not just use Calendar or Reminders?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>You can, but they only know a date. Aheado knows what each subscription costs and how often it renews, moves on to the next charge by itself, and counts a free trial down to its first payment.</p></details>
       <details><summary>How can I see what I’ll pay for subscriptions this month?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Aheado’s calendar shows every charge on its day with the amount next to it. With Aheado+, the large Home Screen widget adds up your payments for the next 30 days, per currency.</p></details>
       <details><summary>Can an app cancel my subscriptions for me?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Aheado doesn’t. It reminds you in time, and you cancel with the service itself. Then you mark the subscription as cancelled in Aheado, and it shows the day your access ends.</p></details>
+      <details><summary>What subscriptions can I track?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Anything that renews: streaming, music, cloud storage, apps, software, news, the gym, domains and hosting, or insurance paid monthly or yearly. It doesn’t matter whether you pay through Apple, by card or by bank transfer.</p></details>
       <details><summary>Is Aheado free?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Aheado is free for up to 10 entries across all six categories. Aheado+ removes the limit: $1.99 a month, $14.99 a year with the first month free, or $34.99 once.</p></details>
       <details class="more"><summary><span class="a">More questions, and how it works in detail</span><span class="b">Show fewer</span><span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary>
       <details><summary>Is there a subscription reminder app that works without an account?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. Aheado has no sign-up, email or password. Reminders are scheduled on the iPhone itself, so they arrive even without a connection.</p></details>
+      <details><summary>Does it sync across my iPhone and iPad?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes, with Aheado+. Your subscriptions sync through your own iCloud, so an entry added or changed on one device shows up on the other. Without Aheado+, everything stays on the device you use.</p></details>
       <details><summary>How do I keep track of yearly subscriptions I always forget?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Add it to Aheado with a yearly billing cycle and pick early reminders, such as a month and a week before. You get them every year without setting anything up again.</p></details>
       <details><summary>Doesn’t the iPhone already show my subscriptions?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>iPhone Settings lists subscriptions billed through Apple. Aheado is for everything, including what you pay directly, such as streaming billed by card, a gym or a domain, with reminders on the days you choose.</p></details>
       <details><summary>Does Aheado work on Android?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>No. Aheado is made for iPhone.</p></details>
       <h3 class="sub">How subscription reminders work in Aheado</h3>
-      <details><summary>What you set when you add a subscription<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
-        <p><b>Type.</b> Regular for something you already pay for, or Free trial for something that starts charging later.</p>
-        <p><b>Name.</b> Whatever you call it: Netflix, iCloud+ 200 GB, Gym.</p>
-        <p><b>Next payment.</b> The date of the next charge. Every later payment is counted from it.</p>
-        <p><b>Amount.</b> What one charge costs, in the currency you pay in.</p>
-        <p><b>Billing cycle.</b> Weekly, biweekly, monthly, quarterly, yearly, or a custom interval.</p>
-        <p><b>Reminders.</b> How far ahead you want to hear about a charge. Pick one or several. The latest is one day before.</p>
-        <p><b>Sound and note.</b> A built-in sound or a few words recorded in your own voice, and a note for anything worth keeping next to it.</p>
-      </div></details>
-      <details><summary>How renewal reminders and billing cycles work<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
-        <p>Reminders arrive on the days you picked and say what renews and how much it costs.</p>
-        <p>There is no reminder on the payment day itself. Aheado can’t know the hour a service charges you, so the last one comes the day before.</p>
-        <p>Once the payment date passes, the subscription moves to the next cycle on its own and the reminders start over.</p>
-      </div></details>
       <details><summary>How free trial reminders work<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
         <p>Choose Free trial as the type, set the day the trial ends and enter what it will cost afterwards. The list says when the trial ends. The subscription’s page shows Free, the price that follows per month and per year, and the date of the first charge.</p>
         <p>Reminders come before the first charge. After it, the entry carries on as a regular subscription with the billing cycle you set.</p>
-      </div></details>
-      <details><summary>After you cancel a subscription: resume or archive<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
-        <p>When you cancel a service, mark it cancelled in Aheado. Payment reminders stop, and the entry stays in your list until the day your access ends. The day before, you get one notification with Resume on it.</p>
-        <p>Resume brings the payment reminders back. You can also edit the amount, date or billing cycle at any time.</p>
-        <p>Archive keeps an entry and its history out of the way, and you can restore it. Delete removes it for good.</p>
       </div></details>
       <details><summary>Currencies and totals<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
         <p>Each subscription keeps the currency you entered. Aheado doesn’t convert between currencies, so totals are shown separately for each one.</p>
@@ -720,7 +709,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <h2 style="margin-bottom:32px">Everything else Aheado tracks.</h2>
       <div class="cats-grid">
         <a class="cat" href="/#cats"><span class="tile" style="background:#DCE3E8;color:#3A78A1"><svg class="ico"><use href="#i-doc"/></svg></span><h3>Documents</h3><p>Passports, visas, licences and insurance.</p></a>
-        <a class="cat" href="/bill-reminder"><span class="tile" style="background:#EAE0D4;color:#906A28"><svg class="ico"><use href="#i-bill"/></svg></span><h3>Bills</h3><p>Rent and utilities you pay yourself.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="cat" href="/bill-reminder"><span class="tile" style="background:#EAE0D4;color:#906A28"><svg class="ico"><use href="#i-bill"/></svg></span><h3>Bills</h3><p>Rent and utilities, with reminders until they’re paid.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
         <a class="cat" href="/#cats"><span class="tile" style="background:#DBE4E1;color:#358077"><svg class="ico"><use href="#i-event"/></svg></span><h3>Events</h3><p>Birthdays, flights and appointments.</p></a>
         <a class="cat" href="/#cats"><span class="tile" style="background:#E5E0E8;color:#7168A3"><svg class="ico"><use href="#i-flag"/></svg></span><h3>Deadlines</h3><p>Tax returns and applications that can’t slip.</p></a>
         <a class="cat" href="/#cats"><span class="tile" style="background:#E2E3D9;color:#5C7D49"><svg class="ico"><use href="#i-routine"/></svg></span><h3>Routine</h3><p>Vitamins, plants and habits.</p></a>
@@ -731,6 +720,7 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
       <h2>Forewarned is ahead.</h2>
       <p class="lead">Put your subscriptions in once. Aheado watches the dates for you.</p>
       <a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      <p class="fine">Free for up to 10 entries. <a href="/#pricing">Aheado+ from $1.99 a month.</a></p>
     </div></section>
   </div>
 </main>
@@ -740,12 +730,14 @@ button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
 <script>
 /* What this page shows on the phone: screens and highlights in the 660 × 1434 frame, and the two switches. */
 window.__PAGE = {
+  id: 'subscriptions',
   hl: [149, 92, 130],
+  typeFirst: true,
   screens: {
     list:     { img: 'list', fam: 'list' },
-    f_name:   { img: 'form', fam: 'form', hl: [27, 353, 606, 100, 30] },
-    f_when:   { img: 'form', fam: 'form', hl: [27, 463, 606, 281, 32] },
-    f_remind: { img: 'form', fam: 'form', hl: [27, 755, 606, 114, 30] },
+    f_info:   { img: 'form', fam: 'form', hl: [26, 351, 608, 394, 32] },
+    f_info_b: { img: 'formtrial', fam: 'form', hl: [26, 351, 608, 394, 32] },
+    f_remind: { img: 'remind', fam: 'form', hl: [22, 226, 616, 440, 34] },
     f_reg:    { img: 'form', fam: 'form', hl: [24, 239, 300, 102, 24] },
     f_trial:  { img: 'formtrial', fam: 'form', hl: [336, 239, 300, 102, 24] },
     c_reg:    { img: 'subdetail', fam: 'cyc', hl: [27, 702, 606, 345, 34] },
@@ -755,8 +747,8 @@ window.__PAGE = {
     a_archive:{ img: 'menu', fam: 'act', hl: [284, 170, 340, 66, 22] },
   },
   type: {
-    a: { screen: 'f_reg', cap: 'The form for a new subscription', note: 'Paid from the start. Aheado counts down to the next payment.' },
-    b: { screen: 'f_trial', cap: 'The same form, set to Free trial', note: 'Free first, then paid. “Next payment” becomes “Trial ends”, and the reminders count down to that day.' },
+    a: { screen: 'f_reg', cap: 'A new subscription, set to Regular', note: 'Paid from the start. Aheado counts down to the next payment.' },
+    b: { screen: 'f_trial', cap: 'A new subscription, set to Free trial', note: 'Free first, then paid. “Next payment” becomes “Trial ends”, and the reminders count down to that day.' },
   },
   after: {
     el: '#cycle',
@@ -779,10 +771,10 @@ window.__PAGE = {
     archive: { screen: 'a_archive', cap: 'The menu at the top: Edit, Archive, Delete' },
   },
   frame: { a_cancel: [30, 1090, 600, 290], a_resume: [14, 1258, 632, 124] },
-  morder: [3, 0, 1, 2],
+  morder: [0, 1, 2],
 };
 </script>
-<script>window.__A={"img": {"moon": "assets/img/moon.jpg", "list": "assets/sub/subs_list.jpg", "detail": "assets/sub/trial_still.jpg", "form": "assets/sub/form_regular.jpg", "subdetail": "assets/sub/sub_detail.jpg", "cancelsheet": "assets/sub/cancel_sheet.jpg", "cancelled": "assets/sub/sub_cancelled.jpg", "menu": "assets/sub/sub_menu.jpg", "formtrial": "assets/sub/form_trial.jpg", "calendar": "assets/sub/calendar_nov.jpg", "widgets": "assets/sub/homescreen_widgets.jpg"}, "glb": "assets/phone.glb", "icon": "assets/img/icon180.png"};</script>
+<script>window.__A={"img": {"moon": "assets/img/moon.jpg", "list": "assets/sub/subs_list.jpg", "detail": "assets/sub/trial_still.jpg", "form": "assets/sub/form_regular.jpg", "remind": "assets/sub/sub_reminders.jpg", "subdetail": "assets/sub/sub_detail.jpg", "cancelsheet": "assets/sub/cancel_sheet.jpg", "cancelled": "assets/sub/sub_cancelled.jpg", "menu": "assets/sub/sub_menu.jpg", "formtrial": "assets/sub/form_trial.jpg", "calendar": "assets/sub/calendar_nov.jpg", "widgets": "assets/sub/homescreen_widgets.jpg"}, "glb": "assets/phone.glb", "icon": "assets/img/icon180.png"};</script>
 <script type="module">
 /* =====================================================================
    Category page runtime (shared by all six category pages).
@@ -793,6 +785,10 @@ window.__PAGE = {
    each page's own src.html.
    ===================================================================== */
 const A = window.__A, P = window.__PAGE;
+/* analytics: events go through the page's Google tag (it respects the visitor's cookie choice); nothing happens without it */
+const PAGE_ID = P.id || location.pathname;
+const track = (name, params) => { try { if (typeof gtag === 'function') gtag('event', name, Object.assign({ page_id: PAGE_ID }, params)); } catch (e) {} };
+const placeOf = el => el.closest('.nav') ? 'nav' : el.closest('.menu') ? 'menu' : el.closest('.hero') ? 'hero' : el.closest('.closing') ? 'closing' : 'other';
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -813,7 +809,9 @@ $$('[data-icon]').forEach(i => i.src = A.icon);
 $$('[data-img]').forEach(i => { i.src = A.img[i.dataset.img]; i.loading = 'lazy'; });
 $('.menu-moon').style.backgroundImage = `url(${A.img.moon})`;
 // until the App Store link exists the badges point at "#": keep them from jumping to the top
-$$('.js-store').forEach(a => { a.setAttribute('aria-label', 'Download Aheado on the App Store'); if (a.getAttribute('href') === '#') a.addEventListener('click', e => e.preventDefault()); });
+$$('.js-store').forEach(a => { a.setAttribute('aria-label', 'Download Aheado on the App Store'); a.addEventListener('click', e => { track('store_click', { placement: placeOf(a) }); if (a.getAttribute('href') === '#') e.preventDefault(); }); });
+$$('a.cat').forEach(a => a.addEventListener('click', () => track('category_open', { category: (a.querySelector('h3') || a).textContent.trim(), placement: 'cards' })));
+$$('.faq details').forEach(d => d.addEventListener('toggle', () => { if (d.open) track('faq_open', { question: d.querySelector('summary').textContent.trim().slice(0, 100) }); }));
 
 /* ---------- menu (same as home) ---------- */
 const Menu = {
@@ -861,7 +859,7 @@ function showType(v) {
   swapNote.textContent = P.type[v].note;
   if (formShot) formShot.src = A.img[SCREENS[P.type[v].screen].img];
 }
-typeBtns.forEach(b => b.addEventListener('click', () => { if (TF) Type.v = b.dataset.v; else Type.manual = P.type[b.dataset.v].screen; showType(b.dataset.v); }));
+typeBtns.forEach(b => b.addEventListener('click', () => { track('type_switch', { value: b.textContent.trim() }); if (TF) Type.v = b.dataset.v; else Type.manual = P.type[b.dataset.v].screen; showType(b.dataset.v); }));
 // on phones the type comes first and starts on the first option; on wide screens it is the last step and shows the second
 const MORDER = P.morder || [3, 0, 1, 2];
 const typeKey = v => P.type[v].screen;
@@ -877,7 +875,7 @@ function showAfter(v) {
   const apply = () => { P.after.apply(v, A); const sh = $('#cycShot'); if (sh) { sh.src = A.img[SCREENS[P.after.screens[v]].img]; } const sc = $('#cycShotCap'); if (sc) sc.textContent = P.after.caps[v]; if (aftEl) aftEl.classList.remove('swapping'); };
   if (RM || !aftEl) apply(); else { aftEl.classList.add('swapping'); setTimeout(apply, 200); }
 }
-aftBtns.forEach(b => b.addEventListener('click', () => showAfter(b.dataset.v)));
+aftBtns.forEach(b => b.addEventListener('click', () => { track('example_switch', { value: b.textContent.trim() }); showAfter(b.dataset.v); }));
 
 /* ---------- the action tiles ---------- */
 const ACT = P.act;
@@ -887,9 +885,9 @@ function setAct(b) {
   Act.key = b.dataset.act; actBtns.forEach((x, i) => { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); if (actDots[i]) actDots[i].classList.toggle('on', x === b); });
   $('#actShot').src = A.img[SCREENS[ACT[Act.key].screen].img]; $('#actShotCap').textContent = ACT[Act.key].cap;
 }
-actBtns.forEach(b => b.addEventListener('click', () => setAct(b)));
+actBtns.forEach(b => b.addEventListener('click', () => { track('action_select', { action: b.dataset.act }); setAct(b); }));
 // phones: leave a pinned scene at once
-$$('.mskip').forEach(b => b.addEventListener('click', () => { const w = $('#' + b.dataset.skip), y = w.getBoundingClientRect().top + scrollY + w.offsetHeight - 70; scrollTo({ top: y, behavior: RM ? 'auto' : 'smooth' }); }));
+$$('.mskip').forEach(b => b.addEventListener('click', () => { track('skip_click', { scene: b.dataset.skip }); const w = $('#' + b.dataset.skip), y = w.getBoundingClientRect().top + scrollY + w.offsetHeight - 70; scrollTo({ top: y, behavior: RM ? 'auto' : 'smooth' }); }));
 const panelKey = p => p.id === 'add' ? formKey() : p.id === 'after' ? P.after.screens[Aft.v] : p.id === 'actions' ? ACT[Act.key].screen : p.dataset.screen;
 const panelCap = p => p.id === 'add' ? (TF ? ((tfB() && tfEl().dataset.capB) || tfEl().dataset.cap) : Type.step === stepEls.length - 1 && Type.manual ? P.type[Type.manual === typeKey('a') ? 'a' : 'b'].cap : stepEls[Type.step].dataset.cap) : p.id === 'after' ? P.after.caps[Aft.v] : p.id === 'actions' ? ACT[Act.key].cap : p.dataset.cap;
 
