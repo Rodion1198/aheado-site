@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; media-src 'self' blob:; connect-src 'self' blob: https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google tag (gtag.js) with Consent Mode v2: no analytics cookies until the visitor accepts -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+  try { if (localStorage.getItem('aheado-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y83TES1B8Z"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-Y83TES1B8Z');
+</script>
+<script src="/consent.js" defer></script>
+<title>Document Expiration Reminder for iPhone | Aheado</title>
+<meta name="description" content="Document expiration reminders for iPhone. Get reminded months before a passport, ID, driver’s license or insurance expires, and renew in one sheet.">
+<meta name="theme-color" content="#F1EDEB">
+<link rel="canonical" href="https://aheado.io/document-expiration-reminder">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aheado">
+<meta property="og:url" content="https://aheado.io/document-expiration-reminder">
+<meta property="og:title" content="Document Expiration Reminder for iPhone | Aheado">
+<meta property="og:description" content="Document expiration reminders for iPhone. Get reminded months before a passport, ID, driver’s license or insurance expires, and renew in one sheet.">
+<meta property="og:image" content="https://aheado.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Aheado app: Nothing slips through. Reminders for documents, bills and subscriptions.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/literata-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/phone.glb" as="fetch" type="model/gltf-binary" crossorigin>
+<style>@font-face{font-family:"Literata";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/literata-latin-ext-opsz-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Literata";font-style:normal;font-weight:200 900;font-display:swap;src:url(fonts/literata-latin-opsz-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Onest";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/onest-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style>
+<style>/* Shared by all category pages. Layout: a reference page. Text runs down the left column; one 3D iPhone
+   stays pinned on the right and turns to the screen each section talks about. Below the phone zone the
+   page goes full width. Each page sets its own tint (--cat …) in its own src.html. */
+:root{
+  /* shared with the home page */
+  --paper:#F1EDEB;--card:#FBF7F5;--rule:#E4DBD8;--hair:#ECE5E2;
+  --ink:#2A2224;--ink2:#544749;--muted:#756869;
+  --accent:#7A3341;--accent-text:#72303D;--accent-wash:#EEDCDF;
+  --night:#211E1F;--cream:#FFF6EC;
+  /* this category (subscriptions by default; other pages override) */
+  --cat:#955C82;--cat-ink:#7B4A6B;--cat-tile:#EBDEE3;--cat-wash:#EFE3E9;--cat-rgb:149,92,130;--cat-ink-rgb:123,74,107;
+  --display:"Literata","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --ui:"Onest",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(20px,5vw,72px);--maxw:1320px;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--paper);scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.55 var(--ui);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg,canvas{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* type */
+h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;font-weight:600;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(42px,5.4vw,80px);line-height:.98}
+h2{font-size:clamp(32px,3.5vw,50px);line-height:1.04}
+h3{font-size:23px;line-height:1.15;letter-spacing:-.01em}
+p{margin:0;text-wrap:pretty}
+.lead{font-size:clamp(18px,1.4vw,21px);line-height:1.5;color:var(--ink2);max-width:33em}
+.body{color:var(--ink2);max-width:34em}
+
+/* App Store badge */
+.badge{display:inline-flex;align-items:center;gap:9px;height:56px;padding:0 20px 0 16px;border-radius:14px;background:#000;color:#fff;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.badge:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px rgba(42,34,36,.55)}
+.badge svg{width:24px;height:24px;fill:currentColor}
+.badge span{display:flex;flex-direction:column;line-height:1;font-family:-apple-system,BlinkMacSystemFont,"Onest",sans-serif}
+.badge small{font-size:11px;margin-bottom:3px}
+.badge b{font-size:22px;font-weight:600;letter-spacing:-.02em}
+.badge.sm{height:40px;border-radius:10px;padding:0 13px 0 11px;gap:7px}
+.badge.sm svg{width:17px;height:17px}
+.badge.sm small{font-size:8.5px;margin-bottom:2px}
+.badge.sm b{font-size:15px}
+
+/* nav (same as home) */
+.nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .35s,box-shadow .35s}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav.solid{background:rgba(241,237,235,.86);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--rule)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 19px/1 var(--ui);letter-spacing:-.01em;transition:color .35s}
+.appicon{width:34px;height:34px;border-radius:9px;flex:none;object-fit:cover}
+.nav-r{display:flex;align-items:center;gap:14px}
+.menu-btn{width:46px;height:46px;border-radius:50%;border:0;background:rgba(251,247,245,.72);box-shadow:inset 0 0 0 1px var(--rule);position:relative;z-index:60}
+.menu-btn i{position:absolute;left:14px;right:14px;height:2px;border-radius:2px;background:var(--ink);transition:transform .45s cubic-bezier(.65,0,.35,1),background .45s,top .45s cubic-bezier(.65,0,.35,1)}
+.menu-btn i:nth-child(1){top:18px}.menu-btn i:nth-child(2){top:26px}
+.menu-open .nav{z-index:58;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.menu-open .nav .brand{color:var(--cream)}
+.menu-open .nav .badge{opacity:0;pointer-events:none}
+.menu-open .menu-btn{background:rgba(255,246,236,.1);box-shadow:inset 0 0 0 1px rgba(255,246,236,.22)}
+.menu-open .menu-btn i{background:var(--cream);top:22px}
+.menu-open .menu-btn i:nth-child(1){transform:rotate(45deg)}
+.menu-open .menu-btn i:nth-child(2){transform:rotate(-45deg)}
+.nav-links{display:none;gap:28px;margin-right:10px}
+.nav-links a{font:600 15px/1 var(--ui);text-decoration:none;color:var(--ink);opacity:.8;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.menu-open .nav .nav-links{opacity:0;pointer-events:none}
+@media (min-width:900px){.nav-links{display:flex}}
+@media (max-width:640px){.nav-r{gap:10px}.nav .badge.sm{height:36px;padding:0 11px 0 9px}.nav .badge.sm b{font-size:14px}}
+@media (max-width:350px){.nav .badge{display:none}}
+
+/* menu: night falls (same as home) */
+.menu{position:fixed;inset:0;z-index:55;color:var(--cream);visibility:hidden;clip-path:circle(0px at var(--mx,95%) var(--my,36px));transition:clip-path .7s cubic-bezier(.65,0,.35,1),visibility 0s .7s;background:linear-gradient(#221621,#2E1C2A 55%,#3A2233);overflow-y:auto;overscroll-behavior:contain}
+.menu-open .menu{visibility:visible;clip-path:circle(150vmax at var(--mx,95%) var(--my,36px));transition:clip-path .8s cubic-bezier(.65,0,.35,1),visibility 0s}
+.menu canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.menu-moon{position:absolute;right:7vw;bottom:11vh;width:84px;height:84px;border-radius:50%;background:#bbb center/cover;filter:saturate(.55) sepia(.08) brightness(1.04);box-shadow:0 0 70px 22px rgba(232,220,226,.16),0 0 16px 2px rgba(255,240,245,.22);opacity:0;transform:translateY(30px);transition:opacity .6s .35s,transform .9s .3s cubic-bezier(.2,.8,.2,1)}
+.menu-open .menu-moon{opacity:1;transform:none}
+.menu-in{position:relative;min-height:100%;display:grid;grid-template-columns:1.3fr 1fr;gap:48px 64px;padding:120px var(--gutter) 48px;max-width:var(--maxw);margin:0 auto}
+.menu-main a{display:block;font:600 clamp(40px,6vw,76px)/1.08 var(--display);text-decoration:none;letter-spacing:-.02em;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1),color .2s}
+.menu-main a:hover{color:#F5C9CF}
+.menu-open .menu-main a,.menu-open .menu-side>*{opacity:1;transform:none}
+.menu-main a:nth-child(1){transition-delay:.18s}.menu-main a:nth-child(2){transition-delay:.23s}.menu-main a:nth-child(3){transition-delay:.28s}.menu-main a:nth-child(4){transition-delay:.33s}
+.menu-side>*{opacity:0;transform:translateY(14px);transition:opacity .5s .36s,transform .6s .36s cubic-bezier(.2,.8,.2,1)}
+.menu h3,.menu .mh{font:600 14px/1 var(--ui);letter-spacing:0;color:rgba(255,246,236,.6);margin:0 0 14px}
+.menu-cats{list-style:none;margin:0 0 34px;padding:0;display:grid;gap:4px}
+.menu-cats a{display:flex;align-items:center;gap:14px;padding:9px 10px;margin:0 -10px;border-radius:12px;text-decoration:none;font:500 18px/1.2 var(--ui)}
+.menu-cats a:hover,.menu-cats a[aria-current]{background:rgba(255,246,236,.07)}
+.menu-cats .tile{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:18px}
+.menu-cats small{display:block;font-size:13.5px;color:rgba(255,246,236,.6);margin-top:2px;font-weight:400}
+.menu-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 30px;font-size:15px}
+.menu-links a{color:rgba(255,246,236,.75);text-decoration:none}
+.menu .badge{background:var(--cream);color:#000}
+@media (max-width:860px){.menu-moon{right:22px;bottom:auto;top:96px;width:44px;height:44px}.menu-in{grid-template-columns:1fr;padding-top:96px;gap:28px;padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
+  .menu{-webkit-overflow-scrolling:touch}
+  .menu canvas{position:fixed}
+  .menu-main a{font-size:clamp(34px,9.5vw,44px)}
+  .menu-open .nav{background:linear-gradient(to bottom,#1F1820 0%,#1F1820 62%,rgba(31,24,32,0) 100%);box-shadow:none}
+  .menu-cats{margin-bottom:24px;gap:0}.menu-cats a{padding:7px 10px;font-size:17px}.menu-cats small{display:none}.menu-cats .tile{width:30px;height:30px;font-size:16px}}
+
+/* the phone */
+#gl{position:fixed;left:0;top:0;width:100vw;height:100vh;height:100lvh;z-index:3;pointer-events:none;opacity:0;transition:opacity .8s}
+#gl.ready{opacity:1}
+@media (min-width:821px){.arrive #gl{transition:none}}
+@media (prefers-reduced-motion:no-preference){
+  .arrive .hero>*{animation:arrive .85s cubic-bezier(.2,.8,.2,1) both}
+  .arrive .hero>:nth-child(2){animation-delay:.07s}.arrive .hero>:nth-child(3){animation-delay:.16s}.arrive .hero>:nth-child(4){animation-delay:.24s}.arrive .hero>:nth-child(n+5){animation-delay:.3s}
+}
+@keyframes arrive{from{opacity:0;transform:translateY(20px)}}
+
+/* phone zone: text left, pinned stage right */
+main{position:relative;background:linear-gradient(168deg,var(--cat-wash) 0,rgba(239,227,233,0) 760px)}
+.zone{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);column-gap:clamp(32px,5vw,88px);align-items:start}
+.flow{min-width:0}
+.stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3.2vh}
+.stage-cap{font:500 14px/1.3 var(--ui);color:var(--muted);text-align:center;max-width:22em;transition:opacity .3s}
+.stage-cap.swap{opacity:0}
+.sec{padding-block:clamp(64px,11vh,120px)}
+.sec>h2{margin-bottom:18px}
+.sec>.lead{margin-bottom:34px}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:120px 64px}
+.crumb{display:flex;align-items:center;gap:10px;font:600 15px/1 var(--ui);color:var(--ink2);margin-bottom:26px}
+.crumb a{text-decoration:none;color:var(--muted)}
+.crumb a:hover{color:var(--ink)}
+.crumb .sep{width:5px;height:5px;border-right:1.5px solid var(--muted);border-top:1.5px solid var(--muted);transform:rotate(45deg)}
+.crumb .tile{width:30px;height:30px;border-radius:9px;background:var(--cat-tile);color:var(--cat);display:grid;place-items:center;font-size:17px}
+.hero h1{margin-bottom:24px}
+.hero .lead{margin-bottom:34px}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.textlink{font:600 16px/1 var(--ui);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:3px}
+.fine{margin-top:18px;font-size:14.5px;color:var(--ink2)}
+.hero-slot{display:none}
+
+/* static screenshots: shown where the 3D phone is not (small screens, no WebGL) */
+.shot{display:none;margin:30px auto 0;width:min(62vw,250px)}
+.shot img{width:100%;border-radius:13.5%/6.2%;border:7px solid #161415;background:#161415;box-shadow:0 30px 50px -28px rgba(58,30,40,.55)}
+.shot figcaption{margin-top:12px;font:500 13.5px/1.35 var(--ui);color:var(--muted);text-align:center}
+.nogl .shot{display:block}
+.nogl .stage{visibility:hidden}
+
+/* the form, field by field */
+.fields{margin:0;border-top:1px solid var(--rule)}
+.fields>div{display:grid;grid-template-columns:minmax(0,10.5em) minmax(0,1fr);gap:4px 28px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.fields dt{font:650 17px/1.4 var(--ui)}
+.fields dt small{display:block;font:500 13px/1.4 var(--ui);color:var(--cat-ink);margin-top:2px}
+.fields dd{margin:0;color:var(--ink2);font-size:17px}
+.fields dd b{font-weight:600;color:var(--ink)}
+.opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.opts span{font:600 13.5px/1 var(--ui);padding:8px 12px;border-radius:999px;background:var(--card);box-shadow:inset 0 0 0 1px var(--rule);color:var(--ink)}
+
+/* facts */
+.facts{display:grid;gap:26px;margin-bottom:40px}
+.facts h3{margin-bottom:6px}
+.facts p{color:var(--ink2);max-width:33em}
+
+/* one cycle: the week before a payment, to scale */
+.cycle{background:var(--card);border-radius:24px;box-shadow:inset 0 0 0 1px var(--rule);padding:24px 24px 22px}
+.cycle-h{font:600 14px/1.4 var(--ui);color:var(--muted);margin-bottom:26px}
+.cycle-h b{color:var(--ink);font-weight:650}
+.track{position:relative;height:54px;margin-inline:12px}
+.track::before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;border-radius:2px;background:var(--rule)}
+.track .day{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font:500 13px/1 var(--ui);color:var(--muted);font-variant-numeric:tabular-nums}
+.track .day::before{content:"";width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--card);box-shadow:inset 0 0 0 2px var(--rule)}
+.track .day.r::before,.track .day.p::before{width:16px;height:16px;margin-top:4px;margin-bottom:-4px}
+.track .day.r::before{background:var(--cat);box-shadow:0 0 0 5px rgba(var(--cat-rgb),.16)}
+.track .day.p::before{background:var(--card);box-shadow:inset 0 0 0 2.5px var(--ink)}
+.track .day.r,.track .day.p{color:var(--ink);font-weight:700}
+.key{list-style:none;margin:20px 0 0;padding:16px 0 0;border-top:1px solid var(--hair);display:grid;gap:10px;font-size:15.5px;color:var(--ink2)}
+.key li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:12px;align-items:baseline}
+.key i{width:12px;height:12px;border-radius:50%;transform:translateY(1px)}
+.key .kr{background:var(--cat)}
+.key .kp{box-shadow:inset 0 0 0 2.5px var(--ink)}
+.key .kn{width:12px;height:12px;border-radius:0;border-right:2px solid var(--muted);border-top:2px solid var(--muted);transform:rotate(45deg) scale(.7)}
+.key b{color:var(--ink);font-weight:650}
+
+/* actions */
+.acts{display:grid;gap:0;border-top:1px solid var(--rule)}
+.act{padding:20px 0;border-bottom:1px solid var(--rule)}
+.act h3{font:650 19px/1.3 var(--ui);letter-spacing:0;margin-bottom:4px}
+.act p{color:var(--ink2);max-width:33em;font-size:17px}
+.notif{margin-top:16px;max-width:340px;border-radius:22px;background:rgba(255,253,252,.96);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 18px 40px -20px rgba(42,20,28,.4),0 2px 6px rgba(42,20,28,.07);padding:12px 14px 13px 12px;display:grid;grid-template-columns:38px minmax(0,1fr);gap:0 11px;font-family:-apple-system,BlinkMacSystemFont,var(--ui);color:#1f1a1b}
+.notif .appicon{width:38px;height:38px;border-radius:9px;grid-row:span 2}
+.notif .t{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-size:14.5px;line-height:1.25}
+.notif .t time{font-weight:400;font-size:12.5px;color:#7d7173}
+.notif p{font-size:14px;line-height:1.32;color:#2c2526;max-width:none}
+
+/* where you see it */
+.where{display:grid;gap:0}
+.where>div{padding-block:26px;border-top:1px solid var(--rule);transition:opacity .35s}
+.where>div:last-child{border-bottom:1px solid var(--rule)}
+.where h3{margin-bottom:6px}
+.where p{color:var(--ink2);max-width:33em}
+.gl .where>div{padding-block:clamp(40px,12vh,110px);opacity:.42}
+.gl .where>div.on{opacity:1}
+.plus{display:inline-block;font:650 12px/1 var(--ui);padding:5px 8px;border-radius:999px;background:var(--night);color:var(--cream);vertical-align:.12em;margin-left:6px}
+
+/* full-width part */
+.full{position:relative;z-index:4;background:var(--paper)}
+.full .sec{padding-block:clamp(56px,9vh,104px)}
+.tbl-wrap{overflow-x:auto;border-radius:24px;background:var(--card);box-shadow:inset 0 0 0 1px var(--rule);max-width:1040px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:16.5px}
+th,td{text-align:left;padding:16px 22px;border-bottom:1px solid var(--hair);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{font:600 13.5px/1.3 var(--ui);color:var(--muted)}
+td:first-child{font-weight:650}
+td.num{font-variant-numeric:tabular-nums}
+td.num small{font-size:.8em;color:var(--muted);font-weight:500;margin-right:3px}
+.tag{display:inline-flex;align-items:center;gap:7px;font:600 13.5px/1 var(--ui);padding:7px 11px;border-radius:999px;background:var(--paper)}
+.tag.trial{background:#EBE6D2;color:#5E5310}
+.tag.trial::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.note{margin-top:14px;font-size:14.5px;color:var(--muted)}
+.nots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1040px}
+.not{background:var(--card);border-radius:24px;padding:28px;box-shadow:inset 0 0 0 1px var(--rule)}
+.not h3{margin-bottom:8px}
+.not p{color:var(--ink2);font-size:17px}
+.faq{max-width:860px}
+.faq details{border-top:1px solid var(--rule)}
+.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font:600 clamp(19px,1.8vw,23px)/1.25 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pl{flex:none;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--rule);display:grid;place-items:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.faq details[open]>summary .pl{transform:rotate(45deg)}
+.faq details p{margin:-4px 0 24px;max-width:40em;color:var(--ink2)}
+.cats-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.cat{position:relative;display:flex;flex-direction:column;gap:10px;padding:20px;background:var(--card);border-radius:24px;text-decoration:none;box-shadow:inset 0 0 0 1px var(--rule);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.cat:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--rule),0 22px 40px -26px rgba(58,30,40,.45)}
+.cat .tile{width:44px;height:44px;border-radius:13px;font-size:22px;display:grid;place-items:center}
+.cat h3{margin-top:4px;font-size:22px}
+.cat p{color:var(--ink2);font-size:15px;line-height:1.45}
+.cat .go{position:absolute;right:18px;top:22px;font-size:18px;color:var(--muted);transition:transform .3s,color .3s}
+.cat:hover .go{transform:translate(3px,-3px);color:var(--ink)}
+.closing{text-align:center;padding-block:clamp(70px,12vh,130px)}
+.closing h2{font-size:clamp(40px,5.4vw,82px);line-height:1;margin-bottom:16px}
+.closing .lead{margin:0 auto 28px}
+footer{position:relative;z-index:5;background:var(--paper);border-top:1px solid var(--rule)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding-block:28px;font-size:14.5px;color:var(--ink2)}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot a{text-decoration:none}
+
+@media (max-width:1100px){.cats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:820px){
+  .zone{grid-template-columns:minmax(0,1fr)}
+  .stage{display:none}
+  .hero{min-height:0;padding-block:108px 20px;display:block}
+  .hero-slot{display:block;height:min(74vh,620px);margin-top:26px}
+  .nogl .hero-slot{display:none}
+  .shot{display:block}
+  .hero .shot{display:none}
+  .nogl .hero .shot{display:block}
+  .gl .where>div{padding-block:26px;opacity:1}
+  .fields>div{grid-template-columns:minmax(0,1fr)}
+  .nots{grid-template-columns:minmax(0,1fr)}
+  .cats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cycle{padding:20px 16px 18px}
+}
+@media (max-width:420px){.cats-grid{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+
+/* v3: every block is a tinted panel (as the feature panels on the home page); the phone passes over them. */
+.zone{display:block;position:relative}
+.stage{position:absolute;top:0;bottom:0;right:var(--gutter);width:38%;height:auto;display:block;padding:0;pointer-events:none;z-index:2}
+.stage-in{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3vh}
+.stage-cap{background:rgba(251,247,245,.82);padding:7px 14px;border-radius:999px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.stage-cap:empty{visibility:hidden}
+.hero{max-width:58%}
+.trust{max-width:58%;padding-bottom:clamp(60px,12vh,130px)}
+.trust h2{font-size:clamp(26px,2.5vw,36px);margin-bottom:22px}
+.trust .not{padding:24px}
+.trust .not p{font-size:16px}
+.panel{position:relative;border-radius:36px;background:var(--bg);min-height:94vh;margin-bottom:4vh;padding:clamp(28px,4.4vw,68px);display:flex;align-items:center;box-shadow:inset 0 0 0 1px rgba(122,51,65,.06)}
+.panel .txt{width:min(55%,640px);min-width:0}
+.panel h2{margin-bottom:16px}
+h2 .eb{display:block;margin-bottom:12px;font:650 14px/1.3 var(--ui);letter-spacing:.01em;color:var(--cat-ink)}
+.gal h2 .eb{color:rgba(255,246,236,.66)}
+.panel .lead{margin-bottom:30px}
+.panel .cycle,.panel .tile-a{background:rgba(255,253,252,.78);box-shadow:inset 0 0 0 1px rgba(42,34,36,.06)}
+.pinwrap{height:calc(94vh + 195vh);margin-bottom:4vh}
+.pinwrap>.panel{position:sticky;top:3vh;height:94vh;min-height:0;margin:0}
+
+/* add: three things and a switch */
+.steps3{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps3 li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 18px;align-items:start;padding:16px 18px;border-radius:22px;transition:background .4s,opacity .4s,box-shadow .4s}
+.steps3 li::before{content:counter(s);grid-row:span 2;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:600 21px/1 var(--display);font-variant-numeric:lining-nums;box-shadow:inset 0 0 0 1.5px rgba(var(--cat-ink-rgb),.45);color:var(--cat-ink);transition:background .4s,color .4s,box-shadow .4s}
+.steps3 h3{font:650 21px/1.25 var(--ui);letter-spacing:0;align-self:end}
+.steps3 p{color:var(--ink2);font-size:16.5px;line-height:1.4}
+.gl .steps3 li{opacity:.8}
+.gl .steps3 li.on{opacity:1;background:rgba(255,253,252,.8);box-shadow:0 18px 34px -26px rgba(58,30,40,.5)}
+.gl .steps3 li.on::before{background:var(--cat);color:#fff;box-shadow:none}
+.swap{margin-top:14px;padding:18px;border-radius:22px;display:grid;gap:12px;transition:background .4s,opacity .4s,box-shadow .4s}
+.gl .swap{opacity:.8}
+.gl .swap.on{opacity:1;background:rgba(255,253,252,.8);box-shadow:0 18px 34px -26px rgba(58,30,40,.5)}
+.swap-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 18px}
+.swap h3{font:650 21px/1.25 var(--ui);letter-spacing:0}
+.swap p{color:var(--ink2);font-size:16.5px;line-height:1.4;min-height:2.8em}
+.seg{display:inline-grid;grid-auto-flow:column;padding:4px;border-radius:999px;background:rgba(42,34,36,.08)}
+.seg button{border:0;background:none;font:600 15px/1 var(--ui);padding:10px 15px;border-radius:999px;color:var(--ink2);transition:background .3s,color .3s;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--night);color:var(--cream)}
+
+/* one cycle, alive */
+.cycle{padding:26px 26px 22px}
+.cycle-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:30px;color:var(--ink)}
+.cycle-h b{font:650 17px/1.2 var(--ui)}
+.cycle-h .mo{position:relative;font:600 14px/1.2 var(--ui);color:var(--muted);min-width:6.2em;text-align:right;height:1.2em}
+.cycle-h .mo span{position:absolute;right:0;top:0}
+.cycle-h .mo span+span{opacity:0}
+.track{height:58px}
+.track .now{position:absolute;top:1px;left:0;width:22px;height:22px;margin-left:-11px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--accent);background:rgba(122,51,65,.1);opacity:0}
+.track .fill{position:absolute;left:0;top:11px;height:2px;border-radius:2px;background:var(--accent);width:0;opacity:.75}
+@media (prefers-reduced-motion:no-preference){
+  .cycle.run .now{animation:sweep 9s linear infinite}
+  .cycle.run .fill{animation:fillw 9s linear infinite}
+  .cycle.run .day.r1::before{animation:ping1 9s linear infinite}
+  .cycle.run .day.r2::before{animation:ping2 9s linear infinite}
+  .cycle.run .mo span{animation:moA 18s linear infinite}
+  .cycle.run .mo span+span{animation:moB 18s linear infinite}
+  .cycle.run .o-next .ic svg{animation:turn 9s cubic-bezier(.5,0,.3,1) infinite}
+}
+@keyframes sweep{0%{left:0;opacity:0}4%{opacity:1}86%{left:100%;opacity:1}94%{left:100%;opacity:0}100%{left:100%;opacity:0}}
+@keyframes fillw{0%{width:0;opacity:.75}86%{width:100%;opacity:.75}94%,100%{width:100%;opacity:0}}
+@keyframes ping1{0%,47%{transform:scale(1)}50%{transform:scale(1.55)}56%,100%{transform:scale(1)}}
+@keyframes ping2{0%,72%{transform:scale(1)}75%{transform:scale(1.55)}81%,100%{transform:scale(1)}}
+@keyframes moA{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
+@keyframes turn{0%,84%{transform:rotate(0)}94%,100%{transform:rotate(360deg)}}
+@keyframes moB{0%,45%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}
+
+/* free trial: free, then paid */
+.tbar{position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);border-radius:24px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--rule);background:var(--card)}
+.tbar>div{padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tbar .free{background:linear-gradient(120deg,#F3EEDC,#EBE6D2)}
+.tbar .paid{border-left:2px dashed rgba(42,34,36,.28)}
+.tbar b{font:700 clamp(30px,3vw,44px)/1 var(--display);letter-spacing:-.02em}
+.tbar .paid b{font-size:clamp(24px,2.3vw,34px);font-variant-numeric:lining-nums}
+.tbar .paid b small{font:600 .5em/1 var(--ui);color:var(--muted);margin-right:5px;letter-spacing:0}
+.tbar span{font:500 14.5px/1.3 var(--ui);color:var(--ink2)}
+.tbar .dots{position:absolute;right:calc(40% + 14px);top:22px;display:flex;gap:9px;align-items:center;padding:0}
+.tbar .dots i{width:14px;height:14px;border-radius:50%;background:var(--cat);box-shadow:0 0 0 4px rgba(var(--cat-rgb),.16)}
+.tcap{margin-top:12px;font-size:14.5px;color:var(--muted);display:flex;align-items:center;gap:9px}
+.tcap i{width:10px;height:10px;border-radius:50%;background:var(--cat);flex:none}
+.sec .notif{margin-top:22px}
+
+/* actions */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tile-a{background:var(--card);border-radius:22px;box-shadow:inset 0 0 0 1px var(--rule);padding:20px 18px 18px;display:flex;flex-direction:column;gap:8px}
+.tile-a .ic{width:42px;height:42px;border-radius:13px;background:var(--cat-tile);color:var(--cat);display:grid;place-items:center;font-size:21px;margin-bottom:6px}
+.tile-a h3{font:650 19px/1.2 var(--ui);letter-spacing:0}
+.tile-a p{font-size:15px;line-height:1.42;color:var(--ink2)}
+.ncap{margin-top:26px;font:600 14px/1.3 var(--ui);color:var(--muted)}
+.ncap+.notif{margin-top:10px}
+
+/* questions: six on show; the rest and the long details open under one row */
+.faq .in{margin:-4px 0 26px;max-width:40em;color:var(--ink2);display:grid;gap:12px}
+.faq .in p{margin:0}
+.faq .more>summary{font:650 16px/1.2 var(--ui);color:var(--cat-ink);justify-content:flex-start;gap:12px}
+.faq .more>summary .b,.faq .more[open]>summary .a{display:none}
+.faq .more[open]>summary .b{display:inline}
+.faq .more>summary .pl{width:28px;height:28px}
+.faq .more .sub{font:650 15px/1.3 var(--ui);letter-spacing:.01em;color:var(--muted);padding:26px 0 14px}
+.faq .more>details:last-child{border-bottom:0}
+.faq .in b{color:var(--ink);font-weight:650}
+.faq a{color:var(--cat-ink);text-underline-offset:3px}
+
+.tbar .dots{flex-direction:row}
+.cyc-top{margin:-8px 0 16px}
+.panel .seg{background:rgba(42,34,36,.09)}
+.cycle-h b{transition:opacity .25s}
+.track .freeband{position:absolute;left:-10px;right:-10px;top:3px;height:18px;border-radius:9px;background:#E9DFAE;opacity:0;transition:opacity .5s}
+.cycle.trial .freeband{opacity:1}
+.cycle.trial .fill{opacity:0 !important}
+.outc{margin-top:18px}
+.outc [hidden]{display:none!important}
+.o-next{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;padding:16px;border-radius:18px;background:var(--cat-tile)}
+.o-next .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--cat);color:#fff;font-size:22px}
+.o-next p{font-size:15.5px;line-height:1.4;color:var(--ink2);margin:0}
+.o-next b{color:var(--ink);font-weight:650}
+.o-fork{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.o-fork>div{padding:16px;border-radius:18px;background:var(--cat-tile);display:grid;gap:4px;align-content:start}
+.o-fork>div:first-child{background:#E3EEE6}
+.o-fork span{font:600 14px/1.25 var(--ui);color:var(--ink2)}
+.o-fork b{font:600 clamp(26px,2.4vw,32px)/1.05 var(--display);color:var(--ink);font-variant-numeric:lining-nums}
+.o-fork small{font-size:13.5px;color:var(--ink2)}
+.fork{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.fork>span{font:500 14px/1 var(--ui);padding:9px 12px;border-radius:999px;background:var(--paper);color:var(--ink2)}
+.fork b{font-weight:650;color:var(--ink);margin-right:5px}
+.cycle .key,.cycle .outc{transition:opacity .2s}
+.cycle.swapping .key,.cycle.swapping .outc,.cycle.swapping .cycle-h b{opacity:0}
+button.tile-a{border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;transition:background .3s,box-shadow .3s,transform .3s}
+button.tile-a:hover{transform:translateY(-2px)}
+.panel button.tile-a[aria-pressed="true"]{background:#fffdfc;box-shadow:inset 0 0 0 2px var(--cat),0 18px 34px -26px rgba(58,30,40,.5)}
+button.tile-a[aria-pressed="true"] .ic{background:var(--cat);color:#fff}
+/* gallery: the same entries in three places */
+.gal{background:linear-gradient(#221621,#2E1C2A 55%,#3A2233);color:var(--cream);padding-block:clamp(64px,11vh,120px)}
+.gal .lead{color:rgba(255,246,236,.74);margin:16px 0 44px}
+.gal-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,36px);max-width:1080px}
+.gal figure{margin:0;display:flex;flex-direction:column;gap:18px;min-width:0}
+.gal img{width:100%;border-radius:30px;box-shadow:0 0 0 1px rgba(255,246,236,.14),0 40px 60px -40px rgba(0,0,0,.8)}
+.gal h3{font-size:23px;margin-bottom:5px}
+.gal figcaption p{color:rgba(255,246,236,.72);font-size:16px;line-height:1.45}
+.gal .plus{background:var(--cream);color:var(--night)}
+.full{box-shadow:none;z-index:1}
+
+.mdots,.pslot,.pcv{display:none}
+@media (prefers-reduced-motion:reduce){.frag,.frag i{transition:none!important}}
+@media (max-width:820px){
+  .hero{max-width:none}
+  .o-fork>div{padding:14px}
+  .o-fork b{font-size:22px;white-space:nowrap}
+  .o-next{padding:14px;gap:12px}
+  .trust{max-width:none;padding-block:34px 44px}
+  .stage{display:none}
+  .gl .steps3 li,.gl .swap{opacity:1}
+  .panel{min-height:0;padding:30px 20px 34px;border-radius:28px;margin-bottom:14px;display:block}
+  .panel .txt{width:auto}
+  /* phones: two pinned scenes. One line of text on top, a large piece of the real screen below it;
+     the scroll walks through the states and the screen slides to the part being talked about. */
+  .zone{--ptop:calc(62px + env(safe-area-inset-top,0px))}
+  .pinwrap{height:calc(100svh + 250vh);margin-bottom:14px}
+  .pinm{height:calc(100svh + 190vh)}
+  /* the panel reaches the bottom of the large viewport, so no bare strip shows when the browser hides its bars;
+     what is inside is laid out for the small one, so nothing moves when it does */
+  :is(.pinwrap,.pinm)>.panel{position:sticky;top:var(--ptop);height:calc(100lvh - var(--ptop) - 8px);min-height:0;margin:0;padding:22px 20px 0;display:flex;align-items:flex-start;overflow:hidden}
+  :is(.pinwrap,.pinm)>.panel .txt{flex:1;display:flex;flex-direction:column;min-height:0;height:calc(100svh - var(--ptop) - 44px)}
+  :is(.pinwrap,.pinm)>.panel h2{font-size:clamp(27px,7.4vw,36px);margin-bottom:12px}
+  h2 .eb{margin-bottom:8px;font-size:13.5px}
+  :is(.pinwrap,.pinm)>.panel .shot,#after .shot,#actions .lead,#actions .ncap,#actions .notif{display:none}
+  .mdots{display:flex;align-items:center;gap:6px;margin-bottom:14px;min-height:30px}
+  .mskip{margin-left:auto;border:0;border-radius:999px;background:rgba(42,34,36,.08);color:var(--ink2);font:600 13px/1 var(--ui);padding:9px 14px}
+  .mdots i{width:16px;height:4px;border-radius:2px;background:rgba(42,34,36,.14);transition:background .35s,width .35s}
+  .mdots i.on{width:30px;background:var(--cat)}
+  .stepstack,.steps3,.tiles{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+  .stepstack>*,.steps3 li,.tiles .tile-a{grid-area:1/1}
+  .steps3{align-self:start}
+  html .zone .steps3 li,html .zone .swap,html .zone .panel button.tile-a{opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s,transform .35s,visibility 0s .35s;background:none;box-shadow:none;padding:0;margin:0;border-radius:0}
+  html .zone .steps3 li.on,html .zone .swap.on,html .zone .panel button.tile-a[aria-pressed="true"]{background:none;box-shadow:none;opacity:1;visibility:visible;transform:none;transition:opacity .35s .12s,transform .35s .12s,visibility 0s}
+  .steps3 li{grid-template-columns:40px minmax(0,1fr);gap:2px 14px}
+  .steps3 li::before{width:40px;height:40px;font-size:19px}
+  .steps3 h3,.swap h3,.tile-a h3{font-size:19px}
+  .steps3 p,.swap p,.tile-a p{font-size:16px}
+  .swap{gap:10px;align-self:start}
+  .swap p{min-height:4.2em}
+  .seg button{padding:9px 13px;font-size:14.5px}
+  .tile-a p{padding-left:0}
+  .pcv{display:block;position:absolute;inset:0;width:100%;height:100%}
+  .hero-slot{position:relative}
+  #gl{visibility:hidden}
+  .nogl .pcv{display:none}
+  /* the scenes show a large piece of the real screen, no phone body: it fades out at the top and bottom,
+     slides to the part being talked about, and a frame marks that part */
+  .pslot{display:block;position:relative;flex:1;min-height:150px;margin:16px -8px 0}
+  .frag{position:absolute;inset:0 0 auto;border-radius:24px;background-repeat:no-repeat;transition:background-position .6s cubic-bezier(.3,.8,.3,1),opacity .23s;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%)}
+  .frag.swap{opacity:0}
+  .frag i{position:absolute;border-radius:14px;box-shadow:0 0 0 2.5px var(--cat);background:rgba(var(--cat-rgb),.08);transition:left .55s cubic-bezier(.3,.8,.3,1),top .55s cubic-bezier(.3,.8,.3,1),width .55s cubic-bezier(.3,.8,.3,1),height .55s cubic-bezier(.3,.8,.3,1)}
+  .tiles{grid-template-columns:minmax(0,1fr)}
+  .tile-a{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px 14px}
+  .tile-a .ic{margin:0}
+  .tile-a p{flex-basis:100%}
+  .tbar .dots{right:calc(40% + 10px)}
+  .gal-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter);padding-bottom:8px;scrollbar-width:none}
+  .gal-row::-webkit-scrollbar{display:none}
+  .gal figure{scroll-snap-align:center}
+}
+/* typeFirst pages: the type switch sits inside the first of three steps, so the pinned scene is shorter */
+.steps3 .tsw{display:grid;gap:10px;margin-top:6px}
+.steps3 .tsw .seg{justify-self:start}
+.steps3 .tsw p{min-height:2.8em}
+.pinwrap.tf{height:calc(94vh + 150vh)}
+@media (max-width:820px){
+  .steps3 .tsw p{min-height:4.2em}
+  .pinwrap.tf{height:calc(100svh + 190vh)}
+}
+/* notification ladder: the real notifications of an entry, in order (bills, events) */
+.bst[hidden]{display:none!important}
+.bst{transition:opacity .2s}
+.cycle.swapping .bst{opacity:0}
+.cycle-h .sub{font:600 14px/1.2 var(--ui);color:var(--muted);text-align:right}
+.lad{list-style:none;margin:0;padding:0;display:grid;gap:10px;position:relative}
+.lad::before{content:"";position:absolute;left:65px;top:22px;bottom:22px;width:2px;border-radius:2px;background:var(--rule)}
+.lad li{display:grid;grid-template-columns:52px 28px minmax(0,1fr);align-items:center}
+.lad time{font:600 14px/1.2 var(--ui);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lad .dot{position:relative;z-index:1;justify-self:center;width:12px;height:12px;border-radius:50%;background:var(--cat);box-shadow:0 0 0 4px var(--card)}
+.lad li.p .dot{background:var(--card);box-shadow:inset 0 0 0 2.5px var(--ink),0 0 0 4px var(--card)}
+.lad li.a .dot{border-radius:4px;background:var(--card);box-shadow:inset 0 0 0 2.5px var(--muted),0 0 0 4px var(--card)}
+.lad .n{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:1px 10px;align-items:center;padding:10px 14px 11px 10px;border-radius:16px;background:rgba(255,253,252,.98);box-shadow:inset 0 0 0 1px rgba(42,34,36,.05),0 12px 26px -20px rgba(42,20,28,.45)}
+.lad .n .appicon{width:30px;height:30px;border-radius:8px;grid-row:span 2;align-self:start;margin-top:1px}
+.lad .n b{font:650 14.5px/1.25 var(--ui);color:var(--ink);min-width:0}
+.lad .n small{font-size:12.5px;line-height:1;color:#7d7173}
+.lad .n p{grid-column:2/4;margin:0;font-size:14.5px;line-height:1.3;color:#2c2526}
+.lad .m{margin:0;font-size:14.5px;line-height:1.3;color:var(--ink2);padding:4px 0}
+.lad-foot{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--hair);font-size:15.5px;line-height:1.4;color:var(--ink2)}
+@media (prefers-reduced-motion:no-preference){
+  .bst:not([hidden]) .lad li{animation:ladIn .45s cubic-bezier(.2,.7,.3,1) both}
+  .bst .lad li:nth-child(2){animation-delay:.07s}
+  .bst .lad li:nth-child(3){animation-delay:.14s}
+  .bst .lad li:nth-child(4){animation-delay:.21s}
+  .bst .lad li:nth-child(5){animation-delay:.28s}
+}
+@keyframes ladIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:820px){
+  .cycle-h{flex-direction:column;align-items:flex-start;gap:4px}
+  .cycle-h .sub{text-align:left}
+  .lad li{grid-template-columns:44px 18px minmax(0,1fr)}
+  .lad::before{left:52px}
+  .lad .n{grid-template-columns:26px minmax(0,1fr);gap:1px 9px}
+  .lad .n .appicon{width:26px;height:26px;border-radius:7px}
+  .lad .n small{display:none}
+  .cycle{padding:20px 14px 18px}
+  .lad .n p{grid-column:2}
+  .lad time{font-size:13px}
+  .lad .n{padding:9px 12px 10px 9px}
+}
+</style>
+<style>
+/* Documents: the category's own tint, and the expired mark on the shared ladder. */
+:root{--cat:#3A78A1;--cat-ink:#2C5D7E;--cat-tile:#DCE3E8;--cat-wash:#E3EBF1;--cat-rgb:58,120,161;--cat-ink-rgb:44,93,126;--late:#A4553A;--late-rgb:164,85,58}
+main{background:linear-gradient(168deg,var(--cat-wash) 0,rgba(227,235,241,0) 760px)}
+.lad li.o .dot{background:var(--late)}
+.gal img{background:#1b1719}
+#expired .cycle{margin-top:22px}
+#after .lead{margin-bottom:22px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Aheado", "operatingSystem": "iOS", "applicationCategory": "ProductivityApplication", "description": "Reminder app for iPhone: subscriptions and free trials, bills, documents, events, deadlines and routines.", "url": "https://aheado.io/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Aheado", "item": "https://aheado.io/"}, {"@type": "ListItem", "position": 2, "name": "Document expiration reminders", "item": "https://aheado.io/document-expiration-reminder"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What app reminds me before my passport expires?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado is an iPhone app that reminds you before passports, ID cards, driver’s licenses, insurance and other documents expire. Add the expiry date and pick your reminders: 6 months, 3 months, 1 month, 2 weeks, 1 week or 1 day before, and on the expiry day."}}, {"@type": "Question", "name": "How early should I be reminded to renew my passport?", "acceptedAnswer": {"@type": "Answer", "text": "Many countries ask for three to six months of validity left when you arrive, and renewing can take weeks. That’s why Aheado can remind you 6 months ahead, then again closer to the date."}}, {"@type": "Question", "name": "What happens after a document expires?", "acceptedAnswer": {"@type": "Answer", "text": "The day after, you get one Has expired reminder. The document stays in Past due on the Watchlist for 60 days, then moves to Archive. Tap Renew at any point to enter the new expiry date."}}, {"@type": "Question", "name": "What documents can I track?", "acceptedAnswer": {"@type": "Answer", "text": "Anything with an expiry date: passports, ID cards, driver’s licenses, visas and residence permits, car and health insurance, warranties and memberships."}}, {"@type": "Question", "name": "How do I renew a document in Aheado?", "acceptedAnswer": {"@type": "Answer", "text": "Tap Renew and pick the new expiry date. If you added the issue date, the same term is suggested, like 10 years for a passport or 1 year for insurance. Your reminders carry over to the new date, and a banner offers Undo."}}, {"@type": "Question", "name": "Can I track my family’s passports?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add each one as its own document with its own name and dates, and each gets its own reminders."}}, {"@type": "Question", "name": "Is Aheado free?", "acceptedAnswer": {"@type": "Answer", "text": "Aheado is free for up to 10 entries across all six categories. Aheado+ removes the limit: $1.99 a month, $14.99 a year with the first month free, or $34.99 once."}}, {"@type": "Question", "name": "Can I get a reminder on the day it expires?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. At expiry is on from the start, and it arrives at your reminder time: 9:00 AM unless you change it in Settings."}}, {"@type": "Question", "name": "Does Aheado store my document number or a photo?", "acceptedAnswer": {"@type": "Answer", "text": "No. A document in Aheado is a name, the dates and an optional note. Nothing else is asked for."}}, {"@type": "Question", "name": "Can I see expiry dates on the Home Screen?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The small and medium widgets and the Lock Screen widget are free and show what’s expired and what’s next. The large widget comes with Aheado+."}}, {"@type": "Question", "name": "Does it work without an account?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Aheado has no sign-up, email or password. Reminders are scheduled on the iPhone itself, so they arrive even without a connection."}}, {"@type": "Question", "name": "Does it sync across my iPhone and iPad?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with Aheado+. Your documents sync through your own iCloud, so one added or renewed on one device shows up on the other. Without Aheado+, everything stays on the device you use."}}, {"@type": "Question", "name": "Does Aheado work on Android?", "acceptedAnswer": {"@type": "Answer", "text": "No. Aheado is made for iPhone."}}]}</script>
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/examples/jsm/"}}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h5"/></symbol>
+  <symbol id="i-sub" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.6"/><path d="M3 10.5h18M7 15.2h3.5"/></symbol>
+  <symbol id="i-bill" viewBox="0 0 24 24"><rect x="2.8" y="6.5" width="18.4" height="11.5" rx="2.2"/><circle cx="12" cy="12.25" r="2.6"/><path d="M6.4 9.6v5.3M17.6 9.6v5.3"/></symbol>
+  <symbol id="i-event" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="2.6"/><path d="M4 10.2h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 4.5h11.5l-2.2 4.2 2.2 4.3H6"/></symbol>
+  <symbol id="i-routine" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="13" height="16.5" rx="2.4"/><path d="M9.5 3.5h5v2.5h-5zM9 11h6M9 14.5h6M9 18h4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24"><path stroke="none" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+</defs></svg>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<script>
+/* Arriving from the home page: it leaves the last frame of its phone behind, shown here at once so the phone never blinks. */
+(function(){try{var g=JSON.parse(sessionStorage.getItem('aheado-go')||'null');sessionStorage.removeItem('aheado-go');if(!g||Date.now()-g.t>8000)return;document.documentElement.classList.add('arrive');if(g.img&&innerWidth>820){var i=new Image();i.id='ghost';i.alt='';i.src=g.img;i.style.cssText='position:fixed;z-index:3;pointer-events:none;left:'+g.x+'px;top:'+g.y+'px;width:'+g.w+'px;height:'+g.h+'px;transition:opacity .3s';document.body.appendChild(i);}}catch(e){}})();
+</script>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/" aria-label="Aheado, home"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt="">Aheado</a>
+    <div class="nav-r">
+      <nav class="nav-links" aria-label="Sections"><a href="/#features">Features</a><a href="/#pricing">Pricing</a></nav>
+      <a class="badge sm js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <canvas id="mstars"></canvas><div class="menu-moon"></div>
+  <div class="menu-in">
+    <nav class="menu-main" aria-label="Main"><a href="/#story">How it works</a><a href="/#features">Features</a><a href="/#pricing">Pricing</a><a href="/#faq">Questions</a></nav>
+    <div class="menu-side">
+      <div><p class="mh">What you can track</p>
+        <ul class="menu-cats">
+          <li><a href="#top" aria-current="page"><span class="tile" style="background:#383D44;color:#84B8DD"><svg class="ico"><use href="#i-doc"/></svg></span><span>Documents<small>Passports, visas, licences and insurance.</small></span></a></li>
+          <li><a href="/subscription-reminder"><span class="tile" style="background:#45393F;color:#D39EC0"><svg class="ico"><use href="#i-sub"/></svg></span><span>Subscriptions<small>Free trials and renewals, flagged before the first charge.</small></span></a></li>
+          <li><a href="/bill-reminder"><span class="tile" style="background:#443B34;color:#CEAB76"><svg class="ico"><use href="#i-bill"/></svg></span><span>Bills<small>Rent and utilities you pay yourself, with reminders until they’re paid.</small></span></a></li>
+          <li><a href="/event-reminder"><span class="tile" style="background:#383E3E;color:#82BFB6"><svg class="ico"><use href="#i-event"/></svg></span><span>Events<small>Birthdays from Contacts, flights and appointments, on the day or hours before.</small></span></a></li>
+          <li><a href="/deadline-reminder"><span class="tile" style="background:#3F3B44;color:#B0A9DF"><svg class="ico"><use href="#i-flag"/></svg></span><span>Deadlines<small>Tax returns and applications that can’t slip.</small></span></a></li>
+          <li><a href="/#cats"><span class="tile" style="background:#3D3E37;color:#9EBC8E"><svg class="ico"><use href="#i-routine"/></svg></span><span>Routine<small>Vitamins, plants and habits, at the times you set.</small></span></a></li>
+        </ul>
+      </div>
+      <div class="menu-links"><a href="https://aheado.io/support">Support</a><a href="https://aheado.io/privacy">Privacy policy</a><a href="mailto:hello@aheado.io">Press</a></div>
+      <div><a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a></div>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+  <div class="wrap zone" id="zone">
+
+    <section class="hero" data-screen="list" data-pose="hero" data-cap="The Watchlist, filtered by Documents">
+      <nav class="crumb" aria-label="Breadcrumb"><a href="/#cats">Aheado</a><span class="sep" aria-hidden="true"></span><span class="tile"><svg class="ico"><use href="#i-doc"/></svg></span><span>Documents</span></nav>
+      <h1>Document expiration reminders, months ahead.</h1>
+      <p class="lead">Aheado is a document expiration reminder app for iPhone. Passports, ID cards, driver’s licenses, insurance and residence permits: add the expiry date once and hear about it months before.</p>
+      <div class="cta-row"><a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="textlink" href="#expired">What if it expires?</a></div>
+      <p class="fine">Free to start. No account needed.</p>
+      <div class="hero-slot" id="heroSlot" aria-hidden="true"></div>
+      <figure class="shot"><img src="assets/doc/documents_list.jpg" width="660" height="1434" loading="lazy" data-img="list" alt="Aheado Watchlist filtered by Documents: Residence permit expired 3 days ago, Car insurance in 24 days, Driver's license in 42 days, ID card in 95 days, Passport in 200 days"><figcaption>The Watchlist, filtered by Documents</figcaption></figure>
+    </section>
+
+    <div class="pinwrap tf" id="pinwrap">
+      <section class="panel" id="add" style="--bg:linear-gradient(150deg,#EAF0F5,#D5E1EB)">
+        <div class="txt">
+          <h2><span class="eb">How to add a document</span>Name, dates, done.</h2>
+          <p class="mdots" id="addDots"><i></i><i></i><i></i><button type="button" class="mskip" data-skip="pinwrap">Skip</button></p>
+          <div class="stepstack">
+          <ol class="steps3">
+            <li data-step="0" data-screen="f_name" data-cap="A new document: the name"><h3>Name it</h3><p>Passport, ID card, car insurance: any document with an expiry date.</p></li>
+            <li data-step="1" data-screen="f_dates" data-cap="Issued on and Expires"><h3>Issued on and Expires</h3><p>Only the expiry date is required. Add the issue date too, and renewing later suggests the same term.</p></li>
+            <li data-step="2" data-screen="f_remind" data-cap="Reminders for a passport"><h3>How early to hear about it</h3><p>6 months, 3 months, 1 month, 2 weeks, 1 week or 1 day before, and on the expiry day. Pick as many as you like.</p></li>
+          </ol>
+          </div>
+          <figure class="shot"><img id="formShot" src="assets/doc/form_passport.jpg" width="660" height="1434" loading="lazy" data-img="form" alt="Aheado form for a new document: name, issued on, expires, reminders, sound and note"><figcaption>The form for a new document</figcaption></figure>
+          <div class="pslot" aria-hidden="true"></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" id="after" data-screen="c_pass" data-cap="Passport, with its reminders on the timeline" style="--bg:linear-gradient(150deg,#E8F1EE,#D3E4DF)">
+      <div class="txt">
+        <h2><span class="eb">Passport and document expiry reminders</span>Months ahead, not days.</h2>
+        <p class="lead">Many countries ask for months of validity left on a passport, and renewing can take weeks. So reminders can start half a year out.</p>
+        <div class="cyc-top"><div class="seg" role="group" aria-label="Example"><button type="button" data-v="a" aria-pressed="true">Passport</button><button type="button" data-v="b" aria-pressed="false">Car insurance</button></div></div>
+        <div class="cycle" id="cycle">
+          <div class="bst ba">
+            <p class="cycle-h"><b>Passport</b><span class="sub">Sat, May 1, 2027</span></p>
+            <ol class="lad">
+              <li class="r"><time datetime="2026-11-01T09:00">Nov 1</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Passport</b><small>9:00 AM</small><p>Expires in 6 months</p></div></li>
+              <li class="r"><time datetime="2027-02-01T09:00">Feb 1</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Passport</b><small>9:00 AM</small><p>Expires in 3 months</p></div></li>
+              <li class="r"><time datetime="2027-04-01T09:00">Apr 1</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Passport</b><small>9:00 AM</small><p>Expires in 1 month</p></div></li>
+              <li class="r"><time datetime="2027-04-24T09:00">Apr 24</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Passport</b><small>9:00 AM</small><p>Expires in 1 week</p></div></li>
+              <li class="p"><time datetime="2027-05-01T09:00">May 1</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Passport</b><small>9:00 AM</small><p>Expires today</p></div></li>
+            </ol>
+          </div>
+          <div class="bst bb" hidden>
+            <p class="cycle-h"><b>Car insurance</b><span class="sub">Fri, Nov 6</span></p>
+            <ol class="lad">
+              <li class="r"><time datetime="2026-10-23T09:00">Oct 23</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Car insurance</b><small>9:00 AM</small><p>Expires in 2 weeks</p></div></li>
+              <li class="r"><time datetime="2026-10-30T09:00">Oct 30</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Car insurance</b><small>9:00 AM</small><p>Expires in 1 week</p></div></li>
+              <li class="r"><time datetime="2026-11-05T09:00">Nov 5</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Car insurance</b><small>9:00 AM</small><p>Expires tomorrow</p></div></li>
+              <li class="p"><time datetime="2026-11-06T09:00">Nov 6</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Car insurance</b><small>9:00 AM</small><p>Expires today</p></div></li>
+            </ol>
+          </div>
+          <p class="lad-foot">Tap Renew at any point and the reminders start over for the new date.</p>
+        </div>
+        <figure class="shot"><img id="cycShot" src="assets/doc/passport_detail.jpg" width="660" height="1434" loading="lazy" data-img="passport" alt="Aheado document page: Passport, 200 days left, with reminders 6 months, 3 months, a month and a week before, and on the expiry day"><figcaption id="cycShotCap">Passport, with its reminders on the timeline</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="panel" id="expired" data-screen="x_over" data-cap="An expired document, three days on" style="--bg:linear-gradient(150deg,#F1E6E8,#E2CDD3)">
+      <div class="txt">
+        <h2><span class="eb">Expired document reminders</span>Expired? It stays in sight.</h2>
+        <p class="lead">The day after, one Has expired reminder. The document stays in Past due for 60 days, ready to renew, then moves to Archive.</p>
+        <div class="cycle">
+          <p class="cycle-h"><b>Residence permit</b><span class="sub">Sat, Oct 10</span></p>
+          <ol class="lad">
+            <li class="p"><time datetime="2026-10-10T09:00">Oct 10</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Residence permit</b><small>9:00 AM</small><p>Expires today</p></div></li>
+            <li class="o"><time datetime="2026-10-11T09:00">Oct 11</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Residence permit</b><small>9:00 AM</small><p>Has expired</p></div></li>
+            <li class="a"><time datetime="2026-12-10T09:00">Dec 10</time><i class="dot"></i><div class="n"><img class="appicon" src="assets/img/icon180.png" width="180" height="180" data-icon alt=""><b>Residence permit</b><small>9:00 AM</small><p>Moved to Archive</p></div></li>
+          </ol>
+          <p class="lad-foot">Renewed it late? Tap Renew and pick the new date.</p>
+        </div>
+        <figure class="shot"><img src="assets/doc/expired_detail.jpg" width="660" height="1434" loading="lazy" data-img="expired" alt="Aheado document page: Residence permit, expired 3 days ago, with Moves to Archive on December 10 if not renewed"><figcaption>An expired document, three days on</figcaption></figure>
+      </div>
+    </section>
+
+    <div class="pinm" id="pinm">
+    <section class="panel" id="actions" data-screen="a_renew" data-cap="Renew document, with the reminders for the new term" style="--bg:linear-gradient(150deg,#ECE8F2,#DCD5E8);margin-bottom:0">
+      <div class="txt">
+        <h2><span class="eb">Renewing a document</span>Renewed? Pick the new date.</h2>
+        <p class="lead">The reminders carry over to the new term, in the same units.</p>
+        <p class="mdots" id="actDots"><i></i><i></i><button type="button" class="mskip" data-skip="pinm">Skip</button></p>
+        <div class="tiles" role="group" aria-label="What you can do">
+          <button type="button" class="tile-a" data-act="renew" aria-pressed="true"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></svg></span><h3>Renew</h3><p>The new date is suggested from the last term. A banner confirms it, with Undo.</p></button>
+          <button type="button" class="tile-a" data-act="arch" aria-pressed="false"><span class="ic"><svg class="ico" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="4.5" rx="1.4"/><path d="M5 9v9.5a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V9M10 13h4"/></svg></span><h3>Archive</h3><p>Not needed any more? Archive it from the menu. Restore it later with a new expiry date.</p></button>
+        </div>
+        <figure class="shot"><img id="actShot" src="assets/doc/renew_sheet.jpg" width="660" height="1434" loading="lazy" data-img="renew" alt="Aheado Renew document sheet: new expiry October 13, 2028, effective from October 13, 2026, with the reminders after renewal"><figcaption id="actShotCap">Renew document, with the reminders for the new term</figcaption></figure>
+        <div class="pslot" aria-hidden="true"></div>
+      </div>
+    </section>
+    </div>
+
+    <aside class="stage" id="stage" aria-hidden="true"><div class="stage-in"><p class="stage-cap" id="stageCap"></p></div></aside>
+  </div>
+
+  <div class="full" id="full" style="margin-top:4vh">
+    <section class="gal"><div class="wrap">
+      <h2><span class="eb">Document reminders in three places</span>Always in view.</h2>
+      <p class="lead">The same documents, in three places.</p>
+      <div class="gal-row">
+        <figure><img src="assets/doc/notif_document.jpg" width="660" height="1434" loading="lazy" data-img="lock" alt="Aheado reminder on the iPhone Lock Screen: Passport, Expires in 6 months"><figcaption><h3>On the Lock Screen</h3><p>Months ahead, with the name and how long is left.</p></figcaption></figure>
+        <figure><img src="assets/doc/calendar.jpg" width="660" height="1434" loading="lazy" data-img="calendar" alt="Aheado calendar for November 2026, with Car insurance expiring on Friday, November 6"><figcaption><h3>On the calendar</h3><p>Each document on its expiry day.</p></figcaption></figure>
+        <figure><img src="assets/doc/widgets_documents.jpg" width="660" height="1434" loading="lazy" data-img="widgets" alt="Aheado Home Screen widgets with Residence permit 3 days ago, Car insurance, Driver's license, ID card and Passport"><figcaption><h3>On the Home Screen</h3><p>Expired first, then what’s next. The large widget comes with Aheado+.<span class="plus">Aheado+</span></p></figcaption></figure>
+      </div>
+    </div></section>
+
+    <section class="sec" style="padding-top:0"><div class="wrap faq">
+      <h2 style="margin-bottom:32px">Looking for a document expiration reminder?</h2>
+      <details><summary>What app reminds me before my passport expires?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Aheado is an iPhone app that reminds you before passports, ID cards, driver’s licenses, insurance and other documents expire. Add the expiry date and pick your reminders: 6 months, 3 months, 1 month, 2 weeks, 1 week or 1 day before, and on the expiry day.</p></details>
+      <details><summary>How early should I be reminded to renew my passport?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Many countries ask for three to six months of validity left when you arrive, and renewing can take weeks. That’s why Aheado can remind you 6 months ahead, then again closer to the date.</p></details>
+      <details><summary>What happens after a document expires?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>The day after, you get one Has expired reminder. The document stays in Past due on the Watchlist for 60 days, then moves to Archive. Tap Renew at any point to enter the new expiry date.</p></details>
+      <details><summary>What documents can I track?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Anything with an expiry date: passports, ID cards, driver’s licenses, visas and residence permits, car and health insurance, warranties and memberships.</p></details>
+      <details><summary>How do I renew a document in Aheado?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Tap Renew and pick the new expiry date. If you added the issue date, the same term is suggested, like 10 years for a passport or 1 year for insurance. Your reminders carry over to the new date, and a banner offers Undo.</p></details>
+      <details><summary>Can I track my family’s passports?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. Add each one as its own document with its own name and dates, and each gets its own reminders.</p></details>
+      <details><summary>Is Aheado free?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Aheado is free for up to 10 entries across all six categories. Aheado+ removes the limit: $1.99 a month, $14.99 a year with the first month free, or $34.99 once.</p></details>
+      <details class="more"><summary><span class="a">More questions, and how it works in detail</span><span class="b">Show fewer</span><span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary>
+      <details><summary>Can I get a reminder on the day it expires?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. At expiry is on from the start, and it arrives at your reminder time: 9:00 AM unless you change it in Settings.</p></details>
+      <details><summary>Does Aheado store my document number or a photo?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>No. A document in Aheado is a name, the dates and an optional note. Nothing else is asked for.</p></details>
+      <details><summary>Can I see expiry dates on the Home Screen?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. The small and medium widgets and the Lock Screen widget are free and show what’s expired and what’s next. The large widget comes with Aheado+.</p></details>
+      <details><summary>Does it work without an account?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes. Aheado has no sign-up, email or password. Reminders are scheduled on the iPhone itself, so they arrive even without a connection.</p></details>
+      <details><summary>Does it sync across my iPhone and iPad?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>Yes, with Aheado+. Your documents sync through your own iCloud, so one added or renewed on one device shows up on the other. Without Aheado+, everything stays on the device you use.</p></details>
+      <details><summary>Does Aheado work on Android?<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><p>No. Aheado is made for iPhone.</p></details>
+      <h3 class="sub">How document reminders work in Aheado</h3>
+      <details><summary>Custom reminders<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
+        <p>+ Custom lets you pick any number from 1 to 90 in days, weeks or months. The reminder keeps the unit you chose, like “Expires in 5 months”.</p>
+      </div></details>
+      <details><summary>Archive, restore and delete<span class="pl"><svg class="ico"><use href="#i-plus"/></svg></span></summary><div class="in">
+        <p>Archive keeps a document and its history out of the way. Restore brings it back with a new expiry date. Delete removes it for good, with all its scheduled reminders.</p>
+      </div></details>
+      </details>
+    </div></section>
+
+    <section class="sec" style="padding-top:0"><div class="wrap">
+      <h2 style="margin-bottom:32px">Everything else Aheado tracks.</h2>
+      <div class="cats-grid">
+        <a class="cat" href="/subscription-reminder"><span class="tile" style="background:#EBDEE3;color:#955C82"><svg class="ico"><use href="#i-sub"/></svg></span><h3>Subscriptions</h3><p>Free trials and renewals, before the first charge.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="cat" href="/bill-reminder"><span class="tile" style="background:#EAE0D4;color:#906A28"><svg class="ico"><use href="#i-bill"/></svg></span><h3>Bills</h3><p>Rent and utilities, with reminders until they’re paid.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="cat" href="/event-reminder"><span class="tile" style="background:#DBE4E1;color:#358077"><svg class="ico"><use href="#i-event"/></svg></span><h3>Events</h3><p>Birthdays, flights and appointments, hours or days ahead.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="cat" href="/deadline-reminder"><span class="tile" style="background:#E5E0E8;color:#7168A3"><svg class="ico"><use href="#i-flag"/></svg></span><h3>Deadlines</h3><p>Tax returns and applications that can’t slip.</p><svg class="ico go"><use href="#i-arrow"/></svg></a>
+        <a class="cat" href="/#cats"><span class="tile" style="background:#E2E3D9;color:#5C7D49"><svg class="ico"><use href="#i-routine"/></svg></span><h3>Routine</h3><p>Vitamins, plants and habits.</p></a>
+      </div>
+    </div></section>
+
+    <section class="closing"><div class="wrap">
+      <h2>Forewarned is ahead.</h2>
+      <p class="lead">Put your documents in once. Aheado watches the expiry dates for you.</p>
+      <a class="badge js-store" href="#"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+      <p class="fine">Free for up to 10 entries. <a href="/#pricing">Aheado+ from $1.99 a month.</a></p>
+    </div></section>
+  </div>
+</main>
+
+<footer><div class="wrap foot"><span>© 2026 Aheado</span><nav aria-label="Footer"><a href="/">Home</a><a href="https://aheado.io/support">Support</a><a href="https://aheado.io/privacy">Privacy</a><a href="#" role="button" data-cookie-settings>Cookie settings</a></nav></div></footer>
+
+<script>
+/* What this page shows on the phone: screens and highlights in the 660 × 1434 frame, and the switches. */
+window.__PAGE = {
+  id: 'documents',
+  hl: [58, 120, 161],
+  typeFirst: true,
+  screens: {
+    list:     { img: 'list', fam: 'list' },
+    f_name:   { img: 'form', fam: 'form', hl: [24, 208, 612, 102, 26] },
+    f_dates:  { img: 'form', fam: 'form', hl: [24, 320, 612, 114, 26] },
+    f_remind: { img: 'remind', fam: 'form', hl: [24, 226, 612, 484, 32] },
+    c_pass:   { img: 'passport', fam: 'cyc', hl: [24, 670, 612, 536, 30] },
+    c_ins:    { img: 'insurance', fam: 'cyc', hl: [24, 670, 612, 444, 30] },
+    x_over:   { img: 'expired', fam: 'list', hl: [24, 1032, 612, 52, 18] },
+    a_renew:  { img: 'renew', fam: 'act', hl: [24, 858, 612, 270, 28] },
+    a_arch:   { img: 'menu', fam: 'act', hl: [266, 90, 378, 256, 28] },
+  },
+  type: {
+    a: { screen: 'f_name', cap: 'A new document: the name', note: '' },
+    b: { screen: 'f_dates', cap: 'Issued on and Expires', note: '' },
+  },
+  after: {
+    el: '#cycle',
+    screens: { a: 'c_pass', b: 'c_ins' },
+    caps: { a: 'Passport, with its reminders on the timeline', b: 'Car insurance, a one-year term, with its reminders' },
+    apply(v) {
+      const b = v === 'b', $ = s => document.querySelector(s);
+      $('.bst.ba').hidden = b; $('.bst.bb').hidden = !b;
+    },
+  },
+  act: {
+    renew: { screen: 'a_renew', cap: 'Renew document, with the reminders for the new term' },
+    arch:  { screen: 'a_arch', cap: 'The menu: Edit, Archive, Delete' },
+  },
+  frame: {},
+  morder: [0, 1, 2],
+};
+</script>
+<script>window.__A={"img": {"moon": "assets/img/moon.jpg", "list": "assets/doc/documents_list.jpg", "form": "assets/doc/form_passport.jpg", "remind": "assets/doc/reminders_passport.jpg", "passport": "assets/doc/passport_detail.jpg", "insurance": "assets/doc/insurance_detail.jpg", "expired": "assets/doc/expired_detail.jpg", "renew": "assets/doc/renew_sheet.jpg", "menu": "assets/doc/document_menu.jpg", "lock": "assets/doc/notif_document.jpg", "calendar": "assets/doc/calendar.jpg", "widgets": "assets/doc/widgets_documents.jpg"}, "glb": "assets/phone.glb", "icon": "assets/img/icon180.png"};</script>
+<script type="module">
+/* =====================================================================
+   Category page runtime (shared by all six category pages).
+   Static text lives in the HTML. This file only adds: the 3D phone that
+   shows the screen of the section being read, the menu, the nav state.
+   What differs from page to page (the screens and their highlights, the
+   two switches and the action tiles) comes from window.__PAGE, set in
+   each page's own src.html.
+   ===================================================================== */
+const A = window.__A, P = window.__PAGE;
+/* analytics: events go through the page's Google tag (it respects the visitor's cookie choice); nothing happens without it */
+const PAGE_ID = P.id || location.pathname;
+const track = (name, params) => { try { if (typeof gtag === 'function') gtag('event', name, Object.assign({ page_id: PAGE_ID }, params)); } catch (e) {} };
+const placeOf = el => el.closest('.nav') ? 'nav' : el.closest('.menu') ? 'menu' : el.closest('.hero') ? 'hero' : el.closest('.closing') ? 'closing' : 'other';
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const TAU = Math.PI * 2;
+const isMobile = () => innerWidth <= 820;
+const root = document.documentElement;
+const isUrl = x => typeof x === 'string' && /^(assets\/|\.\/|\/|https?:)/.test(x);
+const b64bytes = b => { const s = atob(b), u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; };
+
+/* Screens: the image a block shows, its family (a turn happens only between families; inside one the
+   screens cross-fade) and an optional highlight (x, y, w, h, r in the 660 × 1434 frame). */
+const SCREENS = P.screens;
+const HL = P.hl || [149, 92, 130];      // the highlight colour, in the page's own tint
+
+/* ---------- static parts ---------- */
+$$('[data-icon]').forEach(i => i.src = A.icon);
+$$('[data-img]').forEach(i => { i.src = A.img[i.dataset.img]; i.loading = 'lazy'; });
+$('.menu-moon').style.backgroundImage = `url(${A.img.moon})`;
+// until the App Store link exists the badges point at "#": keep them from jumping to the top
+$$('.js-store').forEach(a => { a.setAttribute('aria-label', 'Download Aheado on the App Store'); a.addEventListener('click', e => { track('store_click', { placement: placeOf(a) }); if (a.getAttribute('href') === '#') e.preventDefault(); }); });
+$$('a.cat').forEach(a => a.addEventListener('click', () => track('category_open', { category: (a.querySelector('h3') || a).textContent.trim(), placement: 'cards' })));
+$$('.faq details').forEach(d => d.addEventListener('toggle', () => { if (d.open) track('faq_open', { question: d.querySelector('summary').textContent.trim().slice(0, 100) }); }));
+
+/* ---------- menu (same as home) ---------- */
+const Menu = {
+  btn: $('#menuBtn'), el: $('#menu'), raf: 0,
+  open() {
+    const r = this.btn.getBoundingClientRect(); this.el.style.setProperty('--mx', r.left + r.width / 2 + 'px'); this.el.style.setProperty('--my', r.top + r.height / 2 + 'px');
+    this.sky(); root.classList.add('menu-open'); this.btn.setAttribute('aria-expanded', 'true'); this.btn.setAttribute('aria-label', 'Close menu');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => { const a = $('.menu-main a'); a && a.focus({ preventScroll: true }); }, 350);
+  },
+  close(focus = true) { root.classList.remove('menu-open'); this.btn.setAttribute('aria-expanded', 'false'); this.btn.setAttribute('aria-label', 'Open menu'); document.body.style.overflow = ''; focus && this.btn.focus({ preventScroll: true }); },
+  sky() {
+    const cv = $('#mstars'), dpr = Math.min(devicePixelRatio || 1, 2), W = innerWidth, Hh = innerHeight; cv.width = W * dpr; cv.height = Hh * dpr;
+    const c = cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const stars = Array.from({ length: 190 }, () => ({ x: Math.random() * W, y: Math.pow(Math.random(), 1.3) * Hh, r: Math.random() < .08 ? 1.3 + Math.random() * .6 : .4 + Math.random() * .7, o: .25 + Math.random() * .6, f: .6 + Math.random() * 2.4, ph: Math.random() * TAU }));
+    const t0 = performance.now();
+    const loop = now => {
+      if (!root.classList.contains('menu-open')) { this.raf = 0; return; }
+      c.clearRect(0, 0, W, Hh); const t = (now - t0) / 1000;
+      for (const s of stars) { c.globalAlpha = s.o * (RM ? 1 : .55 + .45 * Math.sin(t * s.f + s.ph)); c.fillStyle = '#fff'; c.beginPath(); c.arc(s.x, s.y, s.r, 0, TAU); c.fill(); }
+      c.globalAlpha = 1; this.raf = requestAnimationFrame(loop);
+    };
+    if (!this.raf) this.raf = requestAnimationFrame(loop);
+  },
+};
+Menu.btn.addEventListener('click', () => root.classList.contains('menu-open') ? Menu.close() : Menu.open());
+Menu.el.addEventListener('keydown', e => { if (e.key === 'Escape') Menu.close(); });
+Menu.el.addEventListener('click', e => { if (e.target.closest('a[href^="#"]')) Menu.close(false); });
+
+/* ---------- blocks and the screen each one shows ---------- */
+const hero = $('.hero'), cap = $('#stageCap');
+const stage = $('#stage'), heroSlot = $('#heroSlot'), zone = $('#zone'), pinwrap = $('#pinwrap');
+const stepEls = $$('[data-step]');
+const panels = $$('.zone .panel');
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+
+/* ---------- the type switch in the "add" panel (Regular / Free trial, One-time / Recurring) ---------- */
+const Type = { manual: null, step: 0, v: 'a' };
+// typeFirst pages (bills): the type is the first step, stays as chosen, and later steps show its own form (data-screen-b)
+const TF = !!P.typeFirst;
+const typeBtns = $$('#swap .seg button[data-v]'), swapNote = $('#swapNote'), formShot = $('#formShot');
+function showType(v) {
+  typeBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'));
+  swapNote.textContent = P.type[v].note;
+  if (formShot) formShot.src = A.img[SCREENS[P.type[v].screen].img];
+}
+typeBtns.forEach(b => b.addEventListener('click', () => { track('type_switch', { value: b.textContent.trim() }); if (TF) Type.v = b.dataset.v; else Type.manual = P.type[b.dataset.v].screen; showType(b.dataset.v); }));
+// on phones the type comes first and starts on the first option; on wide screens it is the last step and shows the second
+const MORDER = P.morder || [3, 0, 1, 2];
+const typeKey = v => P.type[v].screen;
+const tfEl = () => stepEls[Type.step], tfB = () => TF && Type.v === 'b';
+const formKey = () => TF ? ((tfB() && tfEl().dataset.screenB) || tfEl().dataset.screen) : Type.step === stepEls.length - 1 ? (Type.manual || typeKey(isMobile() ? 'a' : 'b')) : stepEls[Type.step].dataset.screen;
+
+/* ---------- the switch in the panel that shows how the category works ---------- */
+const Aft = { v: 'a' };
+const aftBtns = $$('#after .seg button[data-v]'), aftEl = P.after.el ? $(P.after.el) : null;
+function showAfter(v) {
+  if (v === Aft.v) return; Aft.v = v;
+  aftBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'));
+  const apply = () => { P.after.apply(v, A); const sh = $('#cycShot'); if (sh) { sh.src = A.img[SCREENS[P.after.screens[v]].img]; } const sc = $('#cycShotCap'); if (sc) sc.textContent = P.after.caps[v]; if (aftEl) aftEl.classList.remove('swapping'); };
+  if (RM || !aftEl) apply(); else { aftEl.classList.add('swapping'); setTimeout(apply, 200); }
+}
+aftBtns.forEach(b => b.addEventListener('click', () => { track('example_switch', { value: b.textContent.trim() }); showAfter(b.dataset.v); }));
+
+/* ---------- the action tiles ---------- */
+const ACT = P.act;
+const Act = { key: Object.keys(ACT)[0] };
+const actBtns = $$('[data-act]'), addDots = $$('#addDots i'), actDots = $$('#actDots i');
+function setAct(b) {
+  Act.key = b.dataset.act; actBtns.forEach((x, i) => { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); if (actDots[i]) actDots[i].classList.toggle('on', x === b); });
+  $('#actShot').src = A.img[SCREENS[ACT[Act.key].screen].img]; $('#actShotCap').textContent = ACT[Act.key].cap;
+}
+actBtns.forEach(b => b.addEventListener('click', () => { track('action_select', { action: b.dataset.act }); setAct(b); }));
+// phones: leave a pinned scene at once
+$$('.mskip').forEach(b => b.addEventListener('click', () => { track('skip_click', { scene: b.dataset.skip }); const w = $('#' + b.dataset.skip), y = w.getBoundingClientRect().top + scrollY + w.offsetHeight - 70; scrollTo({ top: y, behavior: RM ? 'auto' : 'smooth' }); }));
+const panelKey = p => p.id === 'add' ? formKey() : p.id === 'after' ? P.after.screens[Aft.v] : p.id === 'actions' ? ACT[Act.key].screen : p.dataset.screen;
+const panelCap = p => p.id === 'add' ? (TF ? ((tfB() && tfEl().dataset.capB) || tfEl().dataset.cap) : Type.step === stepEls.length - 1 && Type.manual ? P.type[Type.manual === typeKey('a') ? 'a' : 'b'].cap : stepEls[Type.step].dataset.cap) : p.id === 'after' ? P.after.caps[Aft.v] : p.id === 'actions' ? ACT[Act.key].cap : p.dataset.cap;
+
+/* ---------- screen compositor (one 660 × 1434 canvas = the phone's screen) ---------- */
+const SW = 660, SH = 1434;
+const scr = document.createElement('canvas'); scr.width = SW; scr.height = SH;
+const sx = scr.getContext('2d');
+const IMG = {};
+const loadImg = k => new Promise(res => { const im = new Image(); im.decoding = 'async'; im.onload = () => res(im); im.onerror = () => res(null); im.src = A.img[k]; IMG[k] = im; });
+let tex = null;
+const ok = im => im && im.complete && im.naturalWidth;
+// Screens that change in place (the form, the example, the actions): their images cross-fade and the highlight slides.
+function makeFader() {
+  const F = { key: null, img: null, prev: null, mix: 1, rect: null, rectTo: null, live: false };
+  F.set = key => {
+    if (key === F.key) return; const to = SCREENS[key];
+    if (to.img !== F.img) { F.prev = F.img; F.img = to.img; F.mix = RM || !F.key ? 1 : 0; }
+    F.rectTo = to.hl; if (!F.rect || RM) F.rect = [...to.hl];
+    F.key = key; F.live = true;
+  };
+  F.tick = dt => {
+    if (!F.live) return false;
+    let busy = false; const k = 1 - Math.exp(-dt * 7);
+    if (F.mix < 1) { F.mix = Math.min(1, F.mix + dt / .4); busy = true; }
+    for (let i = 0; i < 5; i++) { const d = F.rectTo[i] - F.rect[i]; if (Math.abs(d) > .3) { F.rect[i] += d * k; busy = true; } else F.rect[i] = F.rectTo[i]; }
+    F.live = busy; return true;
+  };
+  return F;
+}
+const FAD = { form: makeFader(), cyc: makeFader(), act: makeFader() };
+function drawHl(rc) {
+  const [x, y, w, h, r] = rc;
+  sx.beginPath(); sx.roundRect ? sx.roundRect(x, y, w, h, r) : sx.rect(x, y, w, h);
+  sx.fillStyle = `rgba(${HL},.07)`; sx.fill(); sx.lineWidth = 4; sx.strokeStyle = `rgba(${HL},.8)`; sx.stroke();
+}
+function drawKey(key) {
+  const s = SCREENS[key], F = FAD[s.fam];
+  if (F) {
+    const fade = F.mix < 1 && ok(IMG[F.prev]);
+    if (fade) sx.drawImage(IMG[F.prev], 0, 0, SW, SH);
+    if (ok(IMG[F.img])) { sx.globalAlpha = fade ? F.mix : 1; sx.drawImage(IMG[F.img], 0, 0, SW, SH); sx.globalAlpha = 1; }
+    if (F.rect) drawHl(F.rect);
+  } else { if (ok(IMG[s.img])) sx.drawImage(IMG[s.img], 0, 0, SW, SH); if (s.hl) drawHl(s.hl); }
+}
+// What is on the screen: one image, or two that split exactly where two panels meet (as on the home page).
+const View = { a: 'list', b: 'list', cut: 1, sig: '' };
+function paint(force) {
+  const cutPx = View.a === View.b ? SH : Math.round(clamp(View.cut, 0, 1) * SH), sig = View.a + '|' + View.b + '|' + cutPx;
+  if (!force && sig === View.sig) return; View.sig = sig;
+  sx.fillStyle = '#F1EDEB'; sx.fillRect(0, 0, SW, SH);
+  if (cutPx >= SH) drawKey(View.a); else if (cutPx <= 0) drawKey(View.b);
+  else {
+    sx.save(); sx.beginPath(); sx.rect(0, 0, SW, cutPx); sx.clip(); drawKey(View.a); sx.restore();
+    sx.save(); sx.beginPath(); sx.rect(0, cutPx, SW, SH - cutPx); sx.clip(); drawKey(View.b); sx.restore();
+  }
+  if (tex) tex.needsUpdate = true;
+}
+
+/* ---------- the phone: same model, same motion rules as the home page ----------
+   Two turns only. One from the first screen into the panels; one at the end, where it turns away and
+   leaves to the right. In between it holds its place and the panels pass behind it, the screen
+   changing exactly along the line where two panels meet. */
+const POSES = {
+  hero: { dx: -.012, y: .525, h: .78, rx: .09, ry: -.36, rz: .03 },
+  feat: { dx: 0, y: .5, h: .72, rx: .02, ry: -.16, rz: 0 },
+  out:  { x: 1.55, y: .45, h: .78, rx: .1, ry: -.9, rz: -.2 },
+};
+const glCanvas = $('#gl');
+const ARRIVE = root.classList.contains('arrive');      // came from the home page, which left its phone's last frame as #ghost
+const Phone = { ready: false, x: .75, y: .5, h: .7, rx: 0, ry: -.3, rz: 0, v: {}, spin: 0, lv: ARRIVE ? 0 : 1, screenTop: 0, screenBot: 0 };
+function dropGhost(now) { const g = $('#ghost'); if (!g || g._out) return; g._out = 1; if (now) { g.style.opacity = 0; setTimeout(() => g.remove(), 340); } else g.remove(); }
+let THREE, renderer, scene, camera, grp, wob, screenMesh, SBOX, _v;
+const FOV = 20, DIST = 1, HVIS = 2 * DIST * Math.tan(FOV / 2 * Math.PI / 180), PHONE_H = .1627, PHONE_ASPECT = .49;
+// iOS shows and hides its toolbars while scrolling, which changes innerHeight. The 3D canvas is sized to the
+// large viewport (constant), as on the home page, so the phone never jumps or stretches.
+const VP = { ch: innerHeight };
+const probeL = document.createElement('div'); probeL.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100lvh;visibility:hidden;pointer-events:none'; document.body.appendChild(probeL);
+function readVP() { VP.ch = isMobile() ? (Math.max(probeL.offsetHeight, innerHeight) || innerHeight) : innerHeight; }
+const PT = { tx: 0, ty: 0, nx: 0, ny: 0 };
+addEventListener('pointermove', e => { if (e.pointerType === 'mouse') { PT.tx = e.clientX / innerWidth * 2 - 1; PT.ty = e.clientY / innerHeight * 2 - 1; } }, { passive: true });
+
+async function initGL() {
+  THREE = await import('three');
+  const [{ GLTFLoader }, { RoomEnvironment }, { MeshoptDecoder }] = await Promise.all([
+    import('three/addons/loaders/GLTFLoader.js'), import('three/addons/environments/RoomEnvironment.js'), import('three/addons/libs/meshopt_decoder.module.js')]);
+  renderer = new THREE.WebGLRenderer({ canvas: glCanvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8));
+  readVP(); renderer.setSize(innerWidth, VP.ch, false);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.NeutralToneMapping; renderer.toneMappingExposure = 1.0;
+  scene = new THREE.Scene();
+  const pm = new THREE.PMREMGenerator(renderer); scene.environment = pm.fromScene(new RoomEnvironment(), .04).texture; scene.environmentIntensity = .95;
+  const key = new THREE.DirectionalLight(0xfff1e6, .9); key.position.set(-1, 1.4, 1.2); scene.add(key);
+  camera = new THREE.PerspectiveCamera(FOV, innerWidth / VP.ch, .01, 10); camera.position.set(0, 0, DIST);
+  tex = new THREE.CanvasTexture(scr); tex.colorSpace = THREE.SRGBColorSpace; tex.flipY = false; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+  const buf = isUrl(A.glb) ? await (await fetch(A.glb)).arrayBuffer() : b64bytes(A.glb).buffer;
+  const gltf = await new Promise((res, rej) => loader.parse(buf, '', res, rej));
+  const model = gltf.scene;
+  model.traverse(o => { if (o.isMesh && o.name === 'Front_Screen') { screenMesh = o; o.material = new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }); } });
+  if (!screenMesh) throw new Error('screen mesh not found');
+  screenMesh.geometry.computeBoundingBox(); SBOX = screenMesh.geometry.boundingBox.clone(); _v = new THREE.Vector3();
+  const box = new THREE.Box3().setFromObject(model), c = box.getCenter(new THREE.Vector3());
+  model.position.sub(c);
+  grp = new THREE.Group(); grp.add(model); wob = new THREE.Group(); wob.add(grp); scene.add(wob);
+  renderer.compile(scene, camera);
+  Phone.ready = true; root.classList.add('gl'); glCanvas.classList.add('ready'); paint(true); measure();
+}
+
+/* ---------- layout → keyframes ---------- */
+const STEP = .55, PIN_TOP = .03;      // in window heights; must match .pinwrap / .panel in the CSS
+// phones: both scenes are pinned by the CSS; their lengths are read from the layout, so the two stay in step
+const M = { pin: false, addStart: 0, addStep: 1, actStart: 0, actStep: 1, act: -1, force: false };
+const pinm = $('#pinm'), addPanel = $('#add'), actPanel = $('#actions');
+let KF = [], L = { vh: innerHeight, homeX: .76, hCap: 1, pinStart: 0, gap: 0, exitEnd: 1e9 };
+function measure() {
+  readVP();
+  const vh = innerHeight, vw = innerWidth, top = el => el.getBoundingClientRect().top + scrollY;
+  if (renderer) { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile() ? 1.6 : 1.8)); renderer.setSize(vw, VP.ch, false); camera.aspect = vw / VP.ch; camera.updateProjectionMatrix(); }
+  M.cw = null; if (typeof MS !== 'undefined') { MS.forEach(sc => { sc.sig = ''; }); FS.forEach(sc => { sc.sig = ''; }); }
+  M.pin = isMobile() && getComputedStyle(addPanel).position === 'sticky';
+  if (M.pin) {
+    const st = parseFloat(getComputedStyle(addPanel).top) || 0;
+    M.addStart = top(pinwrap) - st; M.addStep = Math.max(1, (pinwrap.offsetHeight - addPanel.offsetHeight) / stepEls.length);
+    M.actStart = top(pinm) - st; M.actStep = Math.max(1, (pinm.offsetHeight - actPanel.offsetHeight) / actBtns.length);
+  }
+  const sr = stage.getBoundingClientRect(), pinStart = top(pinwrap) - PIN_TOP * vh;
+  const lastRest = top(panels[panels.length - 1]) - PIN_TOP * vh;        // the last panel sits centred here
+  L = { vh, homeX: (sr.left + sr.width / 2) / vw, hCap: sr.width * .9 / PHONE_ASPECT / vh, pinStart, gap: vh * .04, exitEnd: lastRest + vh * .66 };
+  const k = (y, pose, cum) => ({ y, pose, cum, ryA: pose.ry + cum * TAU });
+  KF = [
+    k(0, POSES.hero, 0), k(vh * .03, POSES.hero, 0),
+    k(pinStart - vh * .3, POSES.feat, 1),                 // first turn: into the panels
+    k(lastRest + vh * .03, POSES.feat, 1),
+    k(L.exitEnd, POSES.out, 1.5),                         // last turn: half a turn away, and out to the right
+  ];
+}
+function poseAt(s) {
+  if (s <= KF[0].y) return [KF[0], KF[0], 0];
+  for (let i = 0; i < KF.length - 1; i++) { const a = KF[i], b = KF[i + 1]; if (s <= b.y) return [a, b, easeInOut(clamp((s - a.y) / Math.max(1, b.y - a.y), 0, 1))]; }
+  const z = KF[KF.length - 1]; return [z, z, 0];
+}
+const poseX = p => p.x !== undefined ? p.x : L.homeX + p.dx;
+
+let last = performance.now(), capText = null;
+function setCap(text) {
+  if (text === capText) return; capText = text;
+  cap.classList.add('swap'); setTimeout(() => { cap.textContent = capText; cap.classList.remove('swap'); }, RM ? 0 : 240);
+}
+function frame(now) {
+  const dt = Math.min(.1, (now - last) / 1000); last = now;
+  const sy = scrollY, vh = L.vh;
+  $('#nav').classList.toggle('solid', sy > 24);
+  // the steps and the switch follow the scroll while their panel is pinned
+  const mob = isMobile();
+  if (!mob || M.pin) {
+    const pos = clamp(Math.floor(mob ? (sy - M.addStart) / M.addStep + .06 : (sy - L.pinStart + vh * .05) / (STEP * vh)), 0, stepEls.length - 1);
+    const k = mob && !TF ? MORDER[pos] : pos;
+    if (k !== Type.step || !stepEls[k].classList.contains('on')) {
+      Type.step = k; if (!TF) Type.manual = null;
+      stepEls.forEach((el, i) => el.classList.toggle('on', i === k));
+      addDots.forEach((el, i) => el.classList.toggle('on', i === pos));
+      if (!TF) showType(!mob && k === stepEls.length - 1 ? 'b' : 'a');
+    }
+  }
+  if (mob && M.pin) {      // the actions follow the scroll too
+    const a = clamp(Math.floor((sy - M.actStart) / M.actStep + .06), 0, actBtns.length - 1);
+    if (a !== M.act) { M.act = a; setAct(actBtns[a]); }
+  }
+  FAD.form.set(formKey()); FAD.cyc.set(P.after.screens[Aft.v]); FAD.act.set(ACT[Act.key].screen);
+  const fm = FAD.form.tick(dt), cm = FAD.cyc.tick(dt), am = FAD.act.tick(dt);
+  M.force = fm || cm || am;
+  if (mob) fragTick();
+  if (Phone.ready) { if (mob) phoneSmall(now, dt); else phoneWide(sy, now, dt); }
+  const fams = [SCREENS[View.a].fam, SCREENS[View.b].fam];
+  paint((fm && fams.includes('form')) || (cm && fams.includes('cyc')) || (am && fams.includes('act')));
+  requestAnimationFrame(frame);
+}
+
+// wide screens: keyframed by scroll, the way the home page moves its phone
+function phoneWide(sy, now, dt) {
+  if (M.rs) { M.rs = false; renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.8)); renderer.setSize(innerWidth, VP.ch, false); camera.aspect = innerWidth / VP.ch; camera.updateProjectionMatrix(); }
+  const [a, b, e] = poseAt(sy);
+  const tgt = { x: lerp(poseX(a.pose), poseX(b.pose), e), y: lerp(a.pose.y, b.pose.y, e), h: Math.min(lerp(a.pose.h, b.pose.h, e), L.hCap), rx: lerp(a.pose.rx, b.pose.rx, e), rz: lerp(a.pose.rz, b.pose.rz, e) };
+  const baseRy = lerp(a.pose.ry, b.pose.ry, e);
+  tgt.ry = lerp(a.ryA, b.ryA, e);           // a turn is set by the scroll position alone
+  PT.nx += (PT.tx - PT.nx) * (1 - Math.exp(-dt * 5)); PT.ny += (PT.ty - PT.ny) * (1 - Math.exp(-dt * 5));
+  const inPanels = a.cum === 1 && b.cum === 1, calm = inPanels ? .3 : 1;
+  if (ARRIVE && Phone.t0 === undefined) Phone.t0 = now;
+  const ag = ARRIVE ? (k => k * k * (3 - 2 * k))(clamp((now - Phone.t0 - 450) / 1600, 0, 1)) : 1;      // 0 → 1 after arriving
+  tgt.ry += PT.nx * .2 * calm * ag; tgt.rx += PT.ny * .09 * calm * ag;
+  const steps = Math.max(1, Math.ceil(dt / .012)), hh = dt / steps;
+  for (const key of ['x', 'y', 'h', 'rx', 'ry', 'rz']) {
+    const K2 = RM ? 900 : key === 'ry' ? 60 : 90, C2 = 2 * Math.sqrt(K2);
+    if (Phone.v[key] === undefined || Math.abs(tgt[key] - Phone[key]) > 20) { Phone[key] = tgt[key]; Phone.v[key] = 0; continue; }
+    for (let i = 0; i < steps; i++) { Phone.v[key] += ((tgt[key] - Phone[key]) * K2 - Phone.v[key] * C2) * hh; Phone[key] += Phone.v[key] * hh; }
+  }
+  // a spinning top: the faster it turns, the more it rises and its axis leans and circles
+  const spin = clamp(Math.abs(Phone.v.ry) / 5, 0, 1);
+  Phone.spin += (spin - Phone.spin) * (1 - Math.exp(-dt * 6));
+  Phone.lv += ((RM ? 0 : inPanels ? .35 : 1) - Phone.lv) * (1 - Math.exp(-dt * 1.5));
+  const sp = RM ? 0 : Phone.spin, prec = Phone.ry * .5, t = now / 1000, lv = Phone.lv * ag;
+  const fy = Math.sin(t * TAU / 6) * .012 * lv - .03 * sp;
+  const fx = Math.sin(t * TAU / 11) * .005 * lv + Math.sin(prec) * .014 * sp;
+  const lean = Math.sin(t * TAU / 8.5) * .045 * lv + Math.sin(prec) * .18 * sp;
+  const nod = Math.sin(t * TAU / 9.3 + 1) * .02 * lv + Math.cos(prec) * .1 * sp;
+  const sway = Math.sin(t * TAU / 7.5) * .07 * lv;
+  const asp = innerWidth / innerHeight;
+  wob.position.set((Phone.x + fx - .5) * HVIS * asp, (.5 - Phone.y - fy) * HVIS, 0);
+  wob.rotation.set(nod, 0, lean, 'XYZ');
+  grp.rotation.set(Phone.rx, Phone.ry + sway, Phone.rz, 'YXZ');
+  grp.scale.setScalar(Phone.h * HVIS / PHONE_H);
+  wob.updateMatrixWorld(true);
+  const bb = SBOX, mx = (bb.min.x + bb.max.x) / 2, mz = bb.max.z;
+  _v.set(mx, bb.max.y, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.screenTop = (1 - _v.y) / 2 * innerHeight;
+  _v.set(mx, bb.min.y, mz); screenMesh.localToWorld(_v); _v.project(camera); Phone.screenBot = (1 - _v.y) / 2 * innerHeight;
+
+  // which screen: before the first turn shows its back, the hero's; after it, whatever panel is behind the phone
+  const turned = (Phone.ry - baseRy) / TAU > .5;
+  if (!turned) { View.a = View.b = hero.dataset.screen; View.cut = 1; setCap(sy < L.vh * .5 ? hero.dataset.cap : ''); }
+  else {
+    const top = Phone.screenTop, bot = Phone.screenBot, n = panels.length;
+    const bounds = panels.map((p, i) => i < n - 1 ? panels[i + 1].getBoundingClientRect().top - L.gap / 2 : Infinity);
+    let i = 0; while (i < n - 1 && bounds[i] < top) i++;
+    if (i < n - 1 && bounds[i] < bot && bot > top) { View.a = panelKey(panels[i]); View.b = panelKey(panels[i + 1]); View.cut = (bounds[i] - top) / (bot - top); setCap(panelCap(panels[View.cut > .5 ? i : i + 1])); }
+    else { View.a = View.b = panelKey(panels[i]); View.cut = 1; setCap(sy > KF[3].y ? '' : panelCap(panels[i])); }
+  }
+  if (Phone.x > 1.42 || sy > L.exitEnd + L.vh * .2) { if (Phone.drawn) { renderer.clear(); Phone.drawn = false; } return; }
+  renderer.render(scene, camera); Phone.drawn = true;
+  if (ARRIVE) requestAnimationFrame(() => dropGhost(true));
+}
+// small screens. A phone that follows the page from a fixed canvas trembles there, because the page scrolls
+// without waiting for the script. So the phone under the first screen has its own small canvas that is part
+// of the page and scrolls with it. It is rendered once, and again only on a resize.
+const MS = [
+  { slot: heroSlot, key: () => hero.dataset.screen, hero: true },
+].map(o => { const cv = document.createElement('canvas'); cv.className = 'pcv'; o.slot.appendChild(cv); return { ...o, cv, cx: cv.getContext('2d'), off: null, sig: '' }; });
+// The two pinned scenes show no phone at all, only a large piece of the real screenshot (.frag) with a frame on
+// the part being talked about. Plain CSS does the moving, so there is nothing to redraw while the page scrolls.
+const FRAME = P.frame || {};       // where the padded highlight is not enough
+const fragRect = key => FRAME[key] || (r => [r[0] - 12, r[1] - 12, r[2] + 24, r[3] + 24])(SCREENS[key].hl);
+const FS = [
+  { slot: $('#add .pslot'), key: () => formKey() },
+  { slot: $('#actions .pslot'), key: () => ACT[Act.key].screen },
+].map(o => { const el = document.createElement('div'); el.className = 'frag'; const ring = document.createElement('i'); el.appendChild(ring); o.slot.appendChild(el); return { ...o, el, ring, sig: '', img: null, t: 0 }; });
+function fragTick() {
+  for (const sc of FS) {
+    const key = sc.key(), w = sc.slot.clientWidth, h = sc.slot.clientHeight, sig = key + '|' + w + '|' + h;
+    if (sig === sc.sig || !w || !h) continue; sc.sig = sig;
+    const img = SCREENS[key].img, z = w / SW, fh = Math.min(h, SH * z), CH = fh / z, [x, y, rw, rh] = fragRect(key);
+    const y0 = clamp(y + rh / 2 - CH * .46, 0, SH - CH);
+    const put = () => {
+      Object.assign(sc.el.style, { height: fh + 'px', backgroundImage: `url("${A.img[img]}")`, backgroundSize: w + 'px ' + SH * z + 'px', backgroundPosition: '0px ' + -y0 * z + 'px' });
+      Object.assign(sc.ring.style, { left: x * z + 'px', top: (y - y0) * z + 'px', width: rw * z + 'px', height: rh * z + 'px' });
+      sc.el.classList.remove('swap'); sc.img = img;
+    };
+    clearTimeout(sc.t);
+    if (RM || sc.img === null || sc.img === img) put(); else { sc.el.classList.add('swap'); sc.t = setTimeout(put, 240); }
+  }
+}
+const SCREEN_SPAN = .955;        // the screen's share of the phone's height
+function phoneSmall(now, dt) {
+  const vh = innerHeight, pr = Math.min(devicePixelRatio || 1, 2);
+  M.rs = true;
+  for (const sc of MS) {
+    if (!sc.hero && !M.pin) continue;
+    const r = sc.slot.getBoundingClientRect(), w = Math.round(r.width), h = Math.round(r.height);
+    if (!(w > 0 && h > 0 && r.bottom > -300 && r.top < vh + 300)) continue;
+    const key = sc.key(), s = SCREENS[key];
+    let H, top, rx = .015, ry = -.1;
+    if (sc.hero) { H = Math.min(h * .97, w * .92 / PHONE_ASPECT); top = (h - H) / 2; rx = .04; ry = -.18; }
+    else {
+      // where the highlighted part sits on the phone, top to bottom, and the phone's top edge that puts it in view
+      H = Math.min(w * .8, 360) / PHONE_ASPECT;
+      const f = .5 + ((s.hl[1] + s.hl[3] / 2) / SH - .5) * SCREEN_SPAN, pad = 18, lo = h - pad - H;
+      const want = lo > pad ? (h - H) / 2 : clamp(h * .46 - f * H, lo, pad);
+      sc.off = sc.off === null || RM || Math.abs(want - sc.off) < .4 ? want : sc.off + (want - sc.off) * (1 - Math.exp(-dt * 5));
+      top = sc.off;
+    }
+    const sig = [key, w, h, pr, Math.round(top * 4)].join('|');
+    if (sig === sc.sig && !(M.force && FAD[s.fam])) continue;
+    sc.sig = sig;
+    if (M.cw !== w || M.chh !== h || M.cpr !== pr) { renderer.setPixelRatio(pr); renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); M.cw = w; M.chh = h; M.cpr = pr; }
+    if (sc.cv.width !== glCanvas.width || sc.cv.height !== glCanvas.height) { sc.cv.width = glCanvas.width; sc.cv.height = glCanvas.height; }
+    View.a = View.b = key; View.cut = 1; paint(M.force);
+    wob.position.set(0, (.5 - (top + H / 2) / h) * HVIS, 0); wob.rotation.set(0, 0, 0, 'XYZ');
+    grp.rotation.set(rx, ry, 0, 'YXZ'); grp.scale.setScalar(H / h * HVIS / PHONE_H);
+    renderer.render(scene, camera);
+    sc.cx.clearRect(0, 0, sc.cv.width, sc.cv.height); sc.cx.drawImage(glCanvas, 0, 0);
+  }
+  Phone.v = {};
+}
+
+/* ---------- boot ---------- */
+(async function boot() {
+  await Promise.all([...new Set(Object.values(SCREENS).map(s => s.img))].map(loadImg));
+  measure(); FAD.form.set(formKey()); FAD.cyc.set(P.after.screens.a); FAD.act.set(ACT[Act.key].screen); cap.textContent = capText = hero.dataset.cap; paint(true);
+  if (P.init) P.init(A);
+  requestAnimationFrame(t => { last = t; frame(t); });
+  let rt; const re = () => { clearTimeout(rt); rt = setTimeout(measure, 150); };
+  addEventListener('resize', re); new ResizeObserver(re).observe(document.body);
+  document.fonts && document.fonts.ready.then(measure);
+  initGL().catch(err => { console.warn('3D phone unavailable, showing screenshots instead.', err); root.classList.add('nogl'); dropGhost(); });
+  setTimeout(() => dropGhost(true), 6000);
+})();
+
+</script>
+
+</body>
+</html>
