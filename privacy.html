@@ -24,7 +24,7 @@
 </script>
 <script src="/consent.js" defer></script>
 <title>Aheado Privacy Policy: your data stays on your device</title>
-<meta name="description" content="How Aheado handles your data: no accounts, no servers. Your entries stay on your device and, if you turn on sync, in your private iCloud.">
+<meta name="description" content="How Aheado handles your data: no accounts. Your entries stay on your device and, if you turn on sync, in your private iCloud. Optional voice entry sends only the text you dictate for processing.">
 <link rel="canonical" href="https://aheado.io/privacy">
 <meta name="theme-color" content="#F1EDEB">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -33,7 +33,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aheado">
 <meta property="og:title" content="Aheado Privacy Policy: your data stays on your device">
-<meta property="og:description" content="No accounts, no servers. Your entries stay on your device and in your private iCloud.">
+<meta property="og:description" content="No accounts. Your entries stay on your device and in your private iCloud. Optional voice entry sends only the text you dictate.">
 <meta property="og:url" content="https://aheado.io/privacy">
 <meta property="og:image" content="https://aheado.io/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -96,10 +96,10 @@
   <a class="brand" href="/">Aheado</a>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective 8 October 2026</p>
+  <p class="meta">Effective 11 November 2026</p>
 
   <div class="summary">
-    <p><strong>The short version.</strong> Aheado has no accounts and no servers of its own. Everything you add stays on your device and, if you turn on sync, in your own private iCloud. We do not track you, and the app contains no advertising or analytics. The only data that ever reaches us is a message you choose to send through the feedback form or by email.</p>
+    <p><strong>The short version.</strong> Aheado has no accounts. Everything you add stays on your device and, if you turn on sync, in your own private iCloud. We do not track you, and the app contains no advertising or analytics. Text leaves your device only when you choose to use optional voice entry, which sends what you dictate to our server for processing and may keep it for up to 24 hours, or when you send a message through the feedback form or by email.</p>
   </div>
 
   <h2>Who we are</h2>
@@ -112,7 +112,7 @@
     <li>reminder sounds you record;</li>
     <li>your app settings.</li>
   </ul>
-  <p>We cannot see or access any of it. Reminders are scheduled on the device itself and are not sent through any server.</p>
+  <p>We cannot see or access any of it, other than what you choose to send us through voice entry or the feedback form, both described below. Reminders are scheduled on the device itself and are not sent through any server.</p>
 
   <h2>iCloud sync</h2>
   <p>Sync is optional and off unless you turn it on. When it is on, your entries and recorded sounds are stored in your private iCloud database so they can appear on your other devices signed in to the same Apple Account. That database belongs to you and is operated by Apple. We have no access to it. Apple's handling of iCloud data is described in the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
@@ -121,9 +121,18 @@
   <ul>
     <li><strong>Notifications</strong>, to show the reminders you set.</li>
     <li><strong>Contacts</strong>, only when you choose to import birthdays. Aheado reads names and birthdays to create reminder entries for them. Your address book is not uploaded anywhere.</li>
-    <li><strong>Microphone</strong>, only when you record your own reminder sound.</li>
+    <li><strong>Microphone</strong>, only when you record your own reminder sound or use voice entry.</li>
+    <li><strong>Speech recognition</strong>, only when you use voice entry, so that iOS can turn your speech into text. Apple's handling of speech recognition is described in the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</li>
   </ul>
   <p>Each permission is optional. The app keeps working if you decline, and you can change your choice at any time in iOS Settings.</p>
+
+  <h2>Voice entry</h2>
+  <p>Voice entry is optional and starts only when you tap the microphone. You can always create entries manually instead.</p>
+  <p>When you use it, iOS turns your speech into text, and that text is sent to our server together with the current draft of your entry, the language and your time zone. Our server passes it to Anthropic's Claude AI model, which works out the fields of your entry (such as the name, date and amount) and returns them to the app. Nothing else you have saved in Aheado, such as your existing entries, contacts or recordings, is sent.</p>
+  <p>Aheado has no accounts, and this text is not linked to you. To resolve possible incidents and to improve how the service understands context, the text may be kept on our server for up to 24 hours, after which it is deleted automatically. If you tap the thumbs-up or thumbs-down under a result, the rating and any comment you add are handled the same way, and only anonymous counts remain afterwards.</p>
+  <p>To prevent abuse and to count free tries, the app sends an anonymous token issued by Apple's DeviceCheck service, and our server uses your IP address for rate limiting. These are not stored together with your text.</p>
+  <p>Our server runs on Google Cloud in the European Union and uses Neon, a managed database service, to hold the text for the short period described above. Like most servers, it keeps standard technical logs (for example, IP address and request time) for up to 14 days; these logs do not contain the text you dictate.</p>
+  <p>Anthropic processes the text under its own terms and <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>. We do not use your text for advertising or tracking, and we do not sell it.</p>
 
   <h2>Purchases</h2>
   <p>Aheado+ purchases and subscriptions are handled entirely by Apple. We never receive your name, payment details or Apple Account. Apple gives us only aggregated sales reports that do not identify you.</p>
@@ -150,13 +159,13 @@
   <p>The site is hosted on GitHub Pages, and GitHub may record technical information such as IP addresses in its server logs, as any web host does.</p>
 
   <h2>Children</h2>
-  <p>Aheado is not directed at children under 13, and it does not collect personal data from anyone.</p>
+  <p>Aheado is not directed at children under 13, and we do not knowingly collect personal data from anyone under 13.</p>
 
   <h2>Deleting your data</h2>
-  <p>You are in control of your data at all times. Deleting an entry removes it from the app, and deleting the app removes everything stored on the device. Data synced to iCloud can be removed in iOS Settings, under your Apple Account, iCloud, Manage Storage.</p>
+  <p>You are in control of your data at all times. Deleting an entry removes it from the app, and deleting the app removes everything stored on the device. Data synced to iCloud can be removed in iOS Settings, under your Apple Account, iCloud, Manage Storage. Text you dictate through voice entry is deleted from our server automatically within 24 hours; because it is not linked to you, it cannot be looked up or deleted individually.</p>
 
   <h2>Your rights</h2>
-  <p>Because we hold no personal data about you beyond messages you choose to send us, there is normally nothing for us to provide, correct or erase. If you have written to us and want that correspondence deleted, email <a href="mailto:support@aheado.io">support@aheado.io</a>.</p>
+  <p>Because we hold no personal data about you beyond messages you choose to send us, and dictated text that is not linked to you and is kept for at most 24 hours, there is normally nothing for us to provide, correct or erase. If you have written to us and want that correspondence deleted, email <a href="mailto:support@aheado.io">support@aheado.io</a>.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy changes, the new version will be published on this page with a new effective date.</p>
