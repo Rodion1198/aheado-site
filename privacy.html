@@ -24,7 +24,7 @@
 </script>
 <script src="/consent.js" defer></script>
 <title>Aheado Privacy Policy: your data stays on your device</title>
-<meta name="description" content="How Aheado handles your data: no accounts. Your entries stay on your device and, if you turn on sync, in your private iCloud. Optional voice entry sends only the text you dictate for processing.">
+<meta name="description" content="How Aheado handles your data: no accounts. Your entries stay on your device and, if iCloud sync is on, in your private iCloud. Optional voice entry and screenshot import send only what you dictate or choose for processing.">
 <link rel="canonical" href="https://aheado.io/privacy">
 <meta name="theme-color" content="#F1EDEB">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -33,7 +33,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aheado">
 <meta property="og:title" content="Aheado Privacy Policy: your data stays on your device">
-<meta property="og:description" content="No accounts. Your entries stay on your device and in your private iCloud. Optional voice entry sends only the text you dictate.">
+<meta property="og:description" content="No accounts. Your entries stay on your device and in your private iCloud. Optional voice entry and screenshot import send only what you dictate or choose.">
 <meta property="og:url" content="https://aheado.io/privacy">
 <meta property="og:image" content="https://aheado.io/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -96,10 +96,10 @@
   <a class="brand" href="/">Aheado</a>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective 11 November 2026</p>
+  <p class="meta">Effective 23 November 2026</p>
 
   <div class="summary">
-    <p><strong>The short version.</strong> Aheado has no accounts. Everything you add stays on your device and, if you turn on sync, in your own private iCloud. We do not track you, and the app contains no advertising or analytics. Text leaves your device only when you choose to use optional voice entry, which sends what you dictate to our server for processing and may keep it for up to 24 hours, or when you send a message through the feedback form or by email.</p>
+    <p><strong>The short version.</strong> Aheado has no accounts. Everything you add stays on your device and, if iCloud sync is on, in your own private iCloud. We do not track you, and the app contains no advertising or analytics. Data leaves your device only when you choose to use an optional feature: voice entry, which sends what you dictate to our server for processing and may keep it for up to 24 hours; screenshot import, which sends the screenshots you pick to our server for processing and is not stored; or when you send a message through the feedback form or by email.</p>
   </div>
 
   <h2>Who we are</h2>
@@ -110,12 +110,19 @@
   <ul>
     <li>your entries: names, dates, amounts, notes and reminder settings;</li>
     <li>reminder sounds you record;</li>
+    <li>attachments: the photos, scans and files you add to entries;</li>
     <li>your app settings.</li>
   </ul>
-  <p>We cannot see or access any of it, other than what you choose to send us through voice entry or the feedback form, both described below. Reminders are scheduled on the device itself and are not sent through any server.</p>
+  <p>We cannot see or access any of it, other than what you choose to send us through voice entry, screenshot import or the feedback form, all described below. Reminders are scheduled on the device itself and are not sent through any server.</p>
 
   <h2>iCloud sync</h2>
-  <p>Sync is optional and off unless you turn it on. When it is on, your entries and recorded sounds are stored in your private iCloud database so they can appear on your other devices signed in to the same Apple Account. That database belongs to you and is operated by Apple. We have no access to it. Apple's handling of iCloud data is described in the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+  <p>iCloud sync is part of Aheado+. It turns on by itself after you buy Aheado+ and starts the next time the app restarts, unless you have switched it off yourself. You can switch it off at any time in the app's Settings. When it is on, your entries, recorded sounds and attachments are stored in your private iCloud database so they can appear on your other devices signed in to the same Apple Account. That database belongs to you and is operated by Apple. We have no access to it. Apple's handling of iCloud data is described in the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+
+  <h2>Attachments</h2>
+  <p>You can attach a photo, a scan or a file to an entry, for example a copy of a passport or a receipt. You add them with the document scanner, the camera, the system photo picker or the Files app. Attachments are stored on your device, inside the app's own database. They are not sent to our server. If iCloud sync is on, they are stored in your private iCloud database along with your entries, as described above.</p>
+
+  <h2>Face ID lock</h2>
+  <p>You can optionally require Face ID, or your device passcode, to open the app, to open your attachments, or both. Both switches are off by default and are in Settings, under Privacy and Security. Face ID is handled entirely by iOS: Aheado only learns whether the check succeeded and never receives your face data. The lock settings stay on your device.</p>
 
   <h2>Permissions the app may ask for</h2>
   <ul>
@@ -123,6 +130,9 @@
     <li><strong>Contacts</strong>, only when you choose to import birthdays. Aheado reads names and birthdays to create reminder entries for them. Your address book is not uploaded anywhere.</li>
     <li><strong>Microphone</strong>, only when you record your own reminder sound or use voice entry.</li>
     <li><strong>Speech recognition</strong>, only when you use voice entry, so that iOS can turn your speech into text. Apple's handling of speech recognition is described in the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</li>
+    <li><strong>Camera</strong>, only when you scan a document or take a photo to attach to an entry. The picture is stored in the app and is not uploaded.</li>
+    <li><strong>Face ID</strong>, only if you turn on the Face ID lock. Aheado never receives your face data.</li>
+    <li><strong>Photos</strong>: Aheado does not ask for access to your photo library. Attachments and screenshot import use the system photo picker, which gives the app only the images you select.</li>
   </ul>
   <p>Each permission is optional. The app keeps working if you decline, and you can change your choice at any time in iOS Settings.</p>
 
@@ -133,6 +143,13 @@
   <p>To prevent abuse and to count free tries, the app sends an anonymous token issued by Apple's DeviceCheck service, and our server uses your IP address for rate limiting. These are not stored together with your text.</p>
   <p>Our server runs on Google Cloud in the European Union and uses Neon, a managed database service, to hold the text for the short period described above. Like most servers, it keeps standard technical logs (for example, IP address and request time) for up to 14 days; these logs do not contain the text you dictate.</p>
   <p>Anthropic processes the text under its own terms and <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>. We do not use your text for advertising or tracking, and we do not sell it.</p>
+
+  <h2>Screenshot import</h2>
+  <p>Screenshot import is optional and starts only when you open Settings, then Data, then App Store subscriptions, and choose screenshots. You can always add subscriptions manually instead.</p>
+  <p>You choose up to three screenshots of your App Store subscriptions list with the system photo picker, which gives Aheado only the images you select, not the rest of your photo library. The app resizes and compresses them on your device and sends them over an encrypted connection to our server, together with your device language and today's date. Our server passes them to Anthropic's Claude AI model, which reads the subscription names, amounts and billing periods and returns them to the app. You review the result before anything is saved. Nothing else you have saved in Aheado is sent. Anything else that is visible in a screenshot is sent with it, so choose screenshots that show only the subscriptions list.</p>
+  <p>Our server does not store or log the screenshots or the results. They are processed in memory and are not kept after the request ends. Because nothing is kept, and because Aheado has no accounts, this data is not linked to you.</p>
+  <p>To prevent abuse and to apply daily usage limits, the app sends the same anonymous token issued by Apple's DeviceCheck service (or, if you have Aheado+, a proof of your subscription issued by Apple), and our server uses your IP address for rate limiting. These are not stored together with your screenshots. The standard technical logs described under Voice entry apply here too; they do not contain your screenshots or the results.</p>
+  <p>Anthropic processes the screenshots under its own terms and <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>. We do not use your screenshots for advertising or tracking, and we do not sell them.</p>
 
   <h2>Purchases</h2>
   <p>Aheado+ purchases and subscriptions are handled entirely by Apple. We never receive your name, payment details or Apple Account. Apple gives us only aggregated sales reports that do not identify you.</p>
@@ -162,10 +179,10 @@
   <p>Aheado is not directed at children under 13, and we do not knowingly collect personal data from anyone under 13.</p>
 
   <h2>Deleting your data</h2>
-  <p>You are in control of your data at all times. Deleting an entry removes it from the app, and deleting the app removes everything stored on the device. Data synced to iCloud can be removed in iOS Settings, under your Apple Account, iCloud, Manage Storage. Text you dictate through voice entry is deleted from our server automatically within 24 hours; because it is not linked to you, it cannot be looked up or deleted individually.</p>
+  <p>You are in control of your data at all times. Deleting an entry removes it from the app, and deleting the app removes everything stored on the device. Data synced to iCloud can be removed in iOS Settings, under your Apple Account, iCloud, Manage Storage. Text you dictate through voice entry is deleted from our server automatically within 24 hours; because it is not linked to you, it cannot be looked up or deleted individually. Screenshots you choose for screenshot import are not stored on our server, so there is nothing to delete there.</p>
 
   <h2>Your rights</h2>
-  <p>Because we hold no personal data about you beyond messages you choose to send us, and dictated text that is not linked to you and is kept for at most 24 hours, there is normally nothing for us to provide, correct or erase. If you have written to us and want that correspondence deleted, email <a href="mailto:support@aheado.io">support@aheado.io</a>.</p>
+  <p>Because we hold no personal data about you beyond messages you choose to send us, dictated text that is not linked to you and is kept for at most 24 hours, and screenshots that are not stored, there is normally nothing for us to provide, correct or erase. If you have written to us and want that correspondence deleted, email <a href="mailto:support@aheado.io">support@aheado.io</a>.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy changes, the new version will be published on this page with a new effective date.</p>
